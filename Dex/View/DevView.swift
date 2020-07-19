@@ -6,24 +6,35 @@
 //
 
 import SwiftUI
+import Contacts
 
 struct DevView: View {
     
-    var Contacts = ContactsModel()
-    
-    func printContacts() {
-        let contacts = Contacts.fetchContacts()
-        print(contacts)
-    }
+    @ObservedObject var Contacts = ContactsModel()
     
     var body: some View {
         NavigationView {
-            VStack {
-                Button(action: printContacts) {
-                    Text("Fetch Contacts")
-                }
+            ZStack {
+                Color.init("Base Color").edgesIgnoringSafeArea(.all)
+                List(Contacts.contacts) { contact in
+                    Button(action: {
+                        print(contact)
+                        if let hashedContact = Contacts.hashContact(contact) {
+                            print(hashedContact)
+                        }
+                    }) {
+                        Text("\(contact.givenName ?? "") \(contact.familyName ?? "")")
+                    }
+                }.listStyle(InsetListStyle())
             }
+            
+            .navigationBarTitle("Contact List")
         }
+        .onAppear(perform: {
+            Contacts.requestAuthorization()
+//            Contacts.fetchContacts(from: .containers)
+            Contacts.fetchContacts(from: .all)
+        })
     }
 }
 

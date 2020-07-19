@@ -9,43 +9,153 @@ import Foundation
 import Contacts
 import CryptoKit
 
-struct ContactsModel {
+class ContactsModel: ObservableObject {
     
-    func fetchContacts() -> [CNContact] {
-        let contactStore = CNContactStore()
-        let keysToFetch = [CNContactIdentifierKey, CNContactGivenNameKey, CNContactFamilyNameKey] as [CNKeyDescriptor]
-
-        // Get all the containers
-        var allContainers: [CNContainer] = []
-        do {
-            allContainers = try contactStore.containers(matching: nil)
-        } catch {
-            print("Error fetching containers")
+    @Published var contacts: [Contact] = []
+    
+    private var internalContactList: [Contact] = []
+    
+    let contactStore = CNContactStore()
+    
+    func requestAuthorization() {
+        contactStore.requestAccess(for: CNEntityType.contacts) { (access, error) in
+            print(access)
         }
-        
-        print(allContainers.count)
-        
-        var contacts: [CNContact] = []
+    }
+    
+    func fetchContacts(from: FetchContactsStyle) {
+        let keysToFetch = [
+            // Identification
+            CNContactIdentifierKey,
+            
+            // Name
+            CNContactGivenNameKey,
+            CNContactMiddleNameKey,
+            CNContactFamilyNameKey,
+            CNContactNicknameKey,
+            
+            // Work
+            CNContactJobTitleKey,
+            CNContactDepartmentNameKey,
+            CNContactOrganizationNameKey,
+            
+            // Address
+//            CNContactPostalAddressesKey,
+            CNContactEmailAddressesKey,
+//            CNContactUrlAddressesKey,
+//            CNContactInstantMessageAddressesKey,
+            
+            // Phone
+            CNContactPhoneNumbersKey,
+            
+            // Social Profiles
+            // CNContactSocialProfilesKey,
+            
+            // Important Dates
+//            CNContactBirthdayKey,
+//            CNContactDatesKey,
+            
+            // Notes
+//            CNContactNoteKey,
+            
+            // Image Data
+//            CNContactImageDataAvailableKey,
+//            CNContactImageDataKey,
+//            CNContactThumbnailImageDataKey,
+            
+            // Relationships
+//            CNContactRelationsKey
+        ] as [CNKeyDescriptor]
 
-        // Iterate all containers and append their contacts to our results array
-        for container in allContainers {
-            let fetchPredicate = CNContact.predicateForContactsInContainer(withIdentifier: container.identifier)
-
+        // Fetch Contacts from Containers
+        if from == .containers {
+            // Get all the containers
+            var allContainers: [CNContainer] = []
             do {
-                let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch)
-                contacts.append(contentsOf: containerResults)
+                allContainers = try contactStore.containers(matching: nil)
             } catch {
-                print("Error fetching results for container")
+                print("Error fetching containers")
+            }
+
+            // Iterate all containers and append their contacts to our results array
+            for container in allContainers {
+                let fetchPredicate = CNContact.predicateForContactsInContainer(withIdentifier: container.identifier)
+
+                do {
+                    let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch)
+                    for contact in containerResults {
+                        storeFetchedContact(contact)
+                    }
+                    contacts = internalContactList
+                } catch {
+                    print("Error fetching results for container")
+                }
             }
         }
         
-        return contacts
+        // Fetch All Contacts
+        else if from == .all {
+            let fetchRequest = CNContactFetchRequest(keysToFetch: keysToFetch)
+            fetchRequest.sortOrder = .givenName
+            
+            do {
+                try contactStore.enumerateContacts(with: fetchRequest, usingBlock: { (contact, stop) in
+                    self.storeFetchedContact(contact)
+                })
+                
+                contacts = internalContactList
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
     }
     
-    func hashContactIdentifier(withIdentifier id: String) -> String {
-        let hashedContactIdDigest = SHA256.hash(data: id.data(using: .utf8)!)
-        let hashedContactId = hashedContactIdDigest.map { String(format: "%02hhx", $0) }.joined()
+    func hashContact(_ contact: Contact) -> HashedContact? {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
         
-        return hashedContactId
+        do {
+            let data = try encoder.encode(HashableContact(contact))
+            let hashedContactDigest = SHA256.hash(data: data)
+            let hashedContact = hashedContactDigest.map { String(format: "%02hhx", $0) }.joined()
+            return HashedContact(hashedContactId: hashedContact)
+        } catch {
+            print("Contact could not be converted to JSON. \(error)")
+            return nil
+        }
+    }
+}
+
+//MARK: - Utility Functions
+extension ContactsModel {
+    func storeFetchedContact(_ contact: CNContact) {
+        var emailAddressList: [ContactEmail] = []
+        for email in contact.emailAddresses {
+            if let emailLabel = email.label {
+                emailAddressList.append(ContactEmail(label: emailLabel, email: email.value as String))
+            }
+        }
+        
+        var phoneNumberList: [ContactPhoneNumber] = []
+        for phone in contact.phoneNumbers {
+            if let phoneLabel = phone.label {
+                phoneNumberList.append(ContactPhoneNumber(label: phoneLabel, phone: phone.value.stringValue))
+            }
+        }
+        
+        let contactToBeAppended = Contact(
+            id: contact.identifier,
+            givenName: contact.givenName,
+            middleName: contact.middleName,
+            familyName: contact.familyName,
+            nickname: contact.nickname,
+            jobTitle: contact.jobTitle,
+            department: contact.departmentName ,
+            organization: contact.organizationName,
+            emailAddresses: emailAddressList,
+            phoneNumbers: phoneNumberList
+        )
+        
+        self.internalContactList.append(contactToBeAppended)
     }
 }
