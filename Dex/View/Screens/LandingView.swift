@@ -29,7 +29,7 @@ struct LandingView: View {
                         .frame(width: metrics.size.width, height: metrics.size.height * 0.5, alignment: .center)
                         
                         VStack {
-                            NavigationLink(destination: DevView()) {
+                            NavigationLink(destination: ContactListView()) {
                                 ZStack {
                                     Color.init("Lighter Gray")
                                     Text("Sign Up")
@@ -39,7 +39,7 @@ struct LandingView: View {
                                 .cornerRadius(10.0)
                             }
                             
-                            NavigationLink(destination: DevView()) {
+                            NavigationLink(destination: ContactListView()) {
                                 ZStack {
                                     Color.init(.white)
                                     Text("Sign In")

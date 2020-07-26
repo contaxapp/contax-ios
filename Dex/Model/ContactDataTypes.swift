@@ -15,26 +15,26 @@ enum FetchContactsStyle {
 
 struct Contact: Identifiable, Encodable {
     var id: String
-    var givenName: String?
-    var middleName: String?
-    var familyName: String?
-    var nickname: String?
-    var jobTitle: String?
-    var department: String?
-    var organization: String?
+    var givenName: String
+    var middleName: String
+    var familyName: String
+    var nickname: String
+    var jobTitle: String
+    var department: String
+    var organization: String
     var emailAddresses: [ContactEmail] = []
     var phoneNumbers: [ContactPhoneNumber] = []
 //    var postalAddresses = [ContactAddress]()
 }
 
 struct HashableContact: Encodable {
-    var givenName: String?
-    var middleName: String?
-    var familyName: String?
-    var nickname: String?
-    var jobTitle: String?
-    var department: String?
-    var organization: String?
+    var givenName: String
+    var middleName: String
+    var familyName: String
+    var nickname: String
+    var jobTitle: String
+    var department: String
+    var organization: String
     var emailAddresses: [ContactEmail] = []
     var phoneNumbers: [ContactPhoneNumber] = []
     
