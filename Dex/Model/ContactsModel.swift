@@ -23,6 +23,10 @@ class ContactsModel: ObservableObject {
         }
     }
     
+    func checkAuthorizationStatus() -> Int {
+        return CNContactStore.authorizationStatus(for: .contacts).rawValue
+    }
+    
     func fetchContacts(from: FetchContactsStyle) {
         let keysToFetch = [
             // Identification
@@ -86,11 +90,12 @@ class ContactsModel: ObservableObject {
                     for contact in containerResults {
                         storeFetchedContact(contact)
                     }
-                    contacts = internalContactList
                 } catch {
                     print("Error fetching results for container")
                 }
             }
+            
+            contacts = internalContactList
         }
         
         // Fetch All Contacts

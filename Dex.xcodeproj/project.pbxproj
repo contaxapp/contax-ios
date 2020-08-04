@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F2D84DE24C2DAD700D8D1D7 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D84DD24C2DAD700D8D1D7 /* LandingView.swift */; };
-		7F57D89024C469A10016E738 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F57D88F24C469A10016E738 /* SearchBar.swift */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
 		7FD3007824C2BB2A0011CF5C /* DexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* DexApp.swift */; };
 		7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007924C2BB2A0011CF5C /* ContactListView.swift */; };
@@ -44,8 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7F2D84DD24C2DAD700D8D1D7 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
-		7F57D88F24C469A10016E738 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
 		7F980C7824C360120075CAC9 /* Dex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dex.entitlements; sourceTree = "<group>"; };
 		7FD3007424C2BB2A0011CF5C /* Dex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dex.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +94,6 @@
 		7F9B1DD624C46EE600A490A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7F57D88F24C469A10016E738 /* SearchBar.swift */,
 				7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */,
 				7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */,
 				7FF8F95724CD5C1C002B7D64 /* ContactNote.swift */,
@@ -111,7 +106,6 @@
 		7F9B1DD724C46EFA00A490A6 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				7F2D84DD24C2DAD700D8D1D7 /* LandingView.swift */,
 				7FD3007924C2BB2A0011CF5C /* ContactListView.swift */,
 				7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */,
 			);
@@ -338,7 +332,6 @@
 				7FF8F95B24CD81E0002B7D64 /* NavigationBarModifier.swift in Sources */,
 				7FF8F95F24CD91B8002B7D64 /* ContactNotesSection.swift in Sources */,
 				7FF8F95824CD5C1C002B7D64 /* ContactNote.swift in Sources */,
-				7F2D84DE24C2DAD700D8D1D7 /* LandingView.swift in Sources */,
 				7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */,
 				7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */,
 				7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */,
@@ -346,7 +339,6 @@
 				7FD3007824C2BB2A0011CF5C /* DexApp.swift in Sources */,
 				7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */,
 				7FF8F95224CD4B0B002B7D64 /* ContactWidget.swift in Sources */,
-				7F57D89024C469A10016E738 /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

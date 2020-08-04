@@ -27,6 +27,11 @@ struct Contact: Identifiable, Encodable {
 //    var postalAddresses = [ContactAddress]()
 }
 
+struct ContactGroup: Identifiable {
+    var id: Character
+    var contacts: [Contact]
+}
+
 struct HashableContact: Encodable {
     var givenName: String
     var middleName: String
