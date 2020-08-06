@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import Contacts
 import CryptoKit
 
@@ -27,7 +28,7 @@ class ContactsModel: ObservableObject {
         return CNContactStore.authorizationStatus(for: .contacts).rawValue
     }
     
-    func fetchContacts(from: FetchContactsStyle) {
+    func fetchContacts(from: FetchContactsStyle, sortedBy: CNContactSortOrder = .givenName) {
         let keysToFetch = [
             // Identification
             CNContactIdentifierKey,
@@ -63,9 +64,9 @@ class ContactsModel: ObservableObject {
 //            CNContactNoteKey,
             
             // Image Data
-//            CNContactImageDataAvailableKey,
-//            CNContactImageDataKey,
-//            CNContactThumbnailImageDataKey,
+            CNContactImageDataAvailableKey,
+            CNContactImageDataKey,
+            CNContactThumbnailImageDataKey,
             
             // Relationships
 //            CNContactRelationsKey
@@ -101,7 +102,7 @@ class ContactsModel: ObservableObject {
         // Fetch All Contacts
         else if from == .all {
             let fetchRequest = CNContactFetchRequest(keysToFetch: keysToFetch)
-            fetchRequest.sortOrder = .givenName
+            fetchRequest.sortOrder = sortedBy
             
             do {
                 try contactStore.enumerateContacts(with: fetchRequest, usingBlock: { (contact, stop) in
@@ -158,7 +159,8 @@ extension ContactsModel {
             department: contact.departmentName ,
             organization: contact.organizationName,
             emailAddresses: emailAddressList,
-            phoneNumbers: phoneNumberList
+            phoneNumbers: phoneNumberList,
+            thumbnailImage: contact.thumbnailImageData?.base64EncodedString()
         )
         
         self.internalContactList.append(contactToBeAppended)

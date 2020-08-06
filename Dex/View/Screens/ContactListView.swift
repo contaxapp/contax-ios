@@ -20,6 +20,12 @@ struct ContactListView: View {
         }
     }
     
+    @State var sortSelection: Int = 1 {
+        didSet {
+            print($sortSelection)
+        }
+    }
+    
     var groupedContacts: [ContactGroup] {
         return Dictionary(grouping: Contacts.contacts) { (contact) -> Character in
             return contact.givenName.first!
@@ -40,26 +46,53 @@ struct ContactListView: View {
         UITableView.appearance().backgroundColor = .clear
     }
     
+    func returnInitials(_ contact: Contact) -> String {
+        let givenName = contact.givenName
+        let familyName = contact.familyName
+        
+        return String(givenName[givenName.startIndex]) + String(familyName[familyName.startIndex])
+    }
+    
+    @ViewBuilder
     var body: some View {
         NavigationView {
             ZStack {
                 Color.init("Base Color").edgesIgnoringSafeArea(.all)
                 VStack {
+//                    Picker(selection: $sortSelection, label: Text("Sort By")) /*@START_MENU_TOKEN@*/{
+//                        Text("First Name").tag(1)
+//                        Text("Last Name").tag(2)
+//                    }
+//                        .pickerStyle(SegmentedPickerStyle())
+//                        .padding(.horizontal, 10)
+                    
                     List {
                         ForEach(groupedContacts) { (group) in
                             Section(header: Text("\(String(group.id))")
-                                        .font(.custom("Helvetica", size: 15.0))
-                                        .foregroundColor(.white)
-                                        .fontWeight(.bold)
+                                .font(.custom("Helvetica", size: 15.0))
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
                             ) {
                                 ForEach(group.contacts) { contact in
                                     NavigationLink(destination: SingleContactView(contact)) {
                                         HStack {
-                                            Image("Placeholder Contact Image")
-                                                .resizable()
-                                                .frame(width: 50, height: 50, alignment: .center)
-                                                .cornerRadius(5.0)
-                                                .padding(.trailing, 10)
+                                            if (contact.thumbnailImage != nil) {
+                                                Image(uiImage: UIImage(data: Data(base64Encoded: contact.thumbnailImage!)!)!)
+                                                    .resizable()
+                                                    .frame(width: 50, height: 50, alignment: .center)
+                                                    .padding(.trailing, 10)
+                                            } else {
+                                                ZStack(alignment: .center) {
+                                                    Circle()
+                                                        .frame(width: 50, height: 50, alignment: .center)
+                                                        .foregroundColor(Color.init("Lighter Gray"))
+                                                    Text(returnInitials(contact))
+                                                        .font(.title3)
+                                                        .fontWeight(.semibold)
+                                                        .foregroundColor(Color.init(.white))
+                                                }.padding(.trailing, 10)
+                                            }
+                                            
                                             Text("\(contact.givenName) \(contact.familyName)")
                                                 .font(.custom("Helvetica Neue", size: 15.0))
                                                 .fontWeight(.medium)
@@ -97,7 +130,6 @@ struct ContactListView: View {
                 case 3:
                     print("Authorized. Fetching contacts.")
                     Contacts.fetchContacts(from: .all)
-                    print(groupedContacts)
                 default:
                     print("Will never reach here")
             }
