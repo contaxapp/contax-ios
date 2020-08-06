@@ -22,7 +22,43 @@ struct SingleContactView: View {
             Color.init("Base Color").edgesIgnoringSafeArea(.all)
             GeometryReader { fullView in
                 ScrollView {
-                    ContactImageSection(contact, viewSize: fullView)
+                    ZStack {
+                        ContactImageSection(contact, viewSize: fullView)
+                        VStack {
+                            HStack {
+                                Button(action: {
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }, label: {
+                                    Image(systemName: "arrow.left")
+                                        .font(.system(size: 20.0))
+                                        .foregroundColor(.white)
+                                        .background(
+                                            Circle()
+                                                .frame(width: 30, height: 30)
+                                                .foregroundColor(Color.init("Lighter Gray"))
+                                        )
+                                })
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    print("Show more")
+                                }, label: {
+                                    Image(systemName: "ellipsis")
+                                        .font(.system(size: 20.0))
+                                        .foregroundColor(.white)
+                                        .background(
+                                            Circle()
+                                                .frame(width: 30, height: 30)
+                                                .foregroundColor(Color.init("Lighter Gray"))
+                                        )
+                                })
+                            }
+                            .padding(.all, 20)
+                            
+                            Spacer()
+                        }
+                    }
                     
                     VStack(spacing: 40) {
                         ContactWidgetGrid()
@@ -32,35 +68,7 @@ struct SingleContactView: View {
                     .foregroundColor(.white)
                     .frame(minWidth: 0, idealWidth: fullView.size.width, maxWidth: .infinity, minHeight: fullView.size.height * 0.65, maxHeight: .infinity, alignment: .center)
                 }
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(
-                    leading:
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }, label: {
-                            Image(systemName: "arrow.left")
-                                .font(.system(size: 20.0))
-                                .foregroundColor(.white)
-                                .background(
-                                    Circle()
-                                        .frame(width: 30, height: 30)
-                                        .foregroundColor(Color.init("Lighter Gray"))
-                                )
-                        }),
-                    trailing:
-                        Button(action: {
-                            print("Show more")
-                        }, label: {
-                            Image(systemName: "ellipsis")
-                                .font(.system(size: 20.0))
-                                .foregroundColor(.white)
-                                .background(
-                                    Circle()
-                                        .frame(width: 30, height: 30)
-                                        .foregroundColor(Color.init("Lighter Gray"))
-                                )
-                        })
-                )
+                .navigationBarHidden(true)
             }
         }
     }

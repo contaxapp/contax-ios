@@ -39,10 +39,9 @@ struct ContactListView: View {
     }
     
     init(){
-//        UINavigationBar.appearance().largeTitleTextAttributes = [
-//            .foregroundColor: UIColor.white,
-//            .font: UIFont.systemFont(ofSize: 28, weight: .semibold)
-//        ]
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = UIColor.init(named: "Base Color")
+        
         UITableView.appearance().backgroundColor = .clear
     }
     
@@ -59,12 +58,15 @@ struct ContactListView: View {
             ZStack {
                 Color.init("Base Color").edgesIgnoringSafeArea(.all)
                 VStack {
-//                    Picker(selection: $sortSelection, label: Text("Sort By")) /*@START_MENU_TOKEN@*/{
-//                        Text("First Name").tag(1)
-//                        Text("Last Name").tag(2)
-//                    }
-//                        .pickerStyle(SegmentedPickerStyle())
-//                        .padding(.horizontal, 10)
+                    Picker(selection: $sortSelection, label: Text("Sort By")) /*@START_MENU_TOKEN@*/{
+                        Text("First Name").tag(1)
+                        Text("Last Name").tag(2)
+                    }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.all, 10)
+                        .onReceive([self.sortSelection].publisher.first()) { value in
+                            print(value)
+                        }
                     
                     List {
                         ForEach(groupedContacts) { (group) in
@@ -107,9 +109,14 @@ struct ContactListView: View {
                     .listStyle(GroupedListStyle())
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Text("Contact List").font(.title).foregroundColor(.white).fontWeight(.bold),
-                trailing: Image(systemName: "plus").font(.title).foregroundColor(.white)
+                trailing: Button(action: {
+                    print("Create Contact")
+                }, label: {
+                    Image(systemName: "plus").font(.title).foregroundColor(.white)
+                })
             )
         }
         .onAppear(perform: {
