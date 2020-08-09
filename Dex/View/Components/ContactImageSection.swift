@@ -16,12 +16,37 @@ struct ContactImageSection: View {
         self.viewSize = viewSize
     }
     
+    var contactImage: UIImage? {
+        if (contact?.image != nil) {
+            return UIImage(data: Data(base64Encoded: contact!.image!)!)!
+        }
+        
+        return nil
+    }
+    
+//    var imageAspectRatio: Float {
+//        return contactImage?.size.height / contactImage?.size.width
+//    }
+    
     var body: some View {
         ZStack(alignment: .bottom) {
-            Image("Placeholder Contact Image")
-                .resizable()
-                .aspectRatio(1, contentMode: .fill)
-            Color.init(red: 0, green: 0, blue: 0, opacity: 0.2)
+            Color.init(.black)
+            if contactImage != nil {
+                Image(uiImage: contactImage!)
+                    .resizable()
+                    .aspectRatio(1, contentMode: .fill)
+                    .overlay(
+                        LinearGradient(
+                            gradient: Gradient(colors: [
+                                Color.init(.clear),
+                                Color.init(.black).opacity(0.7)
+                            ]
+                        ),
+                        startPoint: UnitPoint(x: (contactImage?.size.width)! / 2, y: 0),
+                        endPoint: UnitPoint(x: (contactImage?.size.width)! / 2, y: 1))
+                    )
+            }
+//            Color.init(red: 0, green: 0, blue: 0, opacity: 0.2)
             Text("\(contact!.givenName) \(contact!.familyName)")
                 .foregroundColor(.white)
                 .font(.title)

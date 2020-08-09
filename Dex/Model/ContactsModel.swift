@@ -160,6 +160,7 @@ extension ContactsModel {
             organization: contact.organizationName,
             emailAddresses: emailAddressList,
             phoneNumbers: phoneNumberList,
+            image: contact.imageData?.base64EncodedString(),
             thumbnailImage: contact.thumbnailImageData?.base64EncodedString()
         )
         

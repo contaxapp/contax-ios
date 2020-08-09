@@ -60,13 +60,12 @@ struct SingleContactView: View {
                         }
                     }
                     
-                    VStack(spacing: 40) {
+                    VStack(spacing: 20) {
                         ContactWidgetGrid()
                         ContactNotesSection()
                     }
                     .padding(.all, 20)
                     .foregroundColor(.white)
-                    .frame(minWidth: 0, idealWidth: fullView.size.width, maxWidth: .infinity, minHeight: fullView.size.height * 0.65, maxHeight: .infinity, alignment: .center)
                 }
                 .navigationBarHidden(true)
             }

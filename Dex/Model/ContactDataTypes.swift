@@ -24,6 +24,7 @@ struct Contact: Identifiable, Encodable {
     var organization: String
     var emailAddresses: [ContactEmail] = []
     var phoneNumbers: [ContactPhoneNumber] = []
+    var image: String?
     var thumbnailImage: String?
 //    var postalAddresses = [ContactAddress]()
 }
@@ -43,6 +44,7 @@ struct HashableContact: Encodable {
     var organization: String
     var emailAddresses: [ContactEmail] = []
     var phoneNumbers: [ContactPhoneNumber] = []
+    var image: String?
     var thumbnailImage: String?
     
     init(_ contact: Contact) {

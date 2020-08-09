@@ -58,6 +58,7 @@ struct ContactListView: View {
             ZStack {
                 Color.init("Base Color").edgesIgnoringSafeArea(.all)
                 VStack {
+                    /*
                     Picker(selection: $sortSelection, label: Text("Sort By")) /*@START_MENU_TOKEN@*/{
                         Text("First Name").tag(1)
                         Text("Last Name").tag(2)
@@ -67,7 +68,7 @@ struct ContactListView: View {
                         .onReceive([self.sortSelection].publisher.first()) { value in
                             print(value)
                         }
-                    
+                    */
                     List {
                         ForEach(groupedContacts) { (group) in
                             Section(header: Text("\(String(group.id))")
@@ -81,6 +82,7 @@ struct ContactListView: View {
                                             if (contact.thumbnailImage != nil) {
                                                 Image(uiImage: UIImage(data: Data(base64Encoded: contact.thumbnailImage!)!)!)
                                                     .resizable()
+                                                    .cornerRadius(5.0)
                                                     .frame(width: 50, height: 50, alignment: .center)
                                                     .padding(.trailing, 10)
                                             } else {
@@ -100,11 +102,12 @@ struct ContactListView: View {
                                                 .fontWeight(.medium)
                                                 .foregroundColor(.white)
                                         }
-                                    }.buttonStyle(PlainButtonStyle())
+                                    }
+                                    .listRowBackground(Color.init(.clear))
+                                    .buttonStyle(PlainButtonStyle())
                                 }
                             }
                         }
-                        .listRowBackground(Color.init(.clear))
                     }
                     .listStyle(GroupedListStyle())
                 }
