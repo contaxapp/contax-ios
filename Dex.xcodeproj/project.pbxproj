@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
 		7FD3007824C2BB2A0011CF5C /* DexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* DexApp.swift */; };
 		7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007924C2BB2A0011CF5C /* ContactListView.swift */; };
@@ -48,6 +49,7 @@
 		2D6D1DA0DD05D4D5B98ED5AE /* Pods-DexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexTests.release.xcconfig"; path = "Target Support Files/Pods-DexTests/Pods-DexTests.release.xcconfig"; sourceTree = "<group>"; };
 		636E7072080ADB599F6A3B7B /* Pods-Dex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex.debug.xcconfig"; path = "Target Support Files/Pods-Dex/Pods-Dex.debug.xcconfig"; sourceTree = "<group>"; };
 		76B320B164663EB39C989D0C /* Pods-Dex-DexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex-DexUITests.release.xcconfig"; path = "Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStructures.swift; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
 		7F980C7824C360120075CAC9 /* Dex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dex.entitlements; sourceTree = "<group>"; };
 		7FD3007424C2BB2A0011CF5C /* Dex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dex.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +118,6 @@
 				CBAE12D618A5CFCEC26C7F52 /* Pods-DexTests.debug.xcconfig */,
 				2D6D1DA0DD05D4D5B98ED5AE /* Pods-DexTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,6 +208,7 @@
 			children = (
 				7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */,
 				7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */,
+				7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -484,6 +486,7 @@
 				7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */,
 				7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */,
 				7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */,
+				7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */,
 				7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */,
 				7FD3007824C2BB2A0011CF5C /* DexApp.swift in Sources */,
 				7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */,

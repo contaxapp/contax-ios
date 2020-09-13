@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 import Contacts
+import RealmSwift
 import CryptoKit
 
 class ContactsModel: ObservableObject {
     
-    @Published var contacts: [Contact] = []
+    let realm = try! Realm()
     
-    private var internalContactList: [Contact] = []
+    @Published var contacts: Results<DBContact>?
     
     let contactStore = CNContactStore()
     
@@ -28,7 +29,7 @@ class ContactsModel: ObservableObject {
         return CNContactStore.authorizationStatus(for: .contacts).rawValue
     }
     
-    func fetchContacts(from: FetchContactsStyle, sortedBy: CNContactSortOrder = .givenName) {
+    func fetchUpdatedContacts(from: FetchContactsStyle, sortedBy: CNContactSortOrder = .givenName) {
         let keysToFetch = [
             // Identification
             CNContactIdentifierKey,
@@ -95,8 +96,6 @@ class ContactsModel: ObservableObject {
                     print("Error fetching results for container")
                 }
             }
-            
-            contacts = internalContactList
         }
         
         // Fetch All Contacts
@@ -108,12 +107,16 @@ class ContactsModel: ObservableObject {
                 try contactStore.enumerateContacts(with: fetchRequest, usingBlock: { (contact, stop) in
                     self.storeFetchedContact(contact)
                 })
-                
-                contacts = internalContactList
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func fetchStoredContacts() {
+//        print("test")
+        contacts = realm.objects(DBContact.self)
+        print(contacts![0].emailAddresses[0].email)
     }
     
     func hashContact(_ contact: Contact) -> HashedContact? {
@@ -135,22 +138,9 @@ class ContactsModel: ObservableObject {
 //MARK: - Utility Functions
 extension ContactsModel {
     func storeFetchedContact(_ contact: CNContact) {
-        var emailAddressList: [ContactEmail] = []
-        for email in contact.emailAddresses {
-            if let emailLabel = email.label {
-                emailAddressList.append(ContactEmail(label: emailLabel, email: email.value as String))
-            }
-        }
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
-        var phoneNumberList: [ContactPhoneNumber] = []
-        for phone in contact.phoneNumbers {
-            if let phoneLabel = phone.label {
-                phoneNumberList.append(ContactPhoneNumber(label: phoneLabel, phone: phone.value.stringValue))
-            }
-        }
-        
-        let contactToBeAppended = Contact(
-            id: contact.identifier,
+        let contactForStorage = DBContact(
             givenName: contact.givenName,
             middleName: contact.middleName,
             familyName: contact.familyName,
@@ -158,12 +148,29 @@ extension ContactsModel {
             jobTitle: contact.jobTitle,
             department: contact.departmentName ,
             organization: contact.organizationName,
-            emailAddresses: emailAddressList,
-            phoneNumbers: phoneNumberList,
             image: contact.imageData?.base64EncodedString(),
             thumbnailImage: contact.thumbnailImageData?.base64EncodedString()
         )
         
-        self.internalContactList.append(contactToBeAppended)
+        let emailAddressList = List<DBContactEmail>()
+        for email in contact.emailAddresses {
+            if let emailLabel = email.label {
+                emailAddressList.append(DBContactEmail(label: emailLabel, email: email.value as String))
+            }
+        }
+        
+        let phoneNumberList = List<DBContactPhoneNumber>()
+        for phone in contact.phoneNumbers {
+            if let phoneLabel = phone.label {
+                phoneNumberList.append(DBContactPhoneNumber(label: phoneLabel, phone: phone.value.stringValue))
+            }
+        }
+        
+        contactForStorage.emailAddresses = emailAddressList
+        contactForStorage.phoneNumbers = phoneNumberList
+        
+        try! realm.write {
+            realm.add(contactForStorage)
+        }
     }
 }

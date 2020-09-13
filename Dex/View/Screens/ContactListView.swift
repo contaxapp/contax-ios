@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 import Contacts
 
 struct ContactListView: View {
@@ -15,26 +16,8 @@ struct ContactListView: View {
     @State private var authorizationChange: Bool = false {
         didSet {
             DispatchQueue.main.async {
-                Contacts.fetchContacts(from: .all)
+                Contacts.fetchUpdatedContacts(from: .all)
             }
-        }
-    }
-    
-    @State var sortSelection: Int = 1 {
-        didSet {
-            print($sortSelection)
-        }
-    }
-    
-    var groupedContacts: [ContactGroup] {
-        return Dictionary(grouping: Contacts.contacts) { (contact) -> Character in
-            return contact.givenName.first!
-        }
-        .map { (key: Character, value: [Contact]) -> ContactGroup in
-            ContactGroup(id: key, contacts: value)
-        }
-        .sorted { (left, right) -> Bool in
-            left.id < right.id
         }
     }
     
@@ -43,9 +26,12 @@ struct ContactListView: View {
         UINavigationBar.appearance().barTintColor = UIColor.init(named: "Base Color")
         
         UITableView.appearance().backgroundColor = .clear
+        
+        // Realm Database
+        let realm = try! Realm()
     }
     
-    func returnInitials(_ contact: Contact) -> String {
+    func returnInitials(_ contact: DBContact) -> String {
         let givenName = contact.givenName
         let familyName = contact.familyName
         
@@ -58,58 +44,13 @@ struct ContactListView: View {
             ZStack {
                 Color.init("Base Color").edgesIgnoringSafeArea(.all)
                 VStack {
-                    /*
-                    Picker(selection: $sortSelection, label: Text("Sort By")) /*@START_MENU_TOKEN@*/{
-                        Text("First Name").tag(1)
-                        Text("Last Name").tag(2)
+                    if Contacts.contacts != nil {
+                        List {
+                            ForEach(Contacts.contacts!) {contact in
+                                Text("\(contact.givenName)").foregroundColor(.white)
+                            }.listRowBackground(Color.init("Base Color"))
+                        }.listStyle(PlainListStyle())
                     }
-                        .pickerStyle(SegmentedPickerStyle())
-                        .padding(.all, 10)
-                        .onReceive([self.sortSelection].publisher.first()) { value in
-                            print(value)
-                        }
-                    */
-                    List {
-                        ForEach(groupedContacts) { (group) in
-                            Section(header: Text("\(String(group.id))")
-                                .font(.custom("Helvetica", size: 15.0))
-                                .foregroundColor(.white)
-                                .fontWeight(.bold)
-                            ) {
-                                ForEach(group.contacts) { contact in
-                                    NavigationLink(destination: SingleContactView(contact)) {
-                                        HStack {
-                                            if (contact.thumbnailImage != nil) {
-                                                Image(uiImage: UIImage(data: Data(base64Encoded: contact.thumbnailImage!)!)!)
-                                                    .resizable()
-                                                    .cornerRadius(5.0)
-                                                    .frame(width: 50, height: 50, alignment: .center)
-                                                    .padding(.trailing, 10)
-                                            } else {
-                                                ZStack(alignment: .center) {
-                                                    Circle()
-                                                        .frame(width: 50, height: 50, alignment: .center)
-                                                        .foregroundColor(Color.init("Lighter Gray"))
-                                                    Text(returnInitials(contact))
-                                                        .font(.title3)
-                                                        .fontWeight(.semibold)
-                                                        .foregroundColor(Color.init(.white))
-                                                }.padding(.trailing, 10)
-                                            }
-                                            
-                                            Text("\(contact.givenName) \(contact.familyName)")
-                                                .font(.custom("Helvetica Neue", size: 15.0))
-                                                .fontWeight(.medium)
-                                                .foregroundColor(.white)
-                                        }
-                                    }
-                                    .listRowBackground(Color.init(.clear))
-                                    .buttonStyle(PlainButtonStyle())
-                                }
-                            }
-                        }
-                    }
-                    .listStyle(GroupedListStyle())
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -139,7 +80,8 @@ struct ContactListView: View {
                     print("Denied. Error")
                 case 3:
                     print("Authorized. Fetching contacts.")
-                    Contacts.fetchContacts(from: .all)
+//                    Contacts.fetchUpdatedContacts(from: .all)
+                    Contacts.fetchStoredContacts()
                 default:
                     print("Will never reach here")
             }

@@ -6,7 +6,7 @@ target 'Dex' do
   use_frameworks!
 
   # Pods for Dex
-  pod 'RealmSwift', '=10.0.0-alpha.4'
+  pod 'RealmSwift', '=5.4.0'
 
   target 'DexTests' do
     inherit! :search_paths
