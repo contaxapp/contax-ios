@@ -44,18 +44,22 @@ struct ContactListView: View {
             ZStack {
                 Color.init("Base Color").edgesIgnoringSafeArea(.all)
                 VStack {
-                    if Contacts.contacts != nil {
-                        List {
-                            ForEach(Contacts.contacts!) {contact in
-                                Text("\(contact.givenName)").foregroundColor(.white)
+                    List {
+                        if Contacts.contacts != nil {
+                            ForEach(Contacts.contacts!) { contact in
+                                Button(action: {
+                                    print(contact.givenName)
+                                }, label: {
+                                    Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
+                                })
                             }.listRowBackground(Color.init("Base Color"))
-                        }.listStyle(PlainListStyle())
-                    }
+                        }
+                    }.listStyle(PlainListStyle())
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: Text("Contact List").font(.title).foregroundColor(.white).fontWeight(.bold),
+                leading: Text("Contact Book").font(.title).foregroundColor(.white).fontWeight(.bold),
                 trailing: Button(action: {
                     print("Create Contact")
                 }, label: {

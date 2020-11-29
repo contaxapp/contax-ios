@@ -92,6 +92,8 @@ class ContactsModel: ObservableObject {
                     for contact in containerResults {
                         storeFetchedContact(contact)
                     }
+                    
+                    self.fetchStoredContacts()
                 } catch {
                     print("Error fetching results for container")
                 }
@@ -107,6 +109,8 @@ class ContactsModel: ObservableObject {
                 try contactStore.enumerateContacts(with: fetchRequest, usingBlock: { (contact, stop) in
                     self.storeFetchedContact(contact)
                 })
+                
+                self.fetchStoredContacts()
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -114,9 +118,8 @@ class ContactsModel: ObservableObject {
     }
     
     func fetchStoredContacts() {
-//        print("test")
-        contacts = realm.objects(DBContact.self)
-        print(contacts![0].emailAddresses[0].email)
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        contacts = realm.objects(DBContact.self).sorted(byKeyPath: "givenName", ascending: true)
     }
     
     func hashContact(_ contact: Contact) -> HashedContact? {
@@ -138,7 +141,7 @@ class ContactsModel: ObservableObject {
 //MARK: - Utility Functions
 extension ContactsModel {
     func storeFetchedContact(_ contact: CNContact) {
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         let contactForStorage = DBContact(
             givenName: contact.givenName,

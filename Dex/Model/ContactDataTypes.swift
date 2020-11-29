@@ -29,9 +29,24 @@ struct Contact: Identifiable, Encodable {
 //    var postalAddresses = [ContactAddress]()
 }
 
-struct ContactGroup: Identifiable {
-    var id: Character
-    var contacts: [Contact]
+struct ContactAddress: Encodable {
+    var label: String
+    var street: String
+    var city: String
+    var state: String
+    var postalCode: String
+    var country: String
+    var countryCode: String
+}
+
+struct ContactEmail: Encodable {
+    var label: String
+    var email: String
+}
+
+struct ContactPhoneNumber: Encodable {
+    var label: String
+    var phone: String
 }
 
 struct HashableContact: Encodable {
@@ -64,22 +79,7 @@ struct HashedContact {
     var hashedContactId: String
 }
 
-struct ContactAddress: Encodable {
-    var label: String
-    var street: String
-    var city: String
-    var state: String
-    var postalCode: String
-    var country: String
-    var countryCode: String
-}
-
-struct ContactEmail: Encodable {
-    var label: String
-    var email: String
-}
-
-struct ContactPhoneNumber: Encodable {
-    var label: String
-    var phone: String
+struct ContactGroup: Identifiable {
+    var id: Character
+    var contacts: [Contact]
 }

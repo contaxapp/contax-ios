@@ -121,7 +121,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		7F9B1DD624C46EE600A490A6 /* Components */ = {
+		7F2EAEA6252F5A8400A488BD /* SingleContactView */ = {
 			isa = PBXGroup;
 			children = (
 				7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */,
@@ -129,6 +129,14 @@
 				7FF8F95724CD5C1C002B7D64 /* ContactNote.swift */,
 				7FF8F95C24CD8F17002B7D64 /* ContactImageSection.swift */,
 				7FF8F95E24CD91B8002B7D64 /* ContactNotesSection.swift */,
+			);
+			path = SingleContactView;
+			sourceTree = "<group>";
+		};
+		7F9B1DD624C46EE600A490A6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7F2EAEA6252F5A8400A488BD /* SingleContactView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
