@@ -224,10 +224,10 @@
 		7FD300A324C2D6BC0011CF5C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7FF8F95924CD815C002B7D64 /* Modifiers */,
 				7FD3007724C2BB2A0011CF5C /* DexApp.swift */,
-				7F9B1DD624C46EE600A490A6 /* Components */,
 				7F9B1DD724C46EFA00A490A6 /* Screens */,
+				7F9B1DD624C46EE600A490A6 /* Components */,
+				7FF8F95924CD815C002B7D64 /* Modifiers */,
 			);
 			path = View;
 			sourceTree = "<group>";

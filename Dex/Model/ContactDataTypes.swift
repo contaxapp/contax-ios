@@ -14,7 +14,7 @@ enum FetchContactsStyle {
 }
 
 struct Contact: Identifiable, Encodable {
-    var id: String
+    var id: String?
     var givenName: String
     var middleName: String
     var familyName: String

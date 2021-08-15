@@ -12,6 +12,7 @@ struct SingleContactView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let contact : Contact?
+    var ContactsModelRef = ContactsModel()
     
     init(_ contactSelected: Contact?) {
         self.contact = contactSelected
@@ -70,6 +71,9 @@ struct SingleContactView: View {
                 .navigationBarHidden(true)
             }
         }
+        .onAppear(perform: {
+            print(self.contact)
+        })
     }
 }
 

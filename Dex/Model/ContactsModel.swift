@@ -118,8 +118,9 @@ class ContactsModel: ObservableObject {
     }
     
     func fetchStoredContacts() {
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         contacts = realm.objects(DBContact.self).sorted(byKeyPath: "givenName", ascending: true)
+//        print(contacts)
     }
     
     func hashContact(_ contact: Contact) -> HashedContact? {
@@ -140,8 +141,15 @@ class ContactsModel: ObservableObject {
 
 //MARK: - Utility Functions
 extension ContactsModel {
+//    func convertCNContactToContact(_ contact: CNContact) -> Contact {
+//        return Contact(givenName: contact.givenName, middleName: contact.middleName, familyName: contact.familyName, nickname: contact.nickname, jobTitle: contact.jobTitle, department: contact.departmentName, organization: contact.organizationName)
+//    }
+    
     func storeFetchedContact(_ contact: CNContact) {
 //        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+//        let contactHash = hashContact(convertCNContactToContact(contact))
+//        print(contactHash)
         
         let contactForStorage = DBContact(
             givenName: contact.givenName,

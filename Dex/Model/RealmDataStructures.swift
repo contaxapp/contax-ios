@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 class DBContact: Object, Identifiable {
+//    @objc dynamic var id: String = ""
     @objc dynamic var givenName: String = ""
     @objc dynamic var middleName: String = ""
     @objc dynamic var familyName: String = ""

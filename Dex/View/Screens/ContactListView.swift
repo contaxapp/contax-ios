@@ -26,9 +26,6 @@ struct ContactListView: View {
         UINavigationBar.appearance().barTintColor = UIColor.init(named: "Base Color")
         
         UITableView.appearance().backgroundColor = .clear
-        
-        // Realm Database
-        let realm = try! Realm()
     }
     
     func returnInitials(_ contact: DBContact) -> String {
@@ -36,6 +33,12 @@ struct ContactListView: View {
         let familyName = contact.familyName
         
         return String(givenName[givenName.startIndex]) + String(familyName[familyName.startIndex])
+    }
+    
+    func convertContactType(contactToConvert: DBContact?) -> Contact? {
+        let convertedContact = Contact(givenName: contactToConvert!.givenName, middleName: contactToConvert!.middleName, familyName: contactToConvert!.familyName, nickname: contactToConvert!.nickname, jobTitle: contactToConvert!.jobTitle, department: contactToConvert!.department, organization: contactToConvert!.organization)
+        
+        return convertedContact
     }
     
     @ViewBuilder
@@ -47,11 +50,9 @@ struct ContactListView: View {
                     List {
                         if Contacts.contacts != nil {
                             ForEach(Contacts.contacts!) { contact in
-                                Button(action: {
-                                    print(contact.givenName)
-                                }, label: {
-                                    Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
-                                })
+//                                NavigationLink(destination: SingleContactView(convertContactType(contactToConvert: contact))) {
+//                                    Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
+//                                }
                             }.listRowBackground(Color.init("Base Color"))
                         }
                     }.listStyle(PlainListStyle())
