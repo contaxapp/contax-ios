@@ -13,7 +13,11 @@ enum FetchContactsStyle {
     case containers
 }
 
-struct Contact: Identifiable, Encodable {
+struct Contact: Identifiable, Encodable, Equatable {
+    static func == (lhs: Contact, rhs: Contact) -> Bool {
+        <#code#>
+    }
+    
     var id: String?
     var givenName: String
     var middleName: String

@@ -16,6 +16,8 @@ class ContactsModel: ObservableObject {
     let realm = try! Realm()
     
     @Published var contacts: Results<DBContact>?
+    var storedContacts: [Contact] = []
+    var updatedContacts: [Contact] = []
     
     let contactStore = CNContactStore()
     
@@ -39,38 +41,38 @@ class ContactsModel: ObservableObject {
             CNContactMiddleNameKey,
             CNContactFamilyNameKey,
             CNContactNicknameKey,
-            
-            // Work
+//
+//            // Work
             CNContactJobTitleKey,
             CNContactDepartmentNameKey,
             CNContactOrganizationNameKey,
-            
-            // Address
-            CNContactPostalAddressesKey,
+//
+//            // Address
+//            CNContactPostalAddressesKey,
             CNContactEmailAddressesKey,
-            CNContactUrlAddressesKey,
-            CNContactInstantMessageAddressesKey,
-            
-            // Phone
+//            CNContactUrlAddressesKey,
+//            CNContactInstantMessageAddressesKey,
+//
+//            // Phone
             CNContactPhoneNumbersKey,
-            
-            // Social Profiles
-             CNContactSocialProfilesKey,
-            
-            // Important Dates
-            CNContactBirthdayKey,
-            CNContactDatesKey,
-            
-            // Notes
-            CNContactNoteKey,
-            
-            // Image Data
-            CNContactImageDataAvailableKey,
+//
+//            // Social Profiles
+//             CNContactSocialProfilesKey,
+//
+//            // Important Dates
+//            CNContactBirthdayKey,
+//            CNContactDatesKey,
+//
+//            // Notes
+//            CNContactNoteKey,
+//
+//            // Image Data
+//            CNContactImageDataAvailableKey,
             CNContactImageDataKey,
             CNContactThumbnailImageDataKey,
-            
-            // Relationships
-            CNContactRelationsKey
+//
+//            // Relationships
+//            CNContactRelationsKey
         ] as [CNKeyDescriptor]
 
         // Fetch Contacts from Containers
@@ -90,9 +92,10 @@ class ContactsModel: ObservableObject {
                 do {
                     let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch)
                     for contact in containerResults {
-                        storeFetchedContact(contact)
+                        updatedContacts.append(convertCNContactToContact(contact))
+//                        storeFetchedContact(contact)
                     }
-                    
+                
                     self.fetchStoredContacts()
                 } catch {
                     print("Error fetching results for container")
@@ -104,10 +107,11 @@ class ContactsModel: ObservableObject {
         else if from == .all {
             let fetchRequest = CNContactFetchRequest(keysToFetch: keysToFetch)
             fetchRequest.sortOrder = sortedBy
-            
+
             do {
                 try contactStore.enumerateContacts(with: fetchRequest, usingBlock: { (contact, stop) in
-                    self.storeFetchedContact(contact)
+                    self.updatedContacts.append(self.convertCNContactToContact(contact))
+//                    self.storeFetchedContact(contact)
                 })
                 
                 self.fetchStoredContacts()
@@ -118,9 +122,47 @@ class ContactsModel: ObservableObject {
     }
     
     func fetchStoredContacts() {
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-        contacts = realm.objects(DBContact.self).sorted(byKeyPath: "givenName", ascending: true)
-        print(contacts)
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        let storedContactsFetched = realm.objects(DBContact.self).sorted(byKeyPath: "givenName", ascending: true)
+        for contact in storedContactsFetched {
+            storedContacts.append(convertDBContactToContact(contact))
+        }
+        if (contactsUpdated(updatedContacts: updatedContacts, storedContacts: storedContacts)) {
+            print("Same")
+        } else {
+            print("Different")
+        }
+    }
+    
+    func contactsUpdated(updatedContacts: [Contact], storedContacts: [Contact]) -> Bool {
+        return updatedContacts != storedContacts
+    }
+}
+
+//MARK: - Utility Functions
+extension ContactsModel {
+    func convertCNContactToContact(_ contact: CNContact) -> Contact {
+        return Contact(
+            givenName: contact.givenName,
+            middleName: contact.middleName,
+            familyName: contact.familyName,
+            nickname: contact.nickname,
+            jobTitle: contact.jobTitle,
+            department: contact.departmentName,
+            organization: contact.organizationName
+        )
+    }
+    
+    func convertDBContactToContact(_ contact: DBContact) -> Contact {
+        return Contact(
+            givenName: contact.givenName,
+            middleName: contact.middleName,
+            familyName: contact.familyName,
+            nickname: contact.nickname,
+            jobTitle: contact.jobTitle,
+            department: contact.department,
+            organization: contact.organization
+        )
     }
     
     func hashContact(_ contact: Contact) -> HashedContact? {
@@ -137,19 +179,11 @@ class ContactsModel: ObservableObject {
             return nil
         }
     }
-}
-
-//MARK: - Utility Functions
-extension ContactsModel {
-    func convertCNContactToContact(_ contact: CNContact) -> Contact {
-        return Contact(givenName: contact.givenName, middleName: contact.middleName, familyName: contact.familyName, nickname: contact.nickname, jobTitle: contact.jobTitle, department: contact.departmentName, organization: contact.organizationName)
-    }
     
     func storeFetchedContact(_ contact: CNContact) {
 //        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         let contactHash = hashContact(convertCNContactToContact(contact))
-        print(contactHash)
         
         let contactForStorage = DBContact(
             givenName: contact.givenName,

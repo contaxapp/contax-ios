@@ -46,10 +46,11 @@ struct ContactListView: View {
                 VStack {
                     List {
                         if Contacts.contacts != nil {
-                            ForEach(Contacts.contacts!) { contact in
-                                NavigationLink(destination: SingleContactView(convertContactType(contactToConvert: contact))) {
-                                    Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
-                                }
+                            ForEach(Contacts.contacts!, id:\.self) { contact in
+                                Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
+//                                NavigationLink(destination: SingleContactView(convertContactType(contactToConvert: contact))) {
+//                                    Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
+//                                }
                             }.listRowBackground(Color.init("Base Color"))
                         }
                     }.listStyle(PlainListStyle())
@@ -82,8 +83,8 @@ struct ContactListView: View {
                     print("Denied. Error")
                 case 3:
                     print("Authorized. Fetching contacts.")
-//                    Contacts.fetchUpdatedContacts(from: .all)
-                    Contacts.fetchStoredContacts()
+                    Contacts.fetchUpdatedContacts(from: .all)
+//                    Contacts.fetchStoredContacts()
                 default:
                     print("Will never reach here")
             }
