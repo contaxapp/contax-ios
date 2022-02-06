@@ -21,11 +21,8 @@ struct ContactListView: View {
         }
     }
     
-    init(){
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().barTintColor = UIColor.init(named: "Base Color")
+    init() {
         
-        UITableView.appearance().backgroundColor = .clear
     }
     
     func returnInitials(_ contact: DBContact) -> String {
@@ -50,9 +47,9 @@ struct ContactListView: View {
                     List {
                         if Contacts.contacts != nil {
                             ForEach(Contacts.contacts!) { contact in
-//                                NavigationLink(destination: SingleContactView(convertContactType(contactToConvert: contact))) {
-//                                    Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
-//                                }
+                                NavigationLink(destination: SingleContactView(convertContactType(contactToConvert: contact))) {
+                                    Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
+                                }
                             }.listRowBackground(Color.init("Base Color"))
                         }
                     }.listStyle(PlainListStyle())

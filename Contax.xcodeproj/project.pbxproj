@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18B94CBA1AAE6C9BCAC4BB1B /* Pods_Contax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D693E37EC973C0D9DF2EB974 /* Pods_Contax.framework */; };
+		1F9B3805735430F76BD99FA6 /* Pods_Contax_ContaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */; };
 		7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
 		7FD3007824C2BB2A0011CF5C /* DexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* DexApp.swift */; };
@@ -20,12 +22,9 @@
 		7FF8F95224CD4B0B002B7D64 /* ContactWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */; };
 		7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */; };
 		7FF8F95824CD5C1C002B7D64 /* ContactNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95724CD5C1C002B7D64 /* ContactNote.swift */; };
-		7FF8F95B24CD81E0002B7D64 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95A24CD81E0002B7D64 /* NavigationBarModifier.swift */; };
 		7FF8F95D24CD8F17002B7D64 /* ContactImageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95C24CD8F17002B7D64 /* ContactImageSection.swift */; };
 		7FF8F95F24CD91B8002B7D64 /* ContactNotesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95E24CD91B8002B7D64 /* ContactNotesSection.swift */; };
-		91C1DAA22D9083270B2FE012 /* Pods_Dex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE60A762C847427DDBF2BED0 /* Pods_Dex.framework */; };
-		96F55F754A86091E85BD4E2C /* Pods_Dex_DexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFE89C23F09C666BE4AC8B0 /* Pods_Dex_DexUITests.framework */; };
-		F6CA6457CA22257596FE9CCC /* Pods_DexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAC233E6F3D64E3D1B8E676 /* Pods_DexTests.framework */; };
+		E7848794628C76210D872A83 /* Pods_ContaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2491CAF9F5D5F0C22E72D3B1 /* Pods_ContaxTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,22 +45,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2491CAF9F5D5F0C22E72D3B1 /* Pods_ContaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28A52B0FF95F6C86A817CE8A /* Pods-ContaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.debug.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D6D1DA0DD05D4D5B98ED5AE /* Pods-DexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexTests.release.xcconfig"; path = "Target Support Files/Pods-DexTests/Pods-DexTests.release.xcconfig"; sourceTree = "<group>"; };
 		636E7072080ADB599F6A3B7B /* Pods-Dex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex.debug.xcconfig"; path = "Target Support Files/Pods-Dex/Pods-Dex.debug.xcconfig"; sourceTree = "<group>"; };
+		643613C799C124D7CDA1F7B5 /* Pods-Contax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax.release.xcconfig"; path = "Target Support Files/Pods-Contax/Pods-Contax.release.xcconfig"; sourceTree = "<group>"; };
+		6C4563CACBBD0D0B4791DFE0 /* Pods-Contax-ContaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.release.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6CF177A96CA1D29BED25DB42 /* Pods-ContaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.release.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.release.xcconfig"; sourceTree = "<group>"; };
 		76B320B164663EB39C989D0C /* Pods-Dex-DexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex-DexUITests.release.xcconfig"; path = "Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStructures.swift; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
 		7F980C7824C360120075CAC9 /* Dex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dex.entitlements; sourceTree = "<group>"; };
-		7FD3007424C2BB2A0011CF5C /* Dex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FD3007424C2BB2A0011CF5C /* Contax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD3007724C2BB2A0011CF5C /* DexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexApp.swift; sourceTree = "<group>"; };
 		7FD3007924C2BB2A0011CF5C /* ContactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		7FD3007B24C2BB2E0011CF5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FD3007E24C2BB2E0011CF5C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7FD3008024C2BB2E0011CF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7FD3008524C2BB2E0011CF5C /* DexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FD3008524C2BB2E0011CF5C /* ContaxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContaxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD3008924C2BB2E0011CF5C /* DexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexTests.swift; sourceTree = "<group>"; };
 		7FD3008B24C2BB2E0011CF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7FD3009024C2BB2E0011CF5C /* DexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FD3009024C2BB2E0011CF5C /* ContaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD3009424C2BB2E0011CF5C /* DexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexUITests.swift; sourceTree = "<group>"; };
 		7FD3009624C2BB2E0011CF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
@@ -69,15 +73,15 @@
 		7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactWidget.swift; sourceTree = "<group>"; };
 		7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactWidgetGrid.swift; sourceTree = "<group>"; };
 		7FF8F95724CD5C1C002B7D64 /* ContactNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNote.swift; sourceTree = "<group>"; };
-		7FF8F95A24CD81E0002B7D64 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		7FF8F95C24CD8F17002B7D64 /* ContactImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactImageSection.swift; sourceTree = "<group>"; };
 		7FF8F95E24CD91B8002B7D64 /* ContactNotesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNotesSection.swift; sourceTree = "<group>"; };
-		9AFE89C23F09C666BE4AC8B0 /* Pods_Dex_DexUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dex_DexUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FAC233E6F3D64E3D1B8E676 /* Pods_DexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17A33027EF6D126174F98AA /* Pods-Dex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex.release.xcconfig"; path = "Target Support Files/Pods-Dex/Pods-Dex.release.xcconfig"; sourceTree = "<group>"; };
 		CBAE12D618A5CFCEC26C7F52 /* Pods-DexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexTests.debug.xcconfig"; path = "Target Support Files/Pods-DexTests/Pods-DexTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contax_ContaxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2042F372B181E97A0D00DE7 /* Pods-Dex-DexUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex-DexUITests.debug.xcconfig"; path = "Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EE60A762C847427DDBF2BED0 /* Pods_Dex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D693E37EC973C0D9DF2EB974 /* Pods_Contax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA09339B4A797582A26556FC /* Pods-Contax-ContaxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.debug.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EB2C1E45916D20EE26448693 /* Pods-Contax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax.debug.xcconfig"; path = "Target Support Files/Pods-Contax/Pods-Contax.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91C1DAA22D9083270B2FE012 /* Pods_Dex.framework in Frameworks */,
+				18B94CBA1AAE6C9BCAC4BB1B /* Pods_Contax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6CA6457CA22257596FE9CCC /* Pods_DexTests.framework in Frameworks */,
+				E7848794628C76210D872A83 /* Pods_ContaxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96F55F754A86091E85BD4E2C /* Pods_Dex_DexUITests.framework in Frameworks */,
+				1F9B3805735430F76BD99FA6 /* Pods_Contax_ContaxUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +121,12 @@
 				76B320B164663EB39C989D0C /* Pods-Dex-DexUITests.release.xcconfig */,
 				CBAE12D618A5CFCEC26C7F52 /* Pods-DexTests.debug.xcconfig */,
 				2D6D1DA0DD05D4D5B98ED5AE /* Pods-DexTests.release.xcconfig */,
+				EB2C1E45916D20EE26448693 /* Pods-Contax.debug.xcconfig */,
+				643613C799C124D7CDA1F7B5 /* Pods-Contax.release.xcconfig */,
+				EA09339B4A797582A26556FC /* Pods-Contax-ContaxUITests.debug.xcconfig */,
+				6C4563CACBBD0D0B4791DFE0 /* Pods-Contax-ContaxUITests.release.xcconfig */,
+				28A52B0FF95F6C86A817CE8A /* Pods-ContaxTests.debug.xcconfig */,
+				6CF177A96CA1D29BED25DB42 /* Pods-ContaxTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -165,9 +175,9 @@
 		7FD3007524C2BB2A0011CF5C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7FD3007424C2BB2A0011CF5C /* Dex.app */,
-				7FD3008524C2BB2E0011CF5C /* DexTests.xctest */,
-				7FD3009024C2BB2E0011CF5C /* DexUITests.xctest */,
+				7FD3007424C2BB2A0011CF5C /* Contax.app */,
+				7FD3008524C2BB2E0011CF5C /* ContaxTests.xctest */,
+				7FD3009024C2BB2E0011CF5C /* ContaxUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,25 +237,16 @@
 				7FD3007724C2BB2A0011CF5C /* DexApp.swift */,
 				7F9B1DD724C46EFA00A490A6 /* Screens */,
 				7F9B1DD624C46EE600A490A6 /* Components */,
-				7FF8F95924CD815C002B7D64 /* Modifiers */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		7FF8F95924CD815C002B7D64 /* Modifiers */ = {
-			isa = PBXGroup;
-			children = (
-				7FF8F95A24CD81E0002B7D64 /* NavigationBarModifier.swift */,
-			);
-			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		9BB6E01263A66D9E24D18FD7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EE60A762C847427DDBF2BED0 /* Pods_Dex.framework */,
-				9AFE89C23F09C666BE4AC8B0 /* Pods_Dex_DexUITests.framework */,
-				9FAC233E6F3D64E3D1B8E676 /* Pods_DexTests.framework */,
+				D693E37EC973C0D9DF2EB974 /* Pods_Contax.framework */,
+				D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */,
+				2491CAF9F5D5F0C22E72D3B1 /* Pods_ContaxTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,9 +254,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7FD3007324C2BB2A0011CF5C /* Dex */ = {
+		7FD3007324C2BB2A0011CF5C /* Contax */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7FD3009924C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "Dex" */;
+			buildConfigurationList = 7FD3009924C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "Contax" */;
 			buildPhases = (
 				093532BBC065C84F8797A965 /* [CP] Check Pods Manifest.lock */,
 				7FD3007024C2BB2A0011CF5C /* Sources */,
@@ -267,14 +268,14 @@
 			);
 			dependencies = (
 			);
-			name = Dex;
+			name = Contax;
 			productName = Dex;
-			productReference = 7FD3007424C2BB2A0011CF5C /* Dex.app */;
+			productReference = 7FD3007424C2BB2A0011CF5C /* Contax.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7FD3008424C2BB2E0011CF5C /* DexTests */ = {
+		7FD3008424C2BB2E0011CF5C /* ContaxTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7FD3009C24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "DexTests" */;
+			buildConfigurationList = 7FD3009C24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "ContaxTests" */;
 			buildPhases = (
 				2CC828C2AC5E25BB8A2072F5 /* [CP] Check Pods Manifest.lock */,
 				7FD3008124C2BB2E0011CF5C /* Sources */,
@@ -286,14 +287,14 @@
 			dependencies = (
 				7FD3008724C2BB2E0011CF5C /* PBXTargetDependency */,
 			);
-			name = DexTests;
+			name = ContaxTests;
 			productName = DexTests;
-			productReference = 7FD3008524C2BB2E0011CF5C /* DexTests.xctest */;
+			productReference = 7FD3008524C2BB2E0011CF5C /* ContaxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7FD3008F24C2BB2E0011CF5C /* DexUITests */ = {
+		7FD3008F24C2BB2E0011CF5C /* ContaxUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7FD3009F24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "DexUITests" */;
+			buildConfigurationList = 7FD3009F24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "ContaxUITests" */;
 			buildPhases = (
 				F8F40ABCCE23EB8AFF723A30 /* [CP] Check Pods Manifest.lock */,
 				7FD3008C24C2BB2E0011CF5C /* Sources */,
@@ -306,9 +307,9 @@
 			dependencies = (
 				7FD3009224C2BB2E0011CF5C /* PBXTargetDependency */,
 			);
-			name = DexUITests;
+			name = ContaxUITests;
 			productName = DexUITests;
-			productReference = 7FD3009024C2BB2E0011CF5C /* DexUITests.xctest */;
+			productReference = 7FD3009024C2BB2E0011CF5C /* ContaxUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -333,7 +334,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7FD3006F24C2BB2A0011CF5C /* Build configuration list for PBXProject "Dex" */;
+			buildConfigurationList = 7FD3006F24C2BB2A0011CF5C /* Build configuration list for PBXProject "Contax" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -346,9 +347,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7FD3007324C2BB2A0011CF5C /* Dex */,
-				7FD3008424C2BB2E0011CF5C /* DexTests */,
-				7FD3008F24C2BB2E0011CF5C /* DexUITests */,
+				7FD3007324C2BB2A0011CF5C /* Contax */,
+				7FD3008424C2BB2E0011CF5C /* ContaxTests */,
+				7FD3008F24C2BB2E0011CF5C /* ContaxUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -395,7 +396,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Dex-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Contax-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -408,15 +409,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2CC828C2AC5E25BB8A2072F5 /* [CP] Check Pods Manifest.lock */ = {
@@ -434,7 +435,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DexTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ContaxTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -447,15 +448,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Dex/Pods-Dex-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Contax/Pods-Contax-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Dex/Pods-Dex-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Contax/Pods-Contax-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dex/Pods-Dex-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Contax/Pods-Contax-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F8F40ABCCE23EB8AFF723A30 /* [CP] Check Pods Manifest.lock */ = {
@@ -473,7 +474,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Dex-DexUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Contax-ContaxUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -488,7 +489,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FF8F95D24CD8F17002B7D64 /* ContactImageSection.swift in Sources */,
-				7FF8F95B24CD81E0002B7D64 /* NavigationBarModifier.swift in Sources */,
 				7FF8F95F24CD91B8002B7D64 /* ContactNotesSection.swift in Sources */,
 				7FF8F95824CD5C1C002B7D64 /* ContactNote.swift in Sources */,
 				7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */,
@@ -523,12 +523,12 @@
 /* Begin PBXTargetDependency section */
 		7FD3008724C2BB2E0011CF5C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7FD3007324C2BB2A0011CF5C /* Dex */;
+			target = 7FD3007324C2BB2A0011CF5C /* Contax */;
 			targetProxy = 7FD3008624C2BB2E0011CF5C /* PBXContainerItemProxy */;
 		};
 		7FD3009224C2BB2E0011CF5C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7FD3007324C2BB2A0011CF5C /* Dex */;
+			target = 7FD3007324C2BB2A0011CF5C /* Contax */;
 			targetProxy = 7FD3009124C2BB2E0011CF5C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -652,7 +652,7 @@
 		};
 		7FD3009A24C2BB2E0011CF5C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 636E7072080ADB599F6A3B7B /* Pods-Dex.debug.xcconfig */;
+			baseConfigurationReference = EB2C1E45916D20EE26448693 /* Pods-Contax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -675,7 +675,7 @@
 		};
 		7FD3009B24C2BB2E0011CF5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C17A33027EF6D126174F98AA /* Pods-Dex.release.xcconfig */;
+			baseConfigurationReference = 643613C799C124D7CDA1F7B5 /* Pods-Contax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -698,7 +698,7 @@
 		};
 		7FD3009D24C2BB2E0011CF5C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBAE12D618A5CFCEC26C7F52 /* Pods-DexTests.debug.xcconfig */;
+			baseConfigurationReference = 28A52B0FF95F6C86A817CE8A /* Pods-ContaxTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -715,13 +715,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dex.app/Dex";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Contax.app/Contax";
 			};
 			name = Debug;
 		};
 		7FD3009E24C2BB2E0011CF5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D6D1DA0DD05D4D5B98ED5AE /* Pods-DexTests.release.xcconfig */;
+			baseConfigurationReference = 6CF177A96CA1D29BED25DB42 /* Pods-ContaxTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -738,13 +738,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dex.app/Dex";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Contax.app/Contax";
 			};
 			name = Release;
 		};
 		7FD300A024C2BB2E0011CF5C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2042F372B181E97A0D00DE7 /* Pods-Dex-DexUITests.debug.xcconfig */;
+			baseConfigurationReference = EA09339B4A797582A26556FC /* Pods-Contax-ContaxUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -765,7 +765,7 @@
 		};
 		7FD300A124C2BB2E0011CF5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76B320B164663EB39C989D0C /* Pods-Dex-DexUITests.release.xcconfig */;
+			baseConfigurationReference = 6C4563CACBBD0D0B4791DFE0 /* Pods-Contax-ContaxUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -787,7 +787,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7FD3006F24C2BB2A0011CF5C /* Build configuration list for PBXProject "Dex" */ = {
+		7FD3006F24C2BB2A0011CF5C /* Build configuration list for PBXProject "Contax" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7FD3009724C2BB2E0011CF5C /* Debug */,
@@ -796,7 +796,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7FD3009924C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "Dex" */ = {
+		7FD3009924C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "Contax" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7FD3009A24C2BB2E0011CF5C /* Debug */,
@@ -805,7 +805,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7FD3009C24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "DexTests" */ = {
+		7FD3009C24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "ContaxTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7FD3009D24C2BB2E0011CF5C /* Debug */,
@@ -814,7 +814,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7FD3009F24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "DexUITests" */ = {
+		7FD3009F24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "ContaxUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7FD300A024C2BB2E0011CF5C /* Debug */,

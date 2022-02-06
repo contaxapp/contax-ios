@@ -1,19 +1,19 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'Dex' do
+target 'Contax' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Dex
+  # Pods for Contax
   pod 'RealmSwift', '=10.12.0'
 
-  target 'DexTests' do
+  target 'ContaxTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'DexUITests' do
+  target 'ContaxUITests' do
     # Pods for testing
   end
 
