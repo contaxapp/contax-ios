@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Dex
+//  Contax
 //
 //  Created by Arpit Bansal on 7/18/20.
 //

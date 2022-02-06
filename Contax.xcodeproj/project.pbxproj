@@ -11,12 +11,12 @@
 		1F9B3805735430F76BD99FA6 /* Pods_Contax_ContaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */; };
 		7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
-		7FD3007824C2BB2A0011CF5C /* DexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* DexApp.swift */; };
+		7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */; };
 		7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007924C2BB2A0011CF5C /* ContactListView.swift */; };
 		7FD3007C24C2BB2E0011CF5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FD3007B24C2BB2E0011CF5C /* Assets.xcassets */; };
 		7FD3007F24C2BB2E0011CF5C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FD3007E24C2BB2E0011CF5C /* Preview Assets.xcassets */; };
-		7FD3008A24C2BB2E0011CF5C /* DexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3008924C2BB2E0011CF5C /* DexTests.swift */; };
-		7FD3009524C2BB2E0011CF5C /* DexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3009424C2BB2E0011CF5C /* DexUITests.swift */; };
+		7FD3008A24C2BB2E0011CF5C /* ContaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3008924C2BB2E0011CF5C /* ContaxTests.swift */; };
+		7FD3009524C2BB2E0011CF5C /* ContaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3009424C2BB2E0011CF5C /* ContaxUITests.swift */; };
 		7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */; };
 		7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */; };
 		7FF8F95224CD4B0B002B7D64 /* ContactWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */; };
@@ -55,18 +55,18 @@
 		76B320B164663EB39C989D0C /* Pods-Dex-DexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex-DexUITests.release.xcconfig"; path = "Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStructures.swift; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
-		7F980C7824C360120075CAC9 /* Dex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Dex.entitlements; path = Contax/Dex.entitlements; sourceTree = "<group>"; };
+		7F980C7824C360120075CAC9 /* Contax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Contax.entitlements; path = Contax/Contax.entitlements; sourceTree = "<group>"; };
 		7FD3007424C2BB2A0011CF5C /* Contax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contax.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7FD3007724C2BB2A0011CF5C /* DexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexApp.swift; sourceTree = "<group>"; };
+		7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaxApp.swift; sourceTree = "<group>"; };
 		7FD3007924C2BB2A0011CF5C /* ContactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		7FD3007B24C2BB2E0011CF5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Contax/Assets.xcassets; sourceTree = "<group>"; };
 		7FD3007E24C2BB2E0011CF5C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7FD3008024C2BB2E0011CF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Contax/Info.plist; sourceTree = "<group>"; };
 		7FD3008524C2BB2E0011CF5C /* ContaxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContaxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7FD3008924C2BB2E0011CF5C /* DexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexTests.swift; sourceTree = "<group>"; };
+		7FD3008924C2BB2E0011CF5C /* ContaxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaxTests.swift; sourceTree = "<group>"; };
 		7FD3008B24C2BB2E0011CF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FD3009024C2BB2E0011CF5C /* ContaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7FD3009424C2BB2E0011CF5C /* DexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DexUITests.swift; sourceTree = "<group>"; };
+		7FD3009424C2BB2E0011CF5C /* ContaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaxUITests.swift; sourceTree = "<group>"; };
 		7FD3009624C2BB2E0011CF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleContactView.swift; sourceTree = "<group>"; };
@@ -164,8 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				7FD3007624C2BB2A0011CF5C /* Contax */,
-				7FD3008824C2BB2E0011CF5C /* DexTests */,
-				7FD3009324C2BB2E0011CF5C /* DexUITests */,
+				7FD3008824C2BB2E0011CF5C /* ContaxTests */,
+				7FD3009324C2BB2E0011CF5C /* ContaxUITests */,
 				7FD3007524C2BB2A0011CF5C /* Products */,
 				5E4D44EB6CC97845F07AA07A /* Pods */,
 				9BB6E01263A66D9E24D18FD7 /* Frameworks */,
@@ -188,7 +188,7 @@
 				7FD300A324C2D6BC0011CF5C /* View */,
 				7FD300A224C2D6B60011CF5C /* Model */,
 				7FD3007B24C2BB2E0011CF5C /* Assets.xcassets */,
-				7F980C7824C360120075CAC9 /* Dex.entitlements */,
+				7F980C7824C360120075CAC9 /* Contax.entitlements */,
 				7FD3008024C2BB2E0011CF5C /* Info.plist */,
 				7FD3007D24C2BB2E0011CF5C /* Preview Content */,
 			);
@@ -204,23 +204,21 @@
 			path = "Contax/Preview Content";
 			sourceTree = "<group>";
 		};
-		7FD3008824C2BB2E0011CF5C /* DexTests */ = {
+		7FD3008824C2BB2E0011CF5C /* ContaxTests */ = {
 			isa = PBXGroup;
 			children = (
-				7FD3008924C2BB2E0011CF5C /* DexTests.swift */,
+				7FD3008924C2BB2E0011CF5C /* ContaxTests.swift */,
 				7FD3008B24C2BB2E0011CF5C /* Info.plist */,
 			);
-			name = DexTests;
 			path = ContaxTests;
 			sourceTree = "<group>";
 		};
-		7FD3009324C2BB2E0011CF5C /* DexUITests */ = {
+		7FD3009324C2BB2E0011CF5C /* ContaxUITests */ = {
 			isa = PBXGroup;
 			children = (
-				7FD3009424C2BB2E0011CF5C /* DexUITests.swift */,
+				7FD3009424C2BB2E0011CF5C /* ContaxUITests.swift */,
 				7FD3009624C2BB2E0011CF5C /* Info.plist */,
 			);
-			name = DexUITests;
 			path = ContaxUITests;
 			sourceTree = "<group>";
 		};
@@ -238,7 +236,7 @@
 		7FD300A324C2D6BC0011CF5C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7FD3007724C2BB2A0011CF5C /* DexApp.swift */,
+				7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */,
 				7F9B1DD724C46EFA00A490A6 /* Screens */,
 				7F9B1DD624C46EE600A490A6 /* Components */,
 			);
@@ -501,7 +499,7 @@
 				7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */,
 				7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */,
 				7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */,
-				7FD3007824C2BB2A0011CF5C /* DexApp.swift in Sources */,
+				7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */,
 				7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */,
 				7FF8F95224CD4B0B002B7D64 /* ContactWidget.swift in Sources */,
 			);
@@ -511,7 +509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FD3008A24C2BB2E0011CF5C /* DexTests.swift in Sources */,
+				7FD3008A24C2BB2E0011CF5C /* ContaxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FD3009524C2BB2E0011CF5C /* DexUITests.swift in Sources */,
+				7FD3009524C2BB2E0011CF5C /* ContaxUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,16 +660,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Dex/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Contax/Preview Content\"";
 				DEVELOPMENT_TEAM = RPRR899TJ6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Dex/Info.plist;
+				INFOPLIST_FILE = Contax/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.dexapp.Dex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arpitbansal.contax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -685,16 +683,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Dex/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Contax/Preview Content\"";
 				DEVELOPMENT_TEAM = RPRR899TJ6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Dex/Info.plist;
+				INFOPLIST_FILE = Contax/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.dexapp.Dex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arpitbansal.contax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -709,14 +707,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPRR899TJ6;
-				INFOPLIST_FILE = DexTests/Info.plist;
+				INFOPLIST_FILE = ContaxTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.dexapp.DexTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arpitbansal.ContaxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -732,14 +730,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPRR899TJ6;
-				INFOPLIST_FILE = DexTests/Info.plist;
+				INFOPLIST_FILE = ContaxTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.dexapp.DexTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arpitbansal.ContaxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -754,17 +752,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPRR899TJ6;
-				INFOPLIST_FILE = DexUITests/Info.plist;
+				INFOPLIST_FILE = ContaxUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.dexapp.DexUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arpitbansal.ContaxUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Dex;
+				TEST_TARGET_NAME = Contax;
 			};
 			name = Debug;
 		};
@@ -775,17 +773,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPRR899TJ6;
-				INFOPLIST_FILE = DexUITests/Info.plist;
+				INFOPLIST_FILE = ContaxUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.dexapp.DexUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arpitbansal.ContaxUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Dex;
+				TEST_TARGET_NAME = Contax;
 			};
 			name = Release;
 		};

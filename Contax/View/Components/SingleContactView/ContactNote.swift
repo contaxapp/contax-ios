@@ -1,6 +1,6 @@
 //
 //  ContactNote.swift
-//  Dex
+//  Contax
 //
 //  Created by Arpit Bansal on 7/26/20.
 //
