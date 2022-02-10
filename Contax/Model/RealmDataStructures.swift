@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class DBContact: Object, Identifiable {
-//    @objc dynamic var id: String = ""
+    @objc dynamic var hashId: String = ""
     @objc dynamic var givenName: String = ""
     @objc dynamic var middleName: String = ""
     @objc dynamic var familyName: String = ""
@@ -22,9 +22,11 @@ class DBContact: Object, Identifiable {
     
     var emailAddresses = List<DBContactEmail>()
     var phoneNumbers = List<DBContactPhoneNumber>()
+    var postalAddresses = List<DBContactAddress>()
     
-    convenience init(givenName: String, middleName: String, familyName: String, nickname: String, jobTitle: String, department: String, organization: String, image: String?, thumbnailImage: String?) {
+    convenience init(hashId: String, givenName: String, middleName: String, familyName: String, nickname: String, jobTitle: String, department: String, organization: String, image: String?, thumbnailImage: String?) {
         self.init()
+        self.hashId = hashId
         self.givenName = givenName
         self.middleName = middleName
         self.familyName = familyName
@@ -63,3 +65,30 @@ class DBContactPhoneNumber: Object {
     }
 }
 
+class DBContactAddress: Object {
+    @objc dynamic var label: String = ""
+    @objc dynamic var street: String = ""
+    @objc dynamic var city: String = ""
+    @objc dynamic var state: String = ""
+    @objc dynamic var postalCode: String = ""
+    @objc dynamic var country: String = ""
+    @objc dynamic var countryCode: String = ""
+    
+    var parentContact = LinkingObjects(fromType: DBContact.self, property: "postalAddresses")
+    
+    convenience init(label: String, street: String, city: String, state: String, postalCode: String, country: String, countryCode: String) {
+        self.init()
+        self.label = label
+        self.street = street
+        self.city = city
+        self.state = state
+        self.postalCode = postalCode
+        self.country = country
+        self.countryCode = countryCode
+    }
+}
+
+struct StoredContacts {
+    var hashes: [String]
+    var contacts: [Contact]
+}

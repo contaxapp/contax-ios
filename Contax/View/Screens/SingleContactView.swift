@@ -72,7 +72,7 @@ struct SingleContactView: View {
             }
         }
         .onAppear(perform: {
-            print(self.contact)
+            print(self.contact!)
         })
     }
 }

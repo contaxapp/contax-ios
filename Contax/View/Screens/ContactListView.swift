@@ -16,7 +16,7 @@ struct ContactListView: View {
     @State private var authorizationChange: Bool = false {
         didSet {
             DispatchQueue.main.async {
-                Contacts.fetchUpdatedContacts(from: .all)
+                Contacts.fetchContactsForDisplay(firstTime: true)
             }
         }
     }
@@ -25,7 +25,7 @@ struct ContactListView: View {
         
     }
     
-    func returnInitials(_ contact: DBContact) -> String {
+    func returnInitials(_ contact: Contact) -> String {
         let givenName = contact.givenName
         let familyName = contact.familyName
         
@@ -45,14 +45,18 @@ struct ContactListView: View {
                 Color.init("Base Color").edgesIgnoringSafeArea(.all)
                 VStack {
                     List {
-                        if Contacts.contacts != nil {
-                            ForEach(Contacts.contacts!, id:\.self) { contact in
-                                Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
-//                                NavigationLink(destination: SingleContactView(convertContactType(contactToConvert: contact))) {
-//                                    Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
-//                                }
-                            }.listRowBackground(Color.init("Base Color"))
-                        }
+                        ForEach(Contacts.contacts) { contact in
+                                NavigationLink(destination: SingleContactView(contact)) {
+                                    HStack(alignment: .center) {
+                                        ZStack {
+                                            Circle()
+                                                .fill(Color.gray)
+                                            Text(returnInitials(contact))
+                                        }
+                                        Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
+                                    }
+                                }
+                        }.listRowBackground(Color.init("Base Color"))
                     }.listStyle(PlainListStyle())
                 }
             }
@@ -83,12 +87,14 @@ struct ContactListView: View {
                     print("Denied. Error")
                 case 3:
                     print("Authorized. Fetching contacts.")
-                    Contacts.fetchUpdatedContacts(from: .all)
-//                    Contacts.fetchStoredContacts()
+                    Contacts.fetchContactsForDisplay(firstTime: false)
                 default:
                     print("Will never reach here")
             }
         })
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            Contacts.fetchContactsForDisplay(firstTime: false)
+        }
     }
 }
 

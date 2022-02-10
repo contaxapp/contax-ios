@@ -13,11 +13,7 @@ enum FetchContactsStyle {
     case containers
 }
 
-struct Contact: Identifiable, Encodable, Equatable {
-    static func == (lhs: Contact, rhs: Contact) -> Bool {
-        <#code#>
-    }
-    
+struct Contact: Identifiable {
     var id: String?
     var givenName: String
     var middleName: String
@@ -30,7 +26,7 @@ struct Contact: Identifiable, Encodable, Equatable {
     var phoneNumbers: [ContactPhoneNumber] = []
     var image: String?
     var thumbnailImage: String?
-//    var postalAddresses = [ContactAddress]()
+    var postalAddresses: [ContactAddress] = []
 }
 
 struct ContactAddress: Encodable {
@@ -65,6 +61,7 @@ struct HashableContact: Encodable {
     var phoneNumbers: [ContactPhoneNumber] = []
     var image: String?
     var thumbnailImage: String?
+    var postalAddresses: [ContactAddress] = []
     
     init(_ contact: Contact) {
         self.givenName = contact.givenName
@@ -76,6 +73,9 @@ struct HashableContact: Encodable {
         self.organization = contact.organization
         self.emailAddresses = contact.emailAddresses
         self.phoneNumbers = contact.phoneNumbers
+        self.image = contact.image
+        self.thumbnailImage = contact.thumbnailImage
+        self.postalAddresses = contact.postalAddresses
     }
 }
 
@@ -85,5 +85,10 @@ struct HashedContact {
 
 struct ContactGroup: Identifiable {
     var id: Character
+    var contacts: [Contact]
+}
+
+struct UpdatedContacts {
+    var hashes: [String]
     var contacts: [Contact]
 }
