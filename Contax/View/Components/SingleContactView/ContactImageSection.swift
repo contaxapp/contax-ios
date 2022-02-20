@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ContactImageSection: View {
-    var contact: Contact?
-    var viewSize: GeometryProxy?
+    
+    private var contact: Contact?
+    private var viewSize: GeometryProxy?
     
     init(_ contactSelected: Contact?, viewSize: GeometryProxy?) {
         self.contact = contactSelected
         self.viewSize = viewSize
     }
     
-    var contactImage: UIImage? {
+    private var contactImage: UIImage? {
         if (contact?.image != nil) {
             return UIImage(data: Data(base64Encoded: contact!.image!)!)!
         }
@@ -24,36 +25,35 @@ struct ContactImageSection: View {
         return nil
     }
     
-//    var imageAspectRatio: Float {
-//        return contactImage?.size.height / contactImage?.size.width
-//    }
-    
     var body: some View {
-        ZStack(alignment: .bottom) {
-            Color.init(.black)
-            if contactImage != nil {
-                Image(uiImage: contactImage!)
-                    .resizable()
-                    .aspectRatio(1, contentMode: .fill)
-                    .overlay(
-                        LinearGradient(
-                            gradient: Gradient(colors: [
-                                Color.init(.clear),
-                                Color.init(.black).opacity(0.7)
-                            ]
-                        ),
-                        startPoint: UnitPoint(x: (contactImage?.size.width)! / 2, y: 0),
-                        endPoint: UnitPoint(x: (contactImage?.size.width)! / 2, y: 1))
-                    )
+        ZStack {
+            Circle()
+                .fill(LinearGradient(gradient: Gradient(colors: [Color.init("Gradient Color Light"), Color.init("Gradient Color Dark")]), startPoint: .leading, endPoint: .trailing))
+                .frame(width: self.viewSize!.size.width * 1.2, height: self.viewSize!.size.height)
+                .position(x: self.viewSize!.size.width/2, y: self.viewSize!.size.height * 0.015)
+                .shadow(color: Color.init(Color.RGBColorSpace.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 8.0, x: 2.0, y: 2.0)
+            VStack {
+                if contactImage != nil {
+                    Image(uiImage: contactImage!)
+                        .resizable()
+                        .aspectRatio(1, contentMode: .fill)
+                        .clipShape(Circle())
+                        .frame(width: self.viewSize!.size.width * 0.5, height: self.viewSize!.size.width * 0.5, alignment: .center)
+                        .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                } else {
+                    ZStack {
+                        Circle()
+                            .fill(Color.gray)
+                            .frame(width: self.viewSize!.size.width * 0.5, height: self.viewSize!.size.width * 0.5, alignment: .center)
+                            .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                        Text(HelperFunctions.returnInitials(contact!))
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 60))
+                    }
+                }
             }
-//            Color.init(red: 0, green: 0, blue: 0, opacity: 0.2)
-            Text("\(contact!.givenName) \(contact!.familyName)")
-                .foregroundColor(.white)
-                .font(.title)
-                .fontWeight(.semibold)
-                .padding(.bottom, 20)
         }
-        .frame(width: self.viewSize?.size.width, height: (self.viewSize?.size.height)! * 0.35, alignment: .bottom)
+        .frame(width: self.viewSize?.size.width, height: (self.viewSize?.size.height)! * 0.3)
     }
 }
 

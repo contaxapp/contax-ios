@@ -11,16 +11,16 @@ struct ContactWidget: View {
     
     var actionIcon: String
     var actionText: String
+    var actionFn: () -> Void
     
-    init(icon: String, text: String) {
+    init(icon: String, text: String, buttonFn: @escaping () -> Void) {
         actionIcon = icon
         actionText = text
+        actionFn = buttonFn
     }
     
     var body: some View {
-        Button(action: {
-            print("Button pressed")
-        }) {
+        Button(action: actionFn) {
             VStack(alignment: .center) {
                 Image(systemName: actionIcon)
                     .font(.system(size: 25.0))
@@ -43,6 +43,8 @@ struct ContactWidget: View {
 
 struct ContactWidget_Previews: PreviewProvider {
     static var previews: some View {
-        ContactWidget(icon: "phone.fill", text: "Call")
+        ContactWidget(icon: "phone.fill", text: "Call") {
+            print("Hello")
+        }
     }
 }

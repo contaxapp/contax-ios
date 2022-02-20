@@ -12,6 +12,7 @@ struct SingleContactView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let contact : Contact?
+    
     var ContactsModelRef = ContactsModel()
     
     init(_ contactSelected: Contact?) {
@@ -26,7 +27,7 @@ struct SingleContactView: View {
                     ZStack {
                         ContactImageSection(contact, viewSize: fullView)
                         VStack {
-                            HStack {
+                            HStack(alignment: .center) {
                                 Button(action: {
                                     self.presentationMode.wrappedValue.dismiss()
                                 }, label: {
@@ -55,14 +56,23 @@ struct SingleContactView: View {
                                         )
                                 })
                             }
-                            .padding(.all, 20)
+                            .padding(.top, 20)
+                            .padding(.leading, 20)
+                            .padding(.trailing, 20)
                             
                             Spacer()
                         }
                     }
                     
                     VStack(spacing: 20) {
-                        ContactWidgetGrid()
+                        Text("\(contact!.givenName) \(contact!.familyName)")
+                            .foregroundColor(.white)
+                            .font(.system(size: 40))
+                            .fontWeight(.semibold)
+                            .padding(.bottom, 10)
+                            .padding(.top, 10)
+                        
+                        ContactWidgetGrid(contact)
                         ContactNotesSection()
                     }
                     .padding(.all, 20)
@@ -72,7 +82,7 @@ struct SingleContactView: View {
             }
         }
         .onAppear(perform: {
-            print(self.contact!)
+            print(self.contact?.givenName)
         })
     }
 }

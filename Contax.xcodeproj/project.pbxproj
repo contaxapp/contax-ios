@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18B94CBA1AAE6C9BCAC4BB1B /* Pods_Contax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D693E37EC973C0D9DF2EB974 /* Pods_Contax.framework */; };
 		1F9B3805735430F76BD99FA6 /* Pods_Contax_ContaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */; };
+		7F09930527C287B40027ABE0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09930427C287B40027ABE0 /* HelperFunctions.swift */; };
 		7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
 		7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */; };
@@ -53,6 +54,7 @@
 		6C4563CACBBD0D0B4791DFE0 /* Pods-Contax-ContaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.release.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6CF177A96CA1D29BED25DB42 /* Pods-ContaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.release.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.release.xcconfig"; sourceTree = "<group>"; };
 		76B320B164663EB39C989D0C /* Pods-Dex-DexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex-DexUITests.release.xcconfig"; path = "Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7F09930427C287B40027ABE0 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperFunctions.swift; path = HelperFunctions/HelperFunctions.swift; sourceTree = "<group>"; };
 		7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStructures.swift; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
 		7F980C7824C360120075CAC9 /* Contax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Contax.entitlements; path = Contax/Contax.entitlements; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		7FD300A224C2D6B60011CF5C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F09930427C287B40027ABE0 /* HelperFunctions.swift */,
 				7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */,
 				7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */,
 				7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */,
@@ -494,6 +497,7 @@
 				7FF8F95D24CD8F17002B7D64 /* ContactImageSection.swift in Sources */,
 				7FF8F95F24CD91B8002B7D64 /* ContactNotesSection.swift in Sources */,
 				7FF8F95824CD5C1C002B7D64 /* ContactNote.swift in Sources */,
+				7F09930527C287B40027ABE0 /* HelperFunctions.swift in Sources */,
 				7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */,
 				7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */,
 				7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */,

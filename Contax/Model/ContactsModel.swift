@@ -140,8 +140,8 @@ class ContactsModel: ObservableObject {
         return storedContacts
     }
     
-    func checkForUpdatedContacts() -> [Contact] {
-        var updatedContacts: [Contact] = []
+    func checkForUpdatedContacts() -> UpdatedContacts {
+        var updatedContactsFetched: UpdatedContacts = UpdatedContacts(newContacts: [], updatedContacts: [])
         
         // Fetch stored contact hashes
         addressBookContacts = fetchContactsFromAddressBook(from: .all)
@@ -152,29 +152,32 @@ class ContactsModel: ObservableObject {
             
             if (!storedContacts.hashes.contains(contactHash)) {
                 if (!storedContacts.contacts.contains(where: { storedContact in return storedContact.id == addressBookContact.id })) {
-                    print("New Contact Added in Address Book")
-                    updatedContacts.append(addressBookContact)
+//                    print("New Contact Added in Address Book")
+                    updatedContactsFetched.newContacts.append(addressBookContact)
                 } else {
-                    print("Existing Contact Updated in Address Book", addressBookContacts.contacts[index].id, addressBookContact.givenName)
-//                    updatedContacts.append(addressBookContact)
+//                    print("Existing Contact Updated in Address Book", addressBookContacts.contacts[index].id, addressBookContact.givenName)
+                    updatedContactsFetched.updatedContacts.append(addressBookContact)
                 }
             }
         }
         
-        return updatedContacts
+        return updatedContactsFetched
     }
     
     func fetchContactsForDisplay() {
         let updatedContacts = checkForUpdatedContacts()
         
-        print("ContactsUpdated", updatedContacts)
-        print("AddressBookContacts", addressBookContacts.contacts.count)
-        print("StoredContacts", storedContacts.contacts.count)
+//        print("ContactsUpdated", updatedContacts)
+//        print("AddressBookContacts", addressBookContacts.contacts.count)
+//        print("StoredContacts", storedContacts.contacts.count)
         
-        if updatedContacts.count > 0 {
-            for contact in updatedContacts {
+        if updatedContacts.updatedContacts.count > 0 || updatedContacts.newContacts.count > 0 {
+            for contact in updatedContacts.newContacts {
                 storeContact(contact)
             }
+            
+            // Add handling of updated Contacts
+            
             contacts = addressBookContacts.contacts
             print("Showing updated contacts\n------------")
         } else {
@@ -186,21 +189,22 @@ class ContactsModel: ObservableObject {
 
 //MARK: - Utility Functions
 extension ContactsModel {
+    
     func convertCNContactToContact(_ contact: CNContact) -> Contact {
         
         var emailAddresses: [ContactEmail] = []
         for email in contact.emailAddresses {
-            emailAddresses.append(ContactEmail(label: email.label!, email: email.value as String))
+            emailAddresses.append(ContactEmail(label: email.label ?? "Work", email: email.value as String))
         }
         
         var phoneNumbers: [ContactPhoneNumber] = []
         for phoneNumber in contact.phoneNumbers {
-            phoneNumbers.append(ContactPhoneNumber(label: phoneNumber.label!, phone: phoneNumber.value.stringValue))
+            phoneNumbers.append(ContactPhoneNumber(label: phoneNumber.label ?? "Mobile", phone: phoneNumber.value.stringValue))
         }
         
         var postalAddresses: [ContactAddress] = []
         for postalAddress in contact.postalAddresses {
-            postalAddresses.append(ContactAddress(label: postalAddress.label!, street: postalAddress.value.street, city: postalAddress.value.city, state: postalAddress.value.state, postalCode: postalAddress.value.postalCode, country: postalAddress.value.country, countryCode: postalAddress.value.isoCountryCode))
+            postalAddresses.append(ContactAddress(label: postalAddress.label ?? "Home", street: postalAddress.value.street, city: postalAddress.value.city, state: postalAddress.value.state, postalCode: postalAddress.value.postalCode, country: postalAddress.value.country, countryCode: postalAddress.value.isoCountryCode))
         }
         
         return Contact(
@@ -309,5 +313,9 @@ extension ContactsModel {
         try! realm.write {
             realm.add(contactForStorage)
         }
+    }
+    
+    func updateContact(_ contact: Contact) {
+        
     }
 }

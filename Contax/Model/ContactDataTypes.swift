@@ -8,13 +8,6 @@
 import Foundation
 import Contacts
 
-let ContactsModelRef = ContactsModel()
-
-enum FetchContactsStyle {
-    case all
-    case containers
-}
-
 struct Contact: Identifiable {
     
     var id: String
@@ -103,6 +96,13 @@ struct HashedContact {
     var hashedContactId: String
 }
 
+// Others
+
+enum FetchContactsStyle {
+    case all
+    case containers
+}
+
 struct ContactGroup: Identifiable {
     var id: Character
     var contacts: [Contact]
@@ -111,4 +111,9 @@ struct ContactGroup: Identifiable {
 struct AddressBookContacts {
     var hashes: [String]
     var contacts: [Contact]
+}
+
+struct UpdatedContacts {
+    var newContacts: [Contact]
+    var updatedContacts: [Contact]
 }

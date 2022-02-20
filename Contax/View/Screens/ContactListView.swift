@@ -16,19 +16,13 @@ struct ContactListView: View {
     @State private var authorizationChange: Bool = false {
         didSet {
             DispatchQueue.main.async {
+                print("Auth updated. Fetching contacts.")
                 Contacts.fetchContactsForDisplay()
             }
         }
     }
     
     @State private var showContactErrorAlert = false
-    
-    func returnInitials(_ contact: Contact) -> String {
-        let givenName = contact.givenName
-        let familyName = contact.familyName
-        
-        return String(givenName[givenName.startIndex]) + String(familyName[familyName.startIndex])
-    }
     
     @ViewBuilder
     var body: some View {
@@ -41,11 +35,22 @@ struct ContactListView: View {
                             ForEach(Contacts.contacts) { contact in
                                 NavigationLink(destination: SingleContactView(contact)) {
                                     ZStack {
-                                        Circle()
-                                            .fill(Color.gray)
-                                            .frame(width: 50, height: 50, alignment: .center)
-//                                        Text(returnInitials(contact))
+                                        if contact.image != nil {
+                                            Image(uiImage: UIImage(data: Data(base64Encoded: contact.image!)!)!)
+                                                .resizable()
+                                                .aspectRatio(1, contentMode: .fill)
+                                                .clipShape(Circle())
+                                                .frame(width: 50, height: 50, alignment: .center)
+                                                .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                                        } else {
+                                            Circle()
+                                                .fill(Color.gray)
+                                                .frame(width: 50, height: 50, alignment: .center)
+                                                .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                                            Text(HelperFunctions.returnInitials(contact))
+                                        }
                                     }.frame(width: geometry.size.width * 0.1)
+                                    
                                     Text("\(contact.givenName) \(contact.familyName)")
                                         .foregroundColor(.white)
                                         .frame(width: geometry.size.width * 0.9, alignment: .leading)
