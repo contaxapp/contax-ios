@@ -8,13 +8,16 @@
 import Foundation
 import Contacts
 
+let ContactsModelRef = ContactsModel()
+
 enum FetchContactsStyle {
     case all
     case containers
 }
 
 struct Contact: Identifiable {
-    var id: String?
+    
+    var id: String
     var givenName: String
     var middleName: String
     var familyName: String
@@ -27,6 +30,22 @@ struct Contact: Identifiable {
     var image: String?
     var thumbnailImage: String?
     var postalAddresses: [ContactAddress] = []
+    
+    init(id: String, givenName: String, middleName: String, familyName: String, nickname: String, jobTitle: String, department: String, organization: String, image: String?, thumbnailImage: String?, emailAddresses: [ContactEmail], phoneNumbers: [ContactPhoneNumber], postalAddresses: [ContactAddress]) {
+        self.id = id
+        self.givenName = givenName
+        self.middleName = middleName
+        self.familyName = familyName
+        self.nickname = nickname
+        self.jobTitle = jobTitle
+        self.department = department
+        self.organization = organization
+        self.image = image
+        self.thumbnailImage = thumbnailImage
+        self.emailAddresses = emailAddresses
+        self.phoneNumbers = phoneNumbers
+        self.postalAddresses = postalAddresses
+    }
 }
 
 struct ContactAddress: Encodable {
@@ -50,6 +69,7 @@ struct ContactPhoneNumber: Encodable {
 }
 
 struct HashableContact: Encodable {
+    
     var givenName: String
     var middleName: String
     var familyName: String
@@ -88,7 +108,7 @@ struct ContactGroup: Identifiable {
     var contacts: [Contact]
 }
 
-struct UpdatedContacts {
+struct AddressBookContacts {
     var hashes: [String]
     var contacts: [Contact]
 }

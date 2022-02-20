@@ -16,14 +16,12 @@ struct ContactListView: View {
     @State private var authorizationChange: Bool = false {
         didSet {
             DispatchQueue.main.async {
-                Contacts.fetchContactsForDisplay(firstTime: true)
+                Contacts.fetchContactsForDisplay()
             }
         }
     }
     
-    init() {
-        
-    }
+    @State private var showContactErrorAlert = false
     
     func returnInitials(_ contact: Contact) -> String {
         let givenName = contact.givenName
@@ -32,32 +30,35 @@ struct ContactListView: View {
         return String(givenName[givenName.startIndex]) + String(familyName[familyName.startIndex])
     }
     
-    func convertContactType(contactToConvert: DBContact?) -> Contact? {
-        let convertedContact = Contact(givenName: contactToConvert!.givenName, middleName: contactToConvert!.middleName, familyName: contactToConvert!.familyName, nickname: contactToConvert!.nickname, jobTitle: contactToConvert!.jobTitle, department: contactToConvert!.department, organization: contactToConvert!.organization)
-        
-        return convertedContact
-    }
-    
     @ViewBuilder
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.init("Base Color").edgesIgnoringSafeArea(.all)
-                VStack {
-                    List {
-                        ForEach(Contacts.contacts) { contact in
+            GeometryReader { geometry in
+                ZStack {
+                    Color.init("Base Color").edgesIgnoringSafeArea(.all)
+                    VStack {
+                        List {
+                            ForEach(Contacts.contacts) { contact in
                                 NavigationLink(destination: SingleContactView(contact)) {
-                                    HStack(alignment: .center) {
-                                        ZStack {
-                                            Circle()
-                                                .fill(Color.gray)
-                                            Text(returnInitials(contact))
-                                        }
-                                        Text("\(contact.givenName) \(contact.familyName)").foregroundColor(.white)
-                                    }
+                                    ZStack {
+                                        Circle()
+                                            .fill(Color.gray)
+                                            .frame(width: 50, height: 50, alignment: .center)
+//                                        Text(returnInitials(contact))
+                                    }.frame(width: geometry.size.width * 0.1)
+                                    Text("\(contact.givenName) \(contact.familyName)")
+                                        .foregroundColor(.white)
+                                        .frame(width: geometry.size.width * 0.9, alignment: .leading)
+                                        .padding(.leading, 10)
                                 }
-                        }.listRowBackground(Color.init("Base Color"))
-                    }.listStyle(PlainListStyle())
+                            }
+                            .listRowBackground(Color.init("Base Color"))
+                            .padding(.top, 5)
+                            .padding(.bottom, 5)
+                        }
+                        .listStyle(PlainListStyle())
+                        .padding(.top, 20)
+                    }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -70,15 +71,29 @@ struct ContactListView: View {
                 })
             )
         }
+        .alert(isPresented: $showContactErrorAlert, content: {
+            Alert(
+                title: Text("Contact Access"),
+                message: Text("Access was denied. Kindly restart the app"),
+                dismissButton: .default(
+                    Text("Ok")
+                )
+            )
+        })
         .onAppear(perform: {
-            
             let authorizationStatus = Contacts.checkAuthorizationStatus()
             
             switch(authorizationStatus) {
                 case 0: // notDetermined - User has not chosen yet
                     print("Not set. Requesting authorization and updating state.")
-                    Contacts.requestAuthorization()
-                    authorizationChange.toggle()
+                    Task {
+                        let auth = await Contacts.requestAuthorization()
+                        if (auth) {
+                            authorizationChange.toggle()
+                        } else {
+                            showContactErrorAlert.toggle()
+                        }
+                    }
                 case 1: // restricted - User cannot changet the setting due to parental restriction
                     // Show error
                     print("Restricted. Error")
@@ -87,13 +102,13 @@ struct ContactListView: View {
                     print("Denied. Error")
                 case 3:
                     print("Authorized. Fetching contacts.")
-                    Contacts.fetchContactsForDisplay(firstTime: false)
+                    Contacts.fetchContactsForDisplay()
                 default:
                     print("Will never reach here")
             }
         })
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-            Contacts.fetchContactsForDisplay(firstTime: false)
+            Contacts.fetchContactsForDisplay()
         }
     }
 }

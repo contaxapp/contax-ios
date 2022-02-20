@@ -14,27 +14,31 @@ import CryptoKit
 class ContactsModel: ObservableObject {
     
     let realm = try! Realm()
-    
+
     @Published var contacts: [Contact] = []
     
-    var updatedContacts: UpdatedContacts = UpdatedContacts(hashes: [], contacts: [])
+    var addressBookContacts: AddressBookContacts = AddressBookContacts(hashes: [], contacts: [])
     var storedContacts: StoredContacts = StoredContacts(hashes: [], contacts: [])
     
     let contactStore = CNContactStore()
     
-    func requestAuthorization() {
-        contactStore.requestAccess(for: CNEntityType.contacts) { (access, error) in
-            print(access)
+    func requestAuthorization() async -> Bool {
+        var auth: Bool = false
+        do {
+            auth = try await contactStore.requestAccess(for: CNEntityType.contacts)
+        } catch {
+            print("Error")
         }
+        return auth
     }
     
     func checkAuthorizationStatus() -> Int {
         return CNContactStore.authorizationStatus(for: .contacts).rawValue
     }
     
-    func fetchContactsFromContactBook(from: FetchContactsStyle, sortedBy: CNContactSortOrder = .givenName) -> UpdatedContacts {
+    func fetchContactsFromAddressBook(from: FetchContactsStyle, sortedBy: CNContactSortOrder = .givenName) -> AddressBookContacts {
         
-        var updatedContacts: UpdatedContacts = UpdatedContacts(hashes: [], contacts: [])
+        var addressBookContacts: AddressBookContacts = AddressBookContacts(hashes: [], contacts: [])
         
         let keysToFetch = [
             // Identification
@@ -97,8 +101,8 @@ class ContactsModel: ObservableObject {
                     let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch)
                     for contact in containerResults {
                         let hashedContact = hashContact(convertCNContactToContact(contact))
-                        updatedContacts.hashes.append(hashedContact!.hashedContactId)
-                        updatedContacts.contacts.append(convertCNContactToContact(contact))
+                        addressBookContacts.hashes.append(hashedContact!.hashedContactId)
+                        addressBookContacts.contacts.append(convertCNContactToContact(contact))
                     }
                 } catch {
                     print("Error fetching results for container")
@@ -114,15 +118,15 @@ class ContactsModel: ObservableObject {
             do {
                 try contactStore.enumerateContacts(with: fetchRequest, usingBlock: { (contact, stop) in
                     let hashedContact = self.hashContact(self.convertCNContactToContact(contact))
-                    updatedContacts.hashes.append(hashedContact!.hashedContactId)
-                    updatedContacts.contacts.append(self.convertCNContactToContact(contact))
+                    addressBookContacts.hashes.append(hashedContact!.hashedContactId)
+                    addressBookContacts.contacts.append(self.convertCNContactToContact(contact))
                 })
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
         }
         
-        return updatedContacts
+        return addressBookContacts
     }
     
     func fetchStoredContacts() -> StoredContacts {
@@ -132,26 +136,50 @@ class ContactsModel: ObservableObject {
             storedContacts.hashes.append(contact.hashId)
             storedContacts.contacts.append(convertDBContactToContact(contact))
         }
+        
         return storedContacts
     }
     
-    func checkForUpdatedContacts() -> Bool {
+    func checkForUpdatedContacts() -> [Contact] {
+        var updatedContacts: [Contact] = []
+        
         // Fetch stored contact hashes
-        updatedContacts = fetchContactsFromContactBook(from: .all)
+        addressBookContacts = fetchContactsFromAddressBook(from: .all)
         storedContacts = fetchStoredContacts()
         
-        return updatedContacts.hashes != storedContacts.hashes
+        for (index, contactHash) in addressBookContacts.hashes.enumerated() {
+            let addressBookContact = addressBookContacts.contacts[index]
+            
+            if (!storedContacts.hashes.contains(contactHash)) {
+                if (!storedContacts.contacts.contains(where: { storedContact in return storedContact.id == addressBookContact.id })) {
+                    print("New Contact Added in Address Book")
+                    updatedContacts.append(addressBookContact)
+                } else {
+                    print("Existing Contact Updated in Address Book", addressBookContacts.contacts[index].id, addressBookContact.givenName)
+//                    updatedContacts.append(addressBookContact)
+                }
+            }
+        }
+        
+        return updatedContacts
     }
     
-    func fetchContactsForDisplay(firstTime: Bool) {
-        let contactsUpdated = checkForUpdatedContacts()
-        if contactsUpdated {
-            for contact in updatedContacts.contacts {
+    func fetchContactsForDisplay() {
+        let updatedContacts = checkForUpdatedContacts()
+        
+        print("ContactsUpdated", updatedContacts)
+        print("AddressBookContacts", addressBookContacts.contacts.count)
+        print("StoredContacts", storedContacts.contacts.count)
+        
+        if updatedContacts.count > 0 {
+            for contact in updatedContacts {
                 storeContact(contact)
             }
-            contacts = updatedContacts.contacts
+            contacts = addressBookContacts.contacts
+            print("Showing updated contacts\n------------")
         } else {
             contacts = storedContacts.contacts
+            print("Showing stored contacts\n------------")
         }
     }
 }
@@ -159,6 +187,22 @@ class ContactsModel: ObservableObject {
 //MARK: - Utility Functions
 extension ContactsModel {
     func convertCNContactToContact(_ contact: CNContact) -> Contact {
+        
+        var emailAddresses: [ContactEmail] = []
+        for email in contact.emailAddresses {
+            emailAddresses.append(ContactEmail(label: email.label!, email: email.value as String))
+        }
+        
+        var phoneNumbers: [ContactPhoneNumber] = []
+        for phoneNumber in contact.phoneNumbers {
+            phoneNumbers.append(ContactPhoneNumber(label: phoneNumber.label!, phone: phoneNumber.value.stringValue))
+        }
+        
+        var postalAddresses: [ContactAddress] = []
+        for postalAddress in contact.postalAddresses {
+            postalAddresses.append(ContactAddress(label: postalAddress.label!, street: postalAddress.value.street, city: postalAddress.value.city, state: postalAddress.value.state, postalCode: postalAddress.value.postalCode, country: postalAddress.value.country, countryCode: postalAddress.value.isoCountryCode))
+        }
+        
         return Contact(
             id: contact.identifier,
             givenName: contact.givenName,
@@ -169,13 +213,31 @@ extension ContactsModel {
             department: contact.departmentName,
             organization: contact.organizationName,
             image: contact.imageData?.base64EncodedString(),
-            thumbnailImage: contact.thumbnailImageData?.base64EncodedString()
+            thumbnailImage: contact.thumbnailImageData?.base64EncodedString(),
+            emailAddresses: emailAddresses,
+            phoneNumbers: phoneNumbers,
+            postalAddresses: postalAddresses
         )
     }
     
     func convertDBContactToContact(_ contact: DBContact) -> Contact {
+        var emailAddresses: [ContactEmail] = []
+        for email in contact.emailAddresses {
+            emailAddresses.append(ContactEmail(label: email.label, email: email.email))
+        }
+        
+        var phoneNumbers: [ContactPhoneNumber] = []
+        for phoneNumber in contact.phoneNumbers {
+            phoneNumbers.append(ContactPhoneNumber(label: phoneNumber.label, phone: phoneNumber.phone))
+        }
+        
+        var postalAddresses: [ContactAddress] = []
+        for postalAddress in contact.postalAddresses {
+            postalAddresses.append(ContactAddress(label: postalAddress.label, street: postalAddress.street, city: postalAddress.city, state: postalAddress.state, postalCode: postalAddress.postalCode, country: postalAddress.country, countryCode: postalAddress.countryCode))
+        }
+        
         return Contact(
-            id: contact.hashId,
+            id: contact.identifier,
             givenName: contact.givenName,
             middleName: contact.middleName,
             familyName: contact.familyName,
@@ -184,7 +246,10 @@ extension ContactsModel {
             department: contact.department,
             organization: contact.organization,
             image: contact.image,
-            thumbnailImage: contact.thumbnailImage
+            thumbnailImage: contact.thumbnailImage,
+            emailAddresses: emailAddresses,
+            phoneNumbers: phoneNumbers,
+            postalAddresses: postalAddresses
         )
     }
     
@@ -210,6 +275,7 @@ extension ContactsModel {
         
         let contactForStorage = DBContact(
             hashId: contactHash!.hashedContactId,
+            identifier: contact.id,
             givenName: contact.givenName,
             middleName: contact.middleName,
             familyName: contact.familyName,

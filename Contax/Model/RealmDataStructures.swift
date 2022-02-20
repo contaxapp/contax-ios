@@ -10,6 +10,7 @@ import RealmSwift
 
 class DBContact: Object, Identifiable {
     @objc dynamic var hashId: String = ""
+    @objc dynamic var identifier: String = ""
     @objc dynamic var givenName: String = ""
     @objc dynamic var middleName: String = ""
     @objc dynamic var familyName: String = ""
@@ -24,9 +25,10 @@ class DBContact: Object, Identifiable {
     var phoneNumbers = List<DBContactPhoneNumber>()
     var postalAddresses = List<DBContactAddress>()
     
-    convenience init(hashId: String, givenName: String, middleName: String, familyName: String, nickname: String, jobTitle: String, department: String, organization: String, image: String?, thumbnailImage: String?) {
+    convenience init(hashId: String, identifier: String, givenName: String, middleName: String, familyName: String, nickname: String, jobTitle: String, department: String, organization: String, image: String?, thumbnailImage: String?) {
         self.init()
         self.hashId = hashId
+        self.identifier = identifier
         self.givenName = givenName
         self.middleName = middleName
         self.familyName = familyName
