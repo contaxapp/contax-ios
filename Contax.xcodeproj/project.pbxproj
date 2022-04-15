@@ -19,6 +19,7 @@
 		7FD3008A24C2BB2E0011CF5C /* ContaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3008924C2BB2E0011CF5C /* ContaxTests.swift */; };
 		7FD3009524C2BB2E0011CF5C /* ContaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3009424C2BB2E0011CF5C /* ContaxUITests.swift */; };
 		7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */; };
+		7FE8996E2809CC8500C3582A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8996D2809CC8500C3582A /* SearchBar.swift */; };
 		7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */; };
 		7FF8F95224CD4B0B002B7D64 /* ContactWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */; };
 		7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */; };
@@ -71,6 +72,7 @@
 		7FD3009424C2BB2E0011CF5C /* ContaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaxUITests.swift; sourceTree = "<group>"; };
 		7FD3009624C2BB2E0011CF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
+		7FE8996D2809CC8500C3582A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleContactView.swift; sourceTree = "<group>"; };
 		7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactWidget.swift; sourceTree = "<group>"; };
 		7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactWidgetGrid.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				7F2EAEA6252F5A8400A488BD /* SingleContactView */,
+				7FE8996D2809CC8500C3582A /* SearchBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE8996E2809CC8500C3582A /* SearchBar.swift in Sources */,
 				7FF8F95D24CD8F17002B7D64 /* ContactImageSection.swift in Sources */,
 				7FF8F95F24CD91B8002B7D64 /* ContactNotesSection.swift in Sources */,
 				7FF8F95824CD5C1C002B7D64 /* ContactNote.swift in Sources */,
