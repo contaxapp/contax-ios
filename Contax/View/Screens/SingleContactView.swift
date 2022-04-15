@@ -75,14 +75,16 @@ struct SingleContactView: View {
                         ContactWidgetGrid(contact)
                         ContactNotesSection()
                     }
-                    .padding(.all, 20)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 20)
                     .foregroundColor(.white)
                 }
                 .navigationBarHidden(true)
             }
         }
         .onAppear(perform: {
-            print(self.contact?.givenName)
+            
         })
     }
 }

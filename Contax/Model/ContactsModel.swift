@@ -165,20 +165,26 @@ class ContactsModel: ObservableObject {
     }
     
     func fetchContactsForDisplay() {
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
         let updatedContacts = checkForUpdatedContacts()
         
-//        print("ContactsUpdated", updatedContacts)
-//        print("AddressBookContacts", addressBookContacts.contacts.count)
-//        print("StoredContacts", storedContacts.contacts.count)
-        
-        if updatedContacts.updatedContacts.count > 0 || updatedContacts.newContacts.count > 0 {
+        if (updatedContacts.newContacts.count > 0) {
             for contact in updatedContacts.newContacts {
                 storeContact(contact)
             }
             
+            contacts = addressBookContacts.contacts
+            print("Showing new contacts\n------------")
+        } else if (updatedContacts.updatedContacts.count > 0) {
             // Add handling of updated Contacts
             
-            contacts = addressBookContacts.contacts
+            for (_, contact) in updatedContacts.updatedContacts.enumerated() {
+                let contactToUpdate = storedContacts.contacts.first(where: {$0.id == contact.id})
+                print(contactToUpdate!.familyName)
+            }
+            
+            contacts = storedContacts.contacts
             print("Showing updated contacts\n------------")
         } else {
             contacts = storedContacts.contacts

@@ -11,9 +11,11 @@ import MessageUI
 
 struct HelperFunctions {
     static func makeCall(_ contact: Contact) {
-        let phone = "tel://\(contact.phoneNumbers[0].phone)"
-        guard let url = URL(string: phone) else { return }
-        UIApplication.shared.open(url)
+        if contact.phoneNumbers.count > 0 {
+            let phone = "tel://\(contact.phoneNumbers[0].phone)"
+            guard let url = URL(string: phone) else { return }
+            UIApplication.shared.open(url)
+        }
     }
     
     static func returnInitials(_ contact: Contact) -> String {
