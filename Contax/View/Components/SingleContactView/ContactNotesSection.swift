@@ -22,9 +22,3 @@ struct ContactNotesSection: View {
         }
     }
 }
-
-struct ContactNotesSection_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactNotesSection()
-    }
-}

@@ -35,9 +35,3 @@ struct ContactWidgetGrid: View {
         }
     }
 }
-
-struct ContactWidgetGrid_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactWidgetGrid(nil)
-    }
-}

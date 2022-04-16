@@ -28,7 +28,7 @@ struct ContactWidget: View {
                     .padding(.all, 20)
                     .background(
                         Circle()
-                            .foregroundColor(Color.init("Lighter Gray"))
+                            .foregroundColor(Color.init("Darker Gray"))
                     )
                 
                 Text(actionText)
@@ -37,14 +37,6 @@ struct ContactWidget: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
             }
-        }
-    }
-}
-
-struct ContactWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactWidget(icon: "phone.fill", text: "Call") {
-            print("Hello")
         }
     }
 }

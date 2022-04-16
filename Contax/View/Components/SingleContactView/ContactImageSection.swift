@@ -27,11 +27,11 @@ struct ContactImageSection: View {
     
     var body: some View {
         ZStack {
-            Circle()
+            /*Circle()
                 .fill(LinearGradient(gradient: Gradient(colors: [Color.init("Gradient Color Light"), Color.init("Gradient Color Dark")]), startPoint: .leading, endPoint: .trailing))
                 .frame(width: self.viewSize!.size.width * 1.2, height: self.viewSize!.size.height)
                 .position(x: self.viewSize!.size.width/2, y: -20)
-                .shadow(color: Color.init(Color.RGBColorSpace.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 8.0, x: 2.0, y: 2.0)
+                .shadow(color: Color.init(Color.RGBColorSpace.sRGB, red: 0, green: 0, blue: 0, opacity: 0.2), radius: 8.0, x: 2.0, y: 2.0)*/
             VStack {
                 if contactImage != nil {
                     Image(uiImage: contactImage!)
@@ -53,12 +53,6 @@ struct ContactImageSection: View {
                 }
             }
         }
-        .frame(width: self.viewSize?.size.width, height: (self.viewSize?.size.height)! * 0.3)
-    }
-}
-
-struct ContactImageSection_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactImageSection(nil, viewSize: nil)
+        .frame(width: self.viewSize?.size.width, height: (self.viewSize?.size.height)! * 0.2)
     }
 }

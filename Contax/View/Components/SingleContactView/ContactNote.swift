@@ -21,14 +21,8 @@ struct ContactNote: View {
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 10)
-        .background(Color.init("Lighter Gray"))
+        .background(Color.init("Darker Gray"))
         .cornerRadius(10)
         .padding(.bottom, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct ContactNote_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactNote(noteDate: "June 1, 2020", noteBody: "Arpit and I chatted and I learned more about his new hackathon project...")
     }
 }
