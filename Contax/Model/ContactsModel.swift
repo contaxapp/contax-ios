@@ -165,7 +165,7 @@ class ContactsModel: ObservableObject {
     }
     
     func fetchContactsForDisplay() {
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         let updatedContacts = checkForUpdatedContacts()
         
@@ -181,7 +181,7 @@ class ContactsModel: ObservableObject {
             
             for (_, contact) in updatedContacts.updatedContacts.enumerated() {
                 let contactToUpdate = storedContacts.contacts.first(where: {$0.id == contact.id})
-                print(contactToUpdate!.familyName)
+                updateContact(contact)
             }
             
             contacts = storedContacts.contacts

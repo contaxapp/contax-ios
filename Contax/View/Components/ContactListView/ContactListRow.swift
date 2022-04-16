@@ -41,5 +41,8 @@ struct ContactListRow: View {
                 .frame(width: self.viewSize!.size.width * 0.9, alignment: .leading)
                 .padding(.leading, 10)
         }
+        .listRowBackground(Color.init("Base Color"))
+        .padding(.top, 5)
+        .padding(.bottom, 5)
     }
 }

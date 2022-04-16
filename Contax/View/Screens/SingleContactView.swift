@@ -83,9 +83,3 @@ struct SingleContactView: View {
         })
     }
 }
-
-struct SingleContactView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingleContactView(.none)
-    }
-}

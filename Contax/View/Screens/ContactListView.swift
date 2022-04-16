@@ -46,6 +46,15 @@ struct ContactListView: View {
         }()
         return sectionDictionary
     }
+    
+    func filterContactsBySearch(SectionedDictionary: Dictionary<String, [Contact]>, key: String) -> [Contact] {
+        return SectionedDictionary[key]!.filter({ (contact) -> Bool in
+            self.searchTerm.isEmpty ? true : (
+                contact.givenName.lowercased().contains(self.searchTerm.lowercased()) ||
+                contact.familyName.lowercased().contains(self.searchTerm.lowercased())
+            )
+        })
+    }
 
     @ViewBuilder
     var body: some View {
@@ -69,7 +78,7 @@ struct ContactListView: View {
                                             ContactGroupSquare(group)
                                         }
                                     }.padding(.horizontal)
-                                }.frame(height: 100)
+                                }
                                 
                                 // Recently Viewed Contacts
                                 SectionHeader(heading: "Recently Viewed", paddingTop: 10)
@@ -79,17 +88,17 @@ struct ContactListView: View {
                                             ContactCircle(contact)
                                         }
                                     }.padding(.horizontal)
-                                }.frame(height: 100)
+                                }
                                 
                                 // Recently Added Contacts
-                                SectionHeader(heading: "Recently Added")
+                                SectionHeader(heading: "Recently Added", paddingTop: 10)
                                 ScrollView (.horizontal, showsIndicators: false) {
                                     HStack {
                                         ForEach(recentlyAddedContacts, id: \.self) { contact in
                                             ContactCircle(contact)
                                         }
                                     }.padding(.horizontal)
-                                }.frame(height: 100)
+                                }
                                 
                                 Divider()
                                     .background(Color.init("Lighter Gray"))
@@ -106,13 +115,11 @@ struct ContactListView: View {
                         SectionHeader(heading: "Contacts")
                         if #available(iOS 15.0, *) {
                             List {
-                                let sectionedContactList = getSectionedContactDictionary(Contacts.contacts)
-                                ForEach(sectionedContactList.keys.sorted(), id:\.self) { key in
-                                    if let contacts = sectionedContactList[key]!.filter({ (contact) -> Bool in
-                                        self.searchTerm.isEmpty ? true : (contact.givenName.lowercased().contains(self.searchTerm.lowercased()) || contact.familyName.lowercased().contains(self.searchTerm.lowercased()))
-                                    }), !contacts.isEmpty
-                                        
-                                    {
+                                let sectionedContactDictionary = getSectionedContactDictionary(Contacts.contacts)
+                                ForEach(sectionedContactDictionary.keys.sorted(), id:\.self) { key in
+                                    
+                                    // Get contacts for particular section (key)
+                                    if let contacts = filterContactsBySearch(SectionedDictionary: sectionedContactDictionary, key: key), !contacts.isEmpty {
                                         Section(header: Text("\(key)")
                                             .foregroundColor(Color.white)
                                             .fontWeight(.bold)
@@ -120,9 +127,6 @@ struct ContactListView: View {
                                             ForEach(contacts) { contact in
                                                 ContactListRow(contact, viewSize: geometry)
                                             }
-                                            .listRowBackground(Color.init("Base Color"))
-                                            .padding(.top, 5)
-                                            .padding(.bottom, 5)
                                         }
                                     }
                                 }
@@ -140,7 +144,9 @@ struct ContactListView: View {
                             }))
                             .refreshable {
                                 withAnimation {
-                                    showDetails.toggle()
+                                    if (showDetails == false) {
+                                        showDetails.toggle()
+                                    }
                                 }
                             }
                         } else {
@@ -198,11 +204,5 @@ struct ContactListView: View {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             Contacts.fetchContactsForDisplay()
         }
-    }
-}
-
-struct ContactListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactListView()
     }
 }
