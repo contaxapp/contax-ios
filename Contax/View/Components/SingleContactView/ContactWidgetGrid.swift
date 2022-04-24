@@ -21,12 +21,12 @@ struct ContactWidgetGrid: View {
                 if contact != nil { HelperFunctions.makeCall(contact!) }
             }).frame(maxWidth: .infinity)
             
-            ContactWidget(icon: "envelope.fill", text: "Email", buttonFn: {
-                print("Emailing")
+            ContactWidget(icon: "message.fill", text: "Text", buttonFn: {
+                print("Texting")
             }).frame(maxWidth: .infinity)
             
-            ContactWidget(icon: "number", text: "Organize", buttonFn: {
-                print("Organizing")
+            ContactWidget(icon: "envelope.fill", text: "Email", buttonFn: {
+                print("Emailing")
             }).frame(maxWidth: .infinity)
             
             ContactWidget(icon: "hand.raised.fill", text: "Introduce", buttonFn: {

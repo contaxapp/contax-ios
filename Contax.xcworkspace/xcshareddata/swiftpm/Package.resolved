@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "unsplashswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ArnavMotwani/UnsplashSwiftUI.git",
+      "state" : {
+        "revision" : "4def21ffe2e6754bf6bc6e2e6660495782cefd1c",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}

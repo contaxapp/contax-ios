@@ -24,7 +24,7 @@ struct ContactListView: View {
     }
     
     @State private var showContactErrorAlert = false
-    @State var searchTerm = ""
+    @State private var searchTerm = ""
     @State private var showDetails = true
     
     var groups = ["Hackathon", "Boston", "Dex"]
@@ -55,8 +55,7 @@ struct ContactListView: View {
             )
         })
     }
-
-    @ViewBuilder
+    
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -72,6 +71,7 @@ struct ContactListView: View {
                             VStack (alignment: .leading) {
                                 // Groups
                                 SectionHeader(heading: "Groups")
+                                    .padding(.horizontal)
                                 ScrollView (.horizontal, showsIndicators: false) {
                                     HStack {
                                         ForEach(groups, id: \.self) { group in
@@ -82,6 +82,7 @@ struct ContactListView: View {
                                 
                                 // Recently Viewed Contacts
                                 SectionHeader(heading: "Recently Viewed", paddingTop: 10)
+                                    .padding(.horizontal)
                                 ScrollView (.horizontal, showsIndicators: false) {
                                     HStack {
                                         ForEach(recentlyViewedContacts, id: \.self) { contact in
@@ -92,6 +93,7 @@ struct ContactListView: View {
                                 
                                 // Recently Added Contacts
                                 SectionHeader(heading: "Recently Added", paddingTop: 10)
+                                    .padding(.horizontal)
                                 ScrollView (.horizontal, showsIndicators: false) {
                                     HStack {
                                         ForEach(recentlyAddedContacts, id: \.self) { contact in
@@ -108,11 +110,10 @@ struct ContactListView: View {
                             .transition(.move(edge: .top))
                             .zIndex(0)
                         }
-            
-                        
                         
                         // All Contacts
                         SectionHeader(heading: "Contacts")
+                            .padding(.horizontal)
                         if #available(iOS 15.0, *) {
                             List {
                                 let sectionedContactDictionary = getSectionedContactDictionary(Contacts.contacts)

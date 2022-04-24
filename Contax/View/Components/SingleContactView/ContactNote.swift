@@ -14,7 +14,6 @@ struct ContactNote: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(noteDate)
-                .font(.title3)
                 .fontWeight(.semibold)
                 .padding(.bottom, 10)
             Text(noteBody)

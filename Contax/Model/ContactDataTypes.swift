@@ -23,22 +23,7 @@ struct Contact: Identifiable {
     var image: String?
     var thumbnailImage: String?
     var postalAddresses: [ContactAddress] = []
-    
-    init(id: String, givenName: String, middleName: String, familyName: String, nickname: String, jobTitle: String, department: String, organization: String, image: String?, thumbnailImage: String?, emailAddresses: [ContactEmail], phoneNumbers: [ContactPhoneNumber], postalAddresses: [ContactAddress]) {
-        self.id = id
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-        self.nickname = nickname
-        self.jobTitle = jobTitle
-        self.department = department
-        self.organization = organization
-        self.image = image
-        self.thumbnailImage = thumbnailImage
-        self.emailAddresses = emailAddresses
-        self.phoneNumbers = phoneNumbers
-        self.postalAddresses = postalAddresses
-    }
+    var note: String
 }
 
 struct ContactAddress: Encodable {
@@ -75,6 +60,7 @@ struct HashableContact: Encodable {
     var image: String?
     var thumbnailImage: String?
     var postalAddresses: [ContactAddress] = []
+    var note: String
     
     init(_ contact: Contact) {
         self.givenName = contact.givenName
@@ -89,6 +75,7 @@ struct HashableContact: Encodable {
         self.image = contact.image
         self.thumbnailImage = contact.thumbnailImage
         self.postalAddresses = contact.postalAddresses
+        self.note = contact.note
     }
 }
 
@@ -109,6 +96,11 @@ struct ContactGroup: Identifiable {
 }
 
 struct AddressBookContacts {
+    var hashes: [String]
+    var contacts: [Contact]
+}
+
+struct StoredContacts {
     var hashes: [String]
     var contacts: [Contact]
 }

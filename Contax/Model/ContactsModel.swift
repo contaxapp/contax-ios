@@ -72,7 +72,7 @@ class ContactsModel: ObservableObject {
             CNContactDatesKey,
 
             // Notes
-//            CNContactNoteKey,
+            CNContactNoteKey,
 
             // Image Data
             CNContactImageDataAvailableKey,
@@ -222,11 +222,12 @@ extension ContactsModel {
             jobTitle: contact.jobTitle,
             department: contact.departmentName,
             organization: contact.organizationName,
-            image: contact.imageData?.base64EncodedString(),
-            thumbnailImage: contact.thumbnailImageData?.base64EncodedString(),
             emailAddresses: emailAddresses,
             phoneNumbers: phoneNumbers,
-            postalAddresses: postalAddresses
+            image: contact.imageData?.base64EncodedString(),
+            thumbnailImage: contact.thumbnailImageData?.base64EncodedString(),
+            postalAddresses: postalAddresses,
+            note: contact.note
         )
     }
     
@@ -255,11 +256,12 @@ extension ContactsModel {
             jobTitle: contact.jobTitle,
             department: contact.department,
             organization: contact.organization,
-            image: contact.image,
-            thumbnailImage: contact.thumbnailImage,
             emailAddresses: emailAddresses,
             phoneNumbers: phoneNumbers,
-            postalAddresses: postalAddresses
+            image: contact.image,
+            thumbnailImage: contact.thumbnailImage,
+            postalAddresses: postalAddresses,
+            note: contact.note
         )
     }
     
@@ -294,7 +296,8 @@ extension ContactsModel {
             department: contact.department,
             organization: contact.organization,
             image: contact.image,
-            thumbnailImage: contact.thumbnailImage
+            thumbnailImage: contact.thumbnailImage,
+            note: contact.note
         )
         
         let emailAddressList = List<DBContactEmail>()

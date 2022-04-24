@@ -4,7 +4,5 @@
 <dict>
 	<key>com.apple.developer.contacts.notes</key>
 	<true/>
-	<key>com.apple.developer.game-center</key>
-	<true/>
 </dict>
 </plist>

@@ -22,7 +22,6 @@ struct SectionHeader: View {
     var body: some View {
         Text(heading)
             .foregroundColor(Color.init("Lighter Gray"))
-            .padding(.horizontal)
             .padding(.top, paddingTop)
             .padding(.bottom, paddingBottom)
     }

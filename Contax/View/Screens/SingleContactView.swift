@@ -19,47 +19,47 @@ struct SingleContactView: View {
         self.contact = contactSelected
     }
     
+    struct phoneCode: Decodable {
+        var name: String
+        var dial_code: String
+        var code: String
+    }
+    
+    func load<T: Decodable>(_ filename: String) -> T {
+        let data: Data
+
+        guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+            else {
+                fatalError("Couldn't find \(filename) in main bundle.")
+        }
+
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+            fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+        }
+
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode(T.self, from: data)
+        } catch {
+            fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+        }
+    }
+    
     var body: some View {
         ZStack {
             Color.init("Base Color").edgesIgnoringSafeArea(.all)
             GeometryReader { fullView in
-                ScrollView {
+                ScrollView (.vertical, showsIndicators: false) {
                     VStack {
-                        HStack(alignment: .center) {
-                            Button(action: {
-                                self.presentationMode.wrappedValue.dismiss()
-                            }, label: {
-                                Image(systemName: "arrow.left")
-                                    .font(.system(size: 20.0))
-                                    .foregroundColor(.white)
-                                    .background(
-                                        Circle()
-                                            .frame(width: 30, height: 30)
-                                            .foregroundColor(Color.init("Darker Gray"))
-                                    )
-                            })
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                print("Show more")
-                            }, label: {
-                                Image(systemName: "ellipsis")
-                                    .font(.system(size: 20.0))
-                                    .foregroundColor(.white)
-                                    .background(
-                                        Circle()
-                                            .frame(width: 30, height: 30)
-                                            .foregroundColor(Color.init("Darker Gray"))
-                                    )
-                            })
-                        }
-                        .padding(.vertical)
-                        .padding(.horizontal)
+                        ContactNavbar(backAction: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        })
                         
                         ContactImageSection(contact, viewSize: fullView)
                         
-                        VStack(spacing: 20) {
+                        VStack (alignment: .center) {
                             Text("\(contact!.givenName) \(contact!.familyName)")
                                 .foregroundColor(.white)
                                 .font(.system(size: 40))
@@ -67,12 +67,55 @@ struct SingleContactView: View {
                                 .padding(.bottom, 10)
                             
                             ContactWidgetGrid(contact)
-                            ContactNotesSection()
                         }
-                        .padding(.leading, 20)
-                        .padding(.trailing, 20)
-                        .padding(.bottom, 20)
+                        
+                        VStack(alignment: .leading, spacing: 20) {
+                            Divider()
+                                .padding(.horizontal)
+                                .background(Color.init("Darker Gray"))
+                            
+                            // var phoneCodes: [phoneCode] = self.load("PhoneCodes.json")
+                            
+                            // Phone Numbers
+                            SectionHeader(heading: "Phone")
+                            ForEach(contact!.phoneNumbers, id: \.phone) { phoneNumber in
+                                HStack {
+                                    Text(phoneNumber.label.replacingOccurrences(of: "_$!<", with: "").replacingOccurrences(of: ">!$_", with: ""))
+                                        .fontWeight(.medium)
+                                        .frame(minWidth: 50, alignment: .leading)
+                                    Text(phoneNumber.phone)
+                                        .fontWeight(.regular)
+                                        
+                                }
+                                .padding(.bottom, 10)
+//                                Text(phoneCodes.first(where: { phoneCode in
+//                                    phoneCode.dial_code == "+91"
+//                                })!.name)
+                            }
+                            
+                            // Email Addresses
+                            SectionHeader(heading: "Email")
+                            ForEach(contact!.emailAddresses, id: \.email) { emailAddress in
+                                HStack {
+                                    Text(emailAddress.label.replacingOccurrences(of: "_$!<", with: "").replacingOccurrences(of: ">!$_", with: ""))
+                                        .fontWeight(.medium)
+                                        .frame(minWidth: 50, alignment: .leading)
+                                    Text(emailAddress.email)
+                                        .fontWeight(.regular)
+                                        
+                                }
+                                .padding(.bottom, 10)
+                            }
+                            
+                            SectionHeader(heading: "Notes")
+                            if (!contact!.note.isEmpty) {
+                                ContactNote(noteDate: "April 16, 2022", noteBody: contact!.note)
+                            } else {
+                                Text("No notes found")
+                            }
+                        }
                         .foregroundColor(.white)
+                        .padding(.horizontal)
                     }
                 }
                 .navigationBarHidden(true)

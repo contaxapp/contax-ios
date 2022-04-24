@@ -11,10 +11,7 @@ struct ContactNotesSection: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Notes")
-                .font(.title2)
-                .fontWeight(.bold)
-                .padding(.bottom, 10)
+            SectionHeader(heading: "Notes")
 
             ContactNote(noteDate: "June 1, 2020", noteBody: "Arpit and I chatted and I learned more about his new hackathon project...")
             
