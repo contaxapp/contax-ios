@@ -11,18 +11,8 @@ import Contacts
 import UnsplashSwiftUI
 
 struct DashboardView: View {
-    @ObservedObject var Contacts = ContactsModel()
     
-    @State private var authorizationChange: Bool = false {
-        didSet {
-            DispatchQueue.main.async {
-                print("Auth updated. Fetching contacts.")
-                Contacts.fetchContactsForDisplay()
-            }
-        }
-    }
-    
-    @State private var showContactErrorAlert = false
+    @EnvironmentObject var Contacts: ContactsModel
     
     var groups = ["Hackathon", "Boston", "Dex"]
     var recentlyViewedContacts = ["Maria", "Waseem", "Nate", "Vivek"]
@@ -95,45 +85,6 @@ struct DashboardView: View {
                     Image(systemName: "plus").font(.title).foregroundColor(.white)
                 })
             )
-        }
-        .alert(isPresented: $showContactErrorAlert, content: {
-            Alert(
-                title: Text("Contact Access"),
-                message: Text("Access was denied. Kindly restart the app"),
-                dismissButton: .default(
-                    Text("Ok")
-                )
-            )
-        })
-        .onAppear(perform: {
-            let authorizationStatus = Contacts.checkAuthorizationStatus()
-            
-            switch(authorizationStatus) {
-                case 0: // notDetermined - User has not chosen yet
-                    print("Not set. Requesting authorization and updating state.")
-                    Task {
-                        let auth = await Contacts.requestAuthorization()
-                        if (auth) {
-                            authorizationChange.toggle()
-                        } else {
-                            showContactErrorAlert.toggle()
-                        }
-                    }
-                case 1: // restricted - User cannot changet the setting due to parental restriction
-                    // Show error
-                    print("Restricted. Error")
-                case 2: // denied - User has denied access to contacts
-                    // Show error
-                    print("Denied. Error")
-                case 3:
-                    print("Authorized. Fetching contacts.")
-                    Contacts.fetchContactsForDisplay()
-                default:
-                    print("Will never reach here")
-            }
-        })
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-            Contacts.fetchContactsForDisplay()
         }
     }
 }

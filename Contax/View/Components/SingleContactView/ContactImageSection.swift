@@ -9,13 +9,8 @@ import SwiftUI
 
 struct ContactImageSection: View {
     
-    private var contact: Contact?
-    private var viewSize: GeometryProxy?
-    
-    init(_ contactSelected: Contact?, viewSize: GeometryProxy?) {
-        self.contact = contactSelected
-        self.viewSize = viewSize
-    }
+    let contact: Contact?
+    let viewSize: GeometryProxy?
     
     private var contactImage: UIImage? {
         if (contact?.image != nil) {

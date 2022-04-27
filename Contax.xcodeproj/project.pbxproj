@@ -19,6 +19,8 @@
 		7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */; };
 		7F3902042815A8DC00F4C2D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3902032815A8DC00F4C2D1 /* DashboardView.swift */; };
 		7F6F6DD6281962CB00D34EFA /* DashboardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */; };
+		7F6F6DD8281981A900D34EFA /* SearchDetailPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD7281981A900D34EFA /* SearchDetailPane.swift */; };
+		7F6F6DDA2819898C00D34EFA /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
 		7FCB0870280ABFDF00C8412E /* ContactNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */; };
 		7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */; };
@@ -77,6 +79,8 @@
 		7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStructures.swift; sourceTree = "<group>"; };
 		7F3902032815A8DC00F4C2D1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWidget.swift; sourceTree = "<group>"; };
+		7F6F6DD7281981A900D34EFA /* SearchDetailPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailPane.swift; sourceTree = "<group>"; };
+		7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusModifier.swift; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
 		7F980C7824C360120075CAC9 /* Contax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Contax.entitlements; path = Contax/Contax.entitlements; sourceTree = "<group>"; };
 		7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNavbar.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				7F00B924280A6E990082BDA1 /* ContactListRow.swift */,
+				7F6F6DD7281981A900D34EFA /* SearchDetailPane.swift */,
 			);
 			path = ContactListView;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			children = (
 				7FE8996D2809CC8500C3582A /* SearchBar.swift */,
 				7F00B922280A6D030082BDA1 /* SectionHeader.swift */,
+				7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -179,12 +185,12 @@
 		7F2EAEA6252F5A8400A488BD /* SingleContactView */ = {
 			isa = PBXGroup;
 			children = (
-				7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */,
-				7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */,
-				7FF8F95724CD5C1C002B7D64 /* ContactNote.swift */,
+				7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */,
 				7FF8F95C24CD8F17002B7D64 /* ContactImageSection.swift */,
 				7FF8F95E24CD91B8002B7D64 /* ContactNotesSection.swift */,
-				7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */,
+				7FF8F95724CD5C1C002B7D64 /* ContactNote.swift */,
+				7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */,
+				7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */,
 			);
 			path = SingleContactView;
 			sourceTree = "<group>";
@@ -577,7 +583,9 @@
 				7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */,
 				7F00B929280A70CF0082BDA1 /* ContactCircle.swift in Sources */,
 				7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */,
+				7F6F6DDA2819898C00D34EFA /* CornerRadiusModifier.swift in Sources */,
 				7F00B923280A6D030082BDA1 /* SectionHeader.swift in Sources */,
+				7F6F6DD8281981A900D34EFA /* SearchDetailPane.swift in Sources */,
 				7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */,
 				7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */,
 				7F00B927280A6FE90082BDA1 /* ContactGroupSquare.swift in Sources */,

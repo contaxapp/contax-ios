@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SearchBar : View {
     
-    var placeholder: Text
+    let placeholder: Text
     @Binding var searchTerm : String
+    @Binding var showSearchDetailPane: Bool
     @State var showCancelButton = false
 
     var body: some View {
@@ -22,6 +23,7 @@ struct SearchBar : View {
                     if searchTerm.isEmpty { placeholder.foregroundColor(Color.init("Lighter Gray")) }
                     TextField("", text: self.$searchTerm, onEditingChanged: { isEditing in
                         self.showCancelButton = true
+                        showSearchDetailPane = isEditing
                     }, onCommit: {
                         
                     })

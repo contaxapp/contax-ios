@@ -9,27 +9,23 @@ import SwiftUI
 
 struct ContactWidgetGrid: View {
     
-    private var contact: Contact?
-    
-    init(_ contactSelected: Contact?) {
-        contact = contactSelected
-    }
+    let contact: Contact?
     
     var body: some View {
         HStack(alignment: .center) {
-            ContactWidget(icon: "phone.fill", text: "Call", buttonFn: {
+            ContactWidget(actionIcon: "phone.fill", actionText: "Call", actionFn: {
                 if contact != nil { HelperFunctions.makeCall(contact!) }
             }).frame(maxWidth: .infinity)
             
-            ContactWidget(icon: "message.fill", text: "Text", buttonFn: {
+            ContactWidget(actionIcon: "message.fill", actionText: "Text", actionFn: {
                 print("Texting")
             }).frame(maxWidth: .infinity)
             
-            ContactWidget(icon: "envelope.fill", text: "Email", buttonFn: {
+            ContactWidget(actionIcon: "envelope.fill", actionText: "Email", actionFn: {
                 print("Emailing")
             }).frame(maxWidth: .infinity)
             
-            ContactWidget(icon: "hand.raised.fill", text: "Introduce", buttonFn: {
+            ContactWidget(actionIcon: "hand.raised.fill", actionText: "Introduce", actionFn: {
                 print("Introducing")
             }).frame(maxWidth: .infinity)
         }

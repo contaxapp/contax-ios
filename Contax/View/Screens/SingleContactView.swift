@@ -13,12 +13,6 @@ struct SingleContactView: View {
     
     let contact : Contact?
     
-    var ContactsModelRef = ContactsModel()
-    
-    init(_ contactSelected: Contact?) {
-        self.contact = contactSelected
-    }
-    
     struct phoneCode: Decodable {
         var name: String
         var dial_code: String
@@ -57,7 +51,7 @@ struct SingleContactView: View {
                             self.presentationMode.wrappedValue.dismiss()
                         })
                         
-                        ContactImageSection(contact, viewSize: fullView)
+                        ContactImageSection(contact: contact, viewSize: fullView)
                         
                         VStack (alignment: .center) {
                             Text("\(contact!.givenName) \(contact!.familyName)")
@@ -66,7 +60,7 @@ struct SingleContactView: View {
                                 .fontWeight(.semibold)
                                 .padding(.bottom, 10)
                             
-                            ContactWidgetGrid(contact)
+                            ContactWidgetGrid(contact: contact)
                         }
                         
                         VStack(alignment: .leading, spacing: 20) {

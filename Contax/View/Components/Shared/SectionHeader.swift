@@ -9,15 +9,9 @@ import SwiftUI
 
 struct SectionHeader: View {
     
-    private var heading: String
-    private var paddingTop: CGFloat
-    private var paddingBottom: CGFloat
-    
-    init(heading: String, paddingTop: CGFloat = 0, paddingBottom: CGFloat = 0) {
-        self.heading = heading
-        self.paddingTop = paddingTop
-        self.paddingBottom = paddingBottom
-    }
+    let heading: String
+    var paddingTop: CGFloat = 0
+    var paddingBottom: CGFloat = 0
     
     var body: some View {
         Text(heading)

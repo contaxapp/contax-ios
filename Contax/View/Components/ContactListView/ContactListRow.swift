@@ -9,16 +9,11 @@ import SwiftUI
 
 struct ContactListRow: View {
     
-    private var contact: Contact
-    private var viewSize: GeometryProxy?
-    
-    init(_ contact: Contact, viewSize: GeometryProxy?) {
-        self.contact = contact
-        self.viewSize = viewSize
-    }
+    let contact: Contact
+    let viewSize: GeometryProxy?
     
     var body: some View {
-        NavigationLink(destination: SingleContactView(self.contact)) {
+        NavigationLink(destination: SingleContactView(contact: self.contact)) {
             ZStack {
                 if self.contact.image != nil {
                     Image(uiImage: UIImage(data: Data(base64Encoded: self.contact.image!)!)!)

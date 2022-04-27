@@ -12,10 +12,11 @@ import UnsplashSwiftUI
 
 struct ContactListView: View {
     
-    @ObservedObject var Contacts = ContactsModel()
+    @EnvironmentObject var Contacts: ContactsModel
     
     @State private var showContactErrorAlert = false
     @State private var searchTerm = ""
+    @State private var showSearchDetailPane: Bool = false
     
     func getSectionedContactDictionary(_ Contacts: [Contact]) -> Dictionary <String , [Contact]> {
         let sectionDictionary: Dictionary<String, [Contact]> = {
@@ -49,7 +50,7 @@ struct ContactListView: View {
                     Color.init("Base Color").edgesIgnoringSafeArea(.all)
                     VStack (alignment: .leading) {
                         // Search Bar
-                        SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm)
+                        SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm, showSearchDetailPane: $showSearchDetailPane)
                             .zIndex(1)
                             .background(Color.init("Base Color"))
                         
@@ -68,7 +69,7 @@ struct ContactListView: View {
                                             .fontWeight(.bold)
                                         ) {
                                             ForEach(contacts) { contact in
-                                                ContactListRow(contact, viewSize: geometry)
+                                                ContactListRow(contact: contact, viewSize: geometry)
                                             }
                                         }
                                     }
@@ -79,6 +80,7 @@ struct ContactListView: View {
                             // Fallback on earlier versions
                         }
                     }
+                    SearchDetailPane(showSearchDetailPane: $showSearchDetailPane, maxHeight: 300)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

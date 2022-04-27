@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContactNavbar: View {
-    var backAction: () -> ()
+    let backAction: () -> ()
     
     var body: some View {
         HStack(alignment: .center) {

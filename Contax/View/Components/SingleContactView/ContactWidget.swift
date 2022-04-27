@@ -9,15 +9,9 @@ import SwiftUI
 
 struct ContactWidget: View {
     
-    var actionIcon: String
-    var actionText: String
-    var actionFn: () -> Void
-    
-    init(icon: String, text: String, buttonFn: @escaping () -> Void) {
-        actionIcon = icon
-        actionText = text
-        actionFn = buttonFn
-    }
+    let actionIcon: String
+    let actionText: String
+    let actionFn: () -> Void
     
     var body: some View {
         Button(action: actionFn) {
