@@ -17,6 +17,8 @@
 		7F049058280ACA0600F16E5E /* PhoneCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F049057280ACA0600F16E5E /* PhoneCodes.json */; };
 		7F09930527C287B40027ABE0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09930427C287B40027ABE0 /* HelperFunctions.swift */; };
 		7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */; };
+		7F3902042815A8DC00F4C2D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3902032815A8DC00F4C2D1 /* DashboardView.swift */; };
+		7F6F6DD6281962CB00D34EFA /* DashboardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
 		7FCB0870280ABFDF00C8412E /* ContactNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */; };
 		7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */; };
@@ -27,6 +29,7 @@
 		7FD3009524C2BB2E0011CF5C /* ContaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3009424C2BB2E0011CF5C /* ContaxUITests.swift */; };
 		7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */; };
 		7FD9ABF6280AA64300414005 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9ABF5280AA64300414005 /* MainView.swift */; };
+		7FDB78B2281855A200F9197D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB78B1281855A200F9197D /* SettingsView.swift */; };
 		7FE8996E2809CC8500C3582A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8996D2809CC8500C3582A /* SearchBar.swift */; };
 		7FE899712809E7E500C3582A /* UnsplashSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7FE899702809E7E500C3582A /* UnsplashSwiftUI */; };
 		7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */; };
@@ -72,6 +75,8 @@
 		7F049057280ACA0600F16E5E /* PhoneCodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhoneCodes.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		7F09930427C287B40027ABE0 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperFunctions.swift; path = HelperFunctions/HelperFunctions.swift; sourceTree = "<group>"; };
 		7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStructures.swift; sourceTree = "<group>"; };
+		7F3902032815A8DC00F4C2D1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWidget.swift; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
 		7F980C7824C360120075CAC9 /* Contax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Contax.entitlements; path = Contax/Contax.entitlements; sourceTree = "<group>"; };
 		7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNavbar.swift; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 		7FD3009624C2BB2E0011CF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		7FD9ABF5280AA64300414005 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		7FDB78B1281855A200F9197D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7FE8996D2809CC8500C3582A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleContactView.swift; sourceTree = "<group>"; };
 		7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactWidget.swift; sourceTree = "<group>"; };
@@ -157,8 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				7F00B924280A6E990082BDA1 /* ContactListRow.swift */,
-				7F00B926280A6FE90082BDA1 /* ContactGroupSquare.swift */,
-				7F00B928280A70CF0082BDA1 /* ContactCircle.swift */,
 			);
 			path = ContactListView;
 			sourceTree = "<group>";
@@ -185,9 +189,20 @@
 			path = SingleContactView;
 			sourceTree = "<group>";
 		};
+		7F6F6DD4281962A800D34EFA /* DashboardView */ = {
+			isa = PBXGroup;
+			children = (
+				7F00B926280A6FE90082BDA1 /* ContactGroupSquare.swift */,
+				7F00B928280A70CF0082BDA1 /* ContactCircle.swift */,
+				7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */,
+			);
+			path = DashboardView;
+			sourceTree = "<group>";
+		};
 		7F9B1DD624C46EE600A490A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7F6F6DD4281962A800D34EFA /* DashboardView */,
 				7F00B921280A6C960082BDA1 /* Shared */,
 				7F00B920280A6C8B0082BDA1 /* ContactListView */,
 				7F2EAEA6252F5A8400A488BD /* SingleContactView */,
@@ -198,8 +213,10 @@
 		7F9B1DD724C46EFA00A490A6 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				7F3902032815A8DC00F4C2D1 /* DashboardView.swift */,
 				7FD3007924C2BB2A0011CF5C /* ContactListView.swift */,
 				7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */,
+				7FDB78B1281855A200F9197D /* SettingsView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -284,9 +301,9 @@
 			isa = PBXGroup;
 			children = (
 				7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */,
+				7FD9ABF5280AA64300414005 /* MainView.swift */,
 				7F9B1DD724C46EFA00A490A6 /* Screens */,
 				7F9B1DD624C46EE600A490A6 /* Components */,
-				7FD9ABF5280AA64300414005 /* MainView.swift */,
 			);
 			name = View;
 			path = Contax/View;
@@ -547,6 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FDB78B2281855A200F9197D /* SettingsView.swift in Sources */,
 				7FE8996E2809CC8500C3582A /* SearchBar.swift in Sources */,
 				7FD9ABF6280AA64300414005 /* MainView.swift in Sources */,
 				7FF8F95D24CD8F17002B7D64 /* ContactImageSection.swift in Sources */,
@@ -564,6 +582,8 @@
 				7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */,
 				7F00B927280A6FE90082BDA1 /* ContactGroupSquare.swift in Sources */,
 				7FCB0870280ABFDF00C8412E /* ContactNavbar.swift in Sources */,
+				7F6F6DD6281962CB00D34EFA /* DashboardWidget.swift in Sources */,
+				7F3902042815A8DC00F4C2D1 /* DashboardView.swift in Sources */,
 				7FF8F95224CD4B0B002B7D64 /* ContactWidget.swift in Sources */,
 				7F00B925280A6E990082BDA1 /* ContactListRow.swift in Sources */,
 			);

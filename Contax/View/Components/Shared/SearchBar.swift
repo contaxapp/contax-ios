@@ -57,9 +57,13 @@ struct SearchBar : View {
 
 extension UIApplication {
     func endEditing(_ force: Bool) {
-        self.windows
-            .filter{$0.isKeyWindow}
-            .first?
+        let connectedScenes = UIApplication.shared.connectedScenes
+                    .filter({$0.activationState == .foregroundActive})
+                    .compactMap({$0 as? UIWindowScene})
+                
+        let _ = connectedScenes.first?
+            .windows
+            .first {$0.isKeyWindow }?
             .endEditing(force)
     }
 }

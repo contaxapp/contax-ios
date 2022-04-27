@@ -180,8 +180,10 @@ class ContactsModel: ObservableObject {
             // Add handling of updated Contacts
             
             for (_, contact) in updatedContacts.updatedContacts.enumerated() {
-                let contactToUpdate = storedContacts.contacts.first(where: {$0.id == contact.id})
-                updateContact(contact)
+                if let contactToUpdate = storedContacts.contacts.first(where: {$0.id == contact.id}) {
+                    updateContact(contactToUpdate)
+                }
+                
             }
             
             contacts = storedContacts.contacts
@@ -190,6 +192,10 @@ class ContactsModel: ObservableObject {
             contacts = storedContacts.contacts
             print("Showing stored contacts\n------------")
         }
+        
+        // TEST
+//        let fetchResult = contactStore.currentHistoryToken! as NSData
+//        print(fetchResult.map{String(format: "%02x", $0)}.joined())
     }
 }
 

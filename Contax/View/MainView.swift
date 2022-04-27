@@ -11,37 +11,47 @@ struct MainView: View {
     
     @State private var selection = 1
     
-    init() {
-//        UITabBar.appearance().isTranslucent = false
-        UITabBar.appearance().unselectedItemTintColor = UIColor(Color.init("Darker Gray"))
-        UITabBar.appearance().barTintColor = UIColor.init(Color.init("Base Color"))
-    }
-    
     var body: some View {
-        TabView (selection:$selection) {
-            ContactListView()
+        TabView (selection: $selection) {
+            DashboardView()
                 .tabItem {
-                    Label("Contact List", systemImage: "list.dash")
+                    Label("Dashboard", systemImage: "square.grid.2x2")
                 }
                 .tag(1)
             ContactListView()
                 .tabItem {
-                    Label("Contact List", systemImage: "pencil")
+                    Label("Contacts", systemImage: "person.2")
                 }
                 .tag(2)
             
-            ContactListView()
+            Text("groups")
                 .tabItem {
-                    Label("Contact List", systemImage: "pencil")
+                    Label("Groups", systemImage: "rectangle.3.group")
                 }
-                .tag(2)
+                .tag(3)
             
-            ContactListView()
+            
+            SettingsView()
                 .tabItem {
-                    Label("Contact List", systemImage: "pencil")
+                    Label("Settings", systemImage: "gear")
                 }
-                .tag(2)
+                .tag(4)
         }
-        .accentColor(Color.init("Lighter Gray"))
+        .accentColor(Color.purple)
+        .onAppear() {
+            let standardAppearance = UITabBarAppearance()
+            standardAppearance.backgroundColor = UIColor(Color.init("Darker Gray"))
+//            standardAppearance.shadowColor = UIColor(Color.white)
+            
+            let itemAppearance = UITabBarItemAppearance()
+            itemAppearance.normal.iconColor = UIColor(Color.init("Lighter Gray"))
+            itemAppearance.selected.iconColor = UIColor(Color.purple)
+            standardAppearance.inlineLayoutAppearance = itemAppearance
+            standardAppearance.stackedLayoutAppearance = itemAppearance
+            standardAppearance.compactInlineLayoutAppearance = itemAppearance
+            
+            UITabBar.appearance().standardAppearance = standardAppearance
+            UITabBar.appearance().scrollEdgeAppearance = standardAppearance
+        }
     }
 }
