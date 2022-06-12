@@ -17,6 +17,8 @@
 		7F049058280ACA0600F16E5E /* PhoneCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F049057280ACA0600F16E5E /* PhoneCodes.json */; };
 		7F09930527C287B40027ABE0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09930427C287B40027ABE0 /* HelperFunctions.swift */; };
 		7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */; };
+		7F21D8A728549D7B00E6C2DF /* KeyboardToolbar in Frameworks */ = {isa = PBXBuildFile; productRef = 7F21D8A628549D7B00E6C2DF /* KeyboardToolbar */; };
+		7F21D8AA28549DB500E6C2DF /* UnsplashSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7F21D8A928549DB500E6C2DF /* UnsplashSwiftUI */; };
 		7F3902042815A8DC00F4C2D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3902032815A8DC00F4C2D1 /* DashboardView.swift */; };
 		7F6F6DD6281962CB00D34EFA /* DashboardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */; };
 		7F6F6DD8281981A900D34EFA /* SearchDetailPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD7281981A900D34EFA /* SearchDetailPane.swift */; };
@@ -33,7 +35,6 @@
 		7FD9ABF6280AA64300414005 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9ABF5280AA64300414005 /* MainView.swift */; };
 		7FDB78B2281855A200F9197D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB78B1281855A200F9197D /* SettingsView.swift */; };
 		7FE8996E2809CC8500C3582A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8996D2809CC8500C3582A /* SearchBar.swift */; };
-		7FE899712809E7E500C3582A /* UnsplashSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7FE899702809E7E500C3582A /* UnsplashSwiftUI */; };
 		7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */; };
 		7FF8F95224CD4B0B002B7D64 /* ContactWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */; };
 		7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */; };
@@ -63,12 +64,9 @@
 /* Begin PBXFileReference section */
 		2491CAF9F5D5F0C22E72D3B1 /* Pods_ContaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28A52B0FF95F6C86A817CE8A /* Pods-ContaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.debug.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2D6D1DA0DD05D4D5B98ED5AE /* Pods-DexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexTests.release.xcconfig"; path = "Target Support Files/Pods-DexTests/Pods-DexTests.release.xcconfig"; sourceTree = "<group>"; };
-		636E7072080ADB599F6A3B7B /* Pods-Dex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex.debug.xcconfig"; path = "Target Support Files/Pods-Dex/Pods-Dex.debug.xcconfig"; sourceTree = "<group>"; };
 		643613C799C124D7CDA1F7B5 /* Pods-Contax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax.release.xcconfig"; path = "Target Support Files/Pods-Contax/Pods-Contax.release.xcconfig"; sourceTree = "<group>"; };
 		6C4563CACBBD0D0B4791DFE0 /* Pods-Contax-ContaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.release.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6CF177A96CA1D29BED25DB42 /* Pods-ContaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.release.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.release.xcconfig"; sourceTree = "<group>"; };
-		76B320B164663EB39C989D0C /* Pods-Dex-DexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex-DexUITests.release.xcconfig"; path = "Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F00B922280A6D030082BDA1 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		7F00B924280A6E990082BDA1 /* ContactListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListRow.swift; sourceTree = "<group>"; };
 		7F00B926280A6FE90082BDA1 /* ContactGroupSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactGroupSquare.swift; sourceTree = "<group>"; };
@@ -106,10 +104,7 @@
 		7FF8F95724CD5C1C002B7D64 /* ContactNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNote.swift; sourceTree = "<group>"; };
 		7FF8F95C24CD8F17002B7D64 /* ContactImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactImageSection.swift; sourceTree = "<group>"; };
 		7FF8F95E24CD91B8002B7D64 /* ContactNotesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNotesSection.swift; sourceTree = "<group>"; };
-		C17A33027EF6D126174F98AA /* Pods-Dex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex.release.xcconfig"; path = "Target Support Files/Pods-Dex/Pods-Dex.release.xcconfig"; sourceTree = "<group>"; };
-		CBAE12D618A5CFCEC26C7F52 /* Pods-DexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexTests.debug.xcconfig"; path = "Target Support Files/Pods-DexTests/Pods-DexTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contax_ContaxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2042F372B181E97A0D00DE7 /* Pods-Dex-DexUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex-DexUITests.debug.xcconfig"; path = "Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D693E37EC973C0D9DF2EB974 /* Pods_Contax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA09339B4A797582A26556FC /* Pods-Contax-ContaxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.debug.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB2C1E45916D20EE26448693 /* Pods-Contax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax.debug.xcconfig"; path = "Target Support Files/Pods-Contax/Pods-Contax.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,7 +115,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FE899712809E7E500C3582A /* UnsplashSwiftUI in Frameworks */,
+				7F21D8A728549D7B00E6C2DF /* KeyboardToolbar in Frameworks */,
+				7F21D8AA28549DB500E6C2DF /* UnsplashSwiftUI in Frameworks */,
 				18B94CBA1AAE6C9BCAC4BB1B /* Pods_Contax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,12 +143,6 @@
 		5E4D44EB6CC97845F07AA07A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				636E7072080ADB599F6A3B7B /* Pods-Dex.debug.xcconfig */,
-				C17A33027EF6D126174F98AA /* Pods-Dex.release.xcconfig */,
-				D2042F372B181E97A0D00DE7 /* Pods-Dex-DexUITests.debug.xcconfig */,
-				76B320B164663EB39C989D0C /* Pods-Dex-DexUITests.release.xcconfig */,
-				CBAE12D618A5CFCEC26C7F52 /* Pods-DexTests.debug.xcconfig */,
-				2D6D1DA0DD05D4D5B98ED5AE /* Pods-DexTests.release.xcconfig */,
 				EB2C1E45916D20EE26448693 /* Pods-Contax.debug.xcconfig */,
 				643613C799C124D7CDA1F7B5 /* Pods-Contax.release.xcconfig */,
 				EA09339B4A797582A26556FC /* Pods-Contax-ContaxUITests.debug.xcconfig */,
@@ -344,7 +334,8 @@
 			);
 			name = Contax;
 			packageProductDependencies = (
-				7FE899702809E7E500C3582A /* UnsplashSwiftUI */,
+				7F21D8A628549D7B00E6C2DF /* KeyboardToolbar */,
+				7F21D8A928549DB500E6C2DF /* UnsplashSwiftUI */,
 			);
 			productName = Dex;
 			productReference = 7FD3007424C2BB2A0011CF5C /* Contax.app */;
@@ -421,7 +412,8 @@
 			);
 			mainGroup = 7FD3006B24C2BB2A0011CF5C;
 			packageReferences = (
-				7FE8996F2809E7E500C3582A /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */,
+				7F21D8A528549D7B00E6C2DF /* XCRemoteSwiftPackageReference "KeyboardToolbar" */,
+				7F21D8A828549DB500E6C2DF /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */,
 			);
 			productRefGroup = 7FD3007524C2BB2A0011CF5C /* Products */;
 			projectDirPath = "";
@@ -945,20 +937,33 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7FE8996F2809E7E500C3582A /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */ = {
+		7F21D8A528549D7B00E6C2DF /* XCRemoteSwiftPackageReference "KeyboardToolbar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cameronshemilt/KeyboardToolbar";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		7F21D8A828549DB500E6C2DF /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ArnavMotwani/UnsplashSwiftUI.git";
 			requirement = {
-				kind = exactVersion;
-				version = 1.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7FE899702809E7E500C3582A /* UnsplashSwiftUI */ = {
+		7F21D8A628549D7B00E6C2DF /* KeyboardToolbar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7FE8996F2809E7E500C3582A /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */;
+			package = 7F21D8A528549D7B00E6C2DF /* XCRemoteSwiftPackageReference "KeyboardToolbar" */;
+			productName = KeyboardToolbar;
+		};
+		7F21D8A928549DB500E6C2DF /* UnsplashSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F21D8A828549DB500E6C2DF /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */;
 			productName = UnsplashSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */

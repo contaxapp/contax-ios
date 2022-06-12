@@ -9,6 +9,18 @@ import SwiftUI
 import RealmSwift
 import Contacts
 import UnsplashSwiftUI
+import KeyboardToolbar
+
+let toolbarItems: [KeyboardToolbarItem] = [
+    KeyboardToolbarItem.init(text: "Click 1", callback: {
+        print("Click 1")
+    }),
+    KeyboardToolbarItem.init(text: "Click 2", callback: {
+        print("Click 2")
+    })
+]
+
+let toolbarStyle: KeyboardToolbarStyle = KeyboardToolbarStyle.init(backgroundColor: Color.init("Lighter Gray"), height: 50, dividerColor: Color.init("Darker Gray"), dividerWidth: 2)
 
 struct ContactListView: View {
     
@@ -80,6 +92,7 @@ struct ContactListView: View {
                             // Fallback on earlier versions
                         }
                     }
+                    
                     SearchDetailPane(showSearchDetailPane: $showSearchDetailPane, maxHeight: 300)
                 }
             }
@@ -108,5 +121,6 @@ struct ContactListView: View {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             Contacts.fetchContactsForDisplay()
         }
+        .keyboardToolbar(toolbarItems, style: toolbarStyle)
     }
 }

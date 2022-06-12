@@ -1,12 +1,21 @@
 {
   "pins" : [
     {
+      "identity" : "keyboardtoolbar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cameronshemilt/KeyboardToolbar",
+      "state" : {
+        "branch" : "main",
+        "revision" : "a00bf2330b33e993b4ebb7fd6b6f0d2780188d83"
+      }
+    },
+    {
       "identity" : "unsplashswiftui",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ArnavMotwani/UnsplashSwiftUI.git",
       "state" : {
-        "revision" : "4def21ffe2e6754bf6bc6e2e6660495782cefd1c",
-        "version" : "1.0.0"
+        "branch" : "main",
+        "revision" : "65b7f920e9c77a471505636c7ec743e0715e5559"
       }
     }
   ],

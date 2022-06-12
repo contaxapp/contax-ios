@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KeyboardToolbar
 
 struct SearchBar : View {
     
@@ -28,6 +29,8 @@ struct SearchBar : View {
                         
                     })
                     .foregroundColor(.white)
+                    .keyboardType(.alphabet)
+                    .disableAutocorrection(true)
                 }
                 
                 Button(action: {

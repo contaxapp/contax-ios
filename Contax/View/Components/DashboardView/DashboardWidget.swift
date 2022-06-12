@@ -31,7 +31,7 @@ struct DashboardWidget: View {
             Text(subtitle)
                 .font(.system(size: 15))
         }
-        .frame(width: geometry.size.width * 0.4, height: geometry.size.width * 0.25, alignment: .center)
+        .frame(width: geometry.size.width * 0.2, height: geometry.size.width * 0.25, alignment: .top)
         .foregroundColor(Color.init("Lighter Gray"))
         .onAppear(perform: {
             withAnimation(Animation.easeInOut(duration: 0.5)) {

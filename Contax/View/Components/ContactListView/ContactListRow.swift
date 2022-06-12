@@ -20,12 +20,12 @@ struct ContactListRow: View {
                         .resizable()
                         .aspectRatio(1, contentMode: .fill)
                         .clipShape(Circle())
-                        .frame(width: 50, height: 50, alignment: .center)
+                        .frame(width: 40, height: 40, alignment: .center)
                         .overlay(Circle().stroke(Color.white, lineWidth: 1))
                 } else {
                     Circle()
                         .fill(Color.gray)
-                        .frame(width: 50, height: 50, alignment: .center)
+                        .frame(width: 40, height: 40, alignment: .center)
                         .overlay(Circle().stroke(Color.white, lineWidth: 1))
                     Text(HelperFunctions.returnInitials(self.contact))
                 }
@@ -37,7 +37,7 @@ struct ContactListRow: View {
                 .padding(.leading, 10)
         }
         .listRowBackground(Color.init("Base Color"))
-        .padding(.top, 5)
-        .padding(.bottom, 5)
+        .padding(.top, 2)
+        .padding(.bottom, 2)
     }
 }

@@ -11,10 +11,19 @@ struct ContactWidget: View {
     
     let actionIcon: String
     let actionText: String
+    let disabled: Bool
     let actionFn: () -> Void
     
+    @State var showAlert = false
+    
     var body: some View {
-        Button(action: actionFn) {
+        Button(action: {
+            if (disabled) {
+                print("Functionality disabled")
+            }
+            
+            actionFn()
+        }) {
             VStack(alignment: .center) {
                 Image(systemName: actionIcon)
                     .font(.system(size: 25.0))
@@ -31,6 +40,10 @@ struct ContactWidget: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
             }
+            .if(disabled) { view in
+                view.opacity(0.3)
+            }
         }
+        .disabled(disabled)
     }
 }

@@ -29,15 +29,12 @@ struct DashboardView: View {
                             HStack {
                                 DashboardWidget(title: Contacts.contacts.count, subtitle: "Contacts", parentSize: geometry)
                                 DashboardWidget(title: 16, subtitle: "Groups", parentSize: geometry)
-                            }
-                            .frame(width: geometry.size.width)
-                            
-                            HStack {
-                                DashboardWidget(title: recentlyAddedContacts.count, subtitle: "Recently Added", parentSize: geometry)
-                                DashboardWidget(title: recentlyViewedContacts.count, subtitle: "Recently Viewed", parentSize: geometry)
+                                DashboardWidget(title: 11, subtitle: "Groups", parentSize: geometry)
+                                DashboardWidget(title: 16, subtitle: "Groups", parentSize: geometry)
                             }
                             .frame(width: geometry.size.width)
                         }
+                        .padding(.top, 20)
                         
                         // Groups
                         SectionHeader(heading: "Groups")
@@ -78,7 +75,7 @@ struct DashboardView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: Text("Dashboard").font(.title).foregroundColor(.white).fontWeight(.bold),
+                leading: Text("Contax").font(.title).foregroundColor(.white).fontWeight(.bold),
                 trailing: Button(action: {
                     print("Create Contact")
                 }, label: {
