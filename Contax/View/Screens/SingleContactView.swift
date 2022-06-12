@@ -74,12 +74,12 @@ struct SingleContactView: View {
                             SectionHeader(heading: "Phone")
                             ForEach(contact!.phoneNumbers, id: \.phone) { phoneNumber in
                                 HStack {
-                                    Text(phoneCodes.first(where: { phoneCode in
-                                        phoneCode.dial_code == phoneNumber.phone.substring(to: phoneNumber.phone.index(phoneNumber.phone.startIndex, offsetBy: 3))
-                                    })!.name)
-//                                    Text(phoneNumber.label.replacingOccurrences(of: "_$!<", with: "").replacingOccurrences(of: ">!$_", with: ""))
-//                                        .fontWeight(.medium)
-//                                        .frame(minWidth: 50, alignment: .leading)
+//                                    Text(phoneCodes.first(where: { phoneCode in
+//                                        phoneCode.dial_code == phoneNumber.phone.substring(to: phoneNumber.phone.index(phoneNumber.phone.startIndex, offsetBy: 3))
+//                                    })!.name)
+                                    Text(phoneNumber.label.replacingOccurrences(of: "_$!<", with: "").replacingOccurrences(of: ">!$_", with: ""))
+                                        .fontWeight(.medium)
+                                        .frame(minWidth: 50, alignment: .leading)
                                     Text(phoneNumber.phone)
                                         .fontWeight(.regular)
                                         
