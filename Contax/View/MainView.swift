@@ -22,7 +22,7 @@ struct MainView: View {
     
     @State private var showContactErrorAlert = false
     
-    @State private var selection = 1
+    @State private var selection = 2
     
     var body: some View {
         TabView (selection: $selection) {
@@ -37,7 +37,7 @@ struct MainView: View {
                 }
                 .tag(2)
             
-            Text("groups")
+            ContactGroupView()
                 .tabItem {
                     Label("Groups", systemImage: "rectangle.3.group")
                 }

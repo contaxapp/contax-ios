@@ -8,7 +8,7 @@
 import Foundation
 import Contacts
 
-struct Contact: Identifiable {
+struct Contact: Identifiable, Equatable {
     
     var id: String
     var givenName: String
@@ -24,6 +24,23 @@ struct Contact: Identifiable {
     var thumbnailImage: String?
     var postalAddresses: [ContactAddress] = []
     var note: String
+    
+    static func == (lhs: Contact, rhs: Contact) -> Bool {
+    
+        if (lhs.id != rhs.id) { return false; }
+        if (lhs.givenName != rhs.givenName) { return false; }
+        if (lhs.middleName != rhs.middleName) { return false; }
+        if (lhs.familyName != rhs.familyName) { return false; }
+        if (lhs.nickname != rhs.nickname) { return false; }
+        if (lhs.jobTitle != rhs.jobTitle) { return false; }
+        if (lhs.department != rhs.department) { return false; }
+        if (lhs.organization != rhs.organization) { return false; }
+        if (lhs.image != rhs.image) { return false; }
+        if (lhs.thumbnailImage != rhs.thumbnailImage) { return false; }
+        if (lhs.note != rhs.note) { return false; }
+        
+        return true;
+    }
 }
 
 struct ContactAddress: Encodable {

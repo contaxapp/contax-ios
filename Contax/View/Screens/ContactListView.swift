@@ -67,30 +67,28 @@ struct ContactListView: View {
                             .background(Color.init("Base Color"))
                         
                         // All Contacts
-                        SectionHeader(heading: "Contacts")
-                            .padding(.horizontal)
-                        if #available(iOS 15.0, *) {
-                            List {
-                                let sectionedContactDictionary = getSectionedContactDictionary(Contacts.contacts)
-                                ForEach(sectionedContactDictionary.keys.sorted(), id:\.self) { key in
+                        List {
+                            let sectionedContactDictionary = getSectionedContactDictionary(Contacts.contacts)
+                            ForEach(sectionedContactDictionary.keys.sorted(), id:\.self) { key in
+                                
+                                // Get contacts for particular section (key)
+                                if let contacts = filterContactsBySearch(SectionedDictionary: sectionedContactDictionary, key: key), !contacts.isEmpty {
                                     
-                                    // Get contacts for particular section (key)
-                                    if let contacts = filterContactsBySearch(SectionedDictionary: sectionedContactDictionary, key: key), !contacts.isEmpty {
-                                        Section(header: Text("\(key)")
-                                            .foregroundColor(Color.white)
-                                            .fontWeight(.bold)
-                                        ) {
-                                            ForEach(contacts) { contact in
-                                                ContactListRow(contact: contact, viewSize: geometry)
-                                            }
+                                    Section {
+                                        ForEach(contacts) { contact in
+                                            ContactListRow(contact: contact, viewSize: geometry)
                                         }
+                                    } header: {
+                                        Text("\(key)")
+                                            .fontWeight(.bold)
+                                            .listRowBackground(Color.init("Base Color"))
                                     }
                                 }
                             }
-                            .listStyle(PlainListStyle())
-                        } else {
-                            // Fallback on earlier versions
                         }
+                        .foregroundColor(Color.init("Lighter Gray"))
+                        .scrollContentBackground(Color.clear)
+                        .listStyle(GroupedListStyle())
                     }
                     
                     SearchDetailPane(showSearchDetailPane: $showSearchDetailPane, maxHeight: 300)

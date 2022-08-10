@@ -9,10 +9,6 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    init() {
-        UITableView.appearance().backgroundColor = .clear
-    }
-    
     @State var yay: Bool = true {
         didSet {
             DispatchQueue.main.async {
@@ -47,6 +43,7 @@ struct SettingsView: View {
                         .foregroundColor(Color.init("Darker Gray"))
                         .background(Color.init("Base Color"))
                     }
+                    .scrollContentBackground(Color.clear)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
