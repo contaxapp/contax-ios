@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "icon_83.5@2x.png",
+      "filename" : "Fill 251.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_83.5@2x 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon_83.5@2x 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
