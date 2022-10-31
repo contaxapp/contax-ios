@@ -2,83 +2,115 @@
 //  Onboarding.swift
 //  Contax
 //
-//  Created by Arpit Bansal on 10/08/22.
+//  Created by Arpit Bansal on 20/08/22.
 //
 
 import SwiftUI
-import _AuthenticationServices_SwiftUI
 
-struct Onboarding: View {
+class OnboardingStage: ObservableObject {
+    @Published var stage: Int = 1
+}
+
+struct OnboardingWrapper: View {
+    
+    @StateObject var onboardingStage = OnboardingStage()
     
     var body: some View {
-        
         GeometryReader { geometry in
-            ScrollView {
+            VStack {
                 VStack (alignment: .center) {
-                    Group {
-                        HStack {
-                            Text("We are")
-                                .foregroundColor(Color.init("Accent Green"))
-                        }
-                        Text("Relationships matter to us.")
-                    }
-                        .multilineTextAlignment(.center)
-                        .lineSpacing(21)
-                        .font(.custom("Helvetica Neue", size: 20))
-                    Spacer()
-                    Image("Onboarding")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: geometry.size.width * 0.6, alignment: .center)
-                    Spacer()
-                    Text("But how we manage our relationships on our phones has not evolved since the beginning of the smartphone revolution.")
-                        .font(.custom("Helvetica Neue", size: 20))
-                        .multilineTextAlignment(.center)
-                        .lineSpacing(21)
-                    Spacer()
-                    Image("DownArrow")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 100)
-                    Spacer()
-                    Text("It's time to change that.")
-                        .font(.custom("Helvetica Neue", size: 20))
-                        .fontWeight(.medium)
+                    Image("Logo")
                 }
-                .padding(.top, geometry.size.height * 0.05)
-                .padding(.horizontal, geometry.size.width * 0.1)
-                .frame(width: geometry.size.width, height: geometry.size.height)
+                .frame(width: geometry.size.width, height: geometry.size.height * 0.2)
                 
-                VStack (alignment: .center) {
-                    VStack {
-                        
-                    }
-                    Spacer()
-                    VStack {
-                        
-                    }
-                    Spacer()
-                    VStack {
-                        
-                    }
-                    Spacer()
-                    Text("By clicking “Sign up with Apple” above, you acknowledge that you have read and understood, and agree to Contax’s Terms of Service and Privacy Policy")
-                        .font(.custom("Helvetica Neue", size: 12))
-                        .foregroundColor(Color("Mid Gray"))
-                        .multilineTextAlignment(.center)
-                        .lineSpacing(12)
-                        .fontWeight(.medium)
+                switch (onboardingStage.stage) {
+                    case 1:
+                        Onboarding1(geometry)
+                    case 2:
+                        Onboarding2(geometry)
+                    default: Text("LOL")
                 }
-                .padding(.top, geometry.size.height * 0.05)
-                .padding(.horizontal, geometry.size.width * 0.1)
-                .frame(width: geometry.size.width, height: geometry.size.height)
             }
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .environmentObject(onboardingStage)
         }
+    }
+}
+
+struct Onboarding1: View {
+    
+    var geometry: GeometryProxy
+    @EnvironmentObject var onboardingStage: OnboardingStage
+    
+    init(_ geometry: GeometryProxy) {
+        self.geometry = geometry
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Hey Arpit!")
+                .font(.custom("EuclidCircularA-Regular", size: 30))
+                .padding(.bottom, 30)
+            Text("Let’s start by understanding your existing relationships.\n\nTap the button below to permit Contact access to your contacts.\n\nTap “OK” on the popup.")
+                .font(.custom("EuclidCircularA-Light", size: 20))
+                .lineSpacing(20)
+        }
+        .padding(.horizontal)
+        .frame(width: geometry.size.width, height: geometry.size.height * 0.6)
+        
+        HStack(alignment: .center) {
+            Button("Grant Access") {
+                print("Granting access . . .")
+                onboardingStage.stage = 2
+            }
+            .frame(width: geometry.size.width * 0.6, height: 60)
+            .background((Color.init("Accent Green")))
+            .foregroundColor(Color.white)
+            .font(.custom("EuclidCircularA-Regular", size: 20))
+            .cornerRadius(5.0, corners: .allCorners)
+        }
+        .frame(width: geometry.size.width, height: geometry.size.height * 0.2)
+    }
+}
+
+struct Onboarding2: View {
+    
+    var geometry: GeometryProxy
+    @EnvironmentObject var onboardingStage: OnboardingStage
+    
+    init(_ geometry: GeometryProxy) {
+        self.geometry = geometry
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Hey LOL!")
+                .font(.custom("EuclidCircularA-Regular", size: 30))
+                .padding(.bottom, 30)
+            Text("Let’s start by understanding your existing relationships.\n\nTap the button below to permit Contact access to your contacts.\n\nTap “OK” on the popup.")
+                .font(.custom("EuclidCircularA-Light", size: 20))
+                .lineSpacing(20)
+        }
+        .padding(.horizontal)
+        .frame(width: geometry.size.width, height: geometry.size.height * 0.6)
+        
+        HStack(alignment: .center) {
+            Button("Grant Access") {
+                print("Granting access . . .")
+                onboardingStage.stage = 3
+            }
+            .frame(width: geometry.size.width * 0.6, height: 60)
+            .background((Color.init("Accent Green")))
+            .foregroundColor(Color.white)
+            .font(.custom("EuclidCircularA-Regular", size: 20))
+            .cornerRadius(5.0, corners: .allCorners)
+        }
+        .frame(width: geometry.size.width, height: geometry.size.height * 0.2)
     }
 }
 
 struct Onboarding_Previews: PreviewProvider {
     static var previews: some View {
-        Onboarding()
+        OnboardingWrapper()
     }
 }
