@@ -11,7 +11,6 @@ import _AuthenticationServices_SwiftUI
 struct Splash: View {
     
     @State private var userAuthenticated = false
-    @State private var user = nil
     
     var body: some View {
         
@@ -138,7 +137,6 @@ struct Splash: View {
                                             print(email ?? "")
                                         
                                             userAuthenticated = true
-                                            user = userIdentifier
                                         
                                         case let passwordCredential as ASPasswordCredential:
                                         

@@ -9,22 +9,22 @@ import Foundation
 import RealmSwift
 
 class DBContact: Object, Identifiable {
-    @objc dynamic var hashId: String = ""
-    @objc dynamic var identifier: String = ""
-    @objc dynamic var givenName: String = ""
-    @objc dynamic var middleName: String = ""
-    @objc dynamic var familyName: String = ""
-    @objc dynamic var nickname: String = ""
-    @objc dynamic var jobTitle: String = ""
-    @objc dynamic var department: String = ""
-    @objc dynamic var organization: String = ""
-    @objc dynamic var image: String? = nil
-    @objc dynamic var thumbnailImage: String? = nil
-    @objc dynamic var note: String = ""
+    @Persisted var hashId: String = ""
+    @Persisted var identifier: String = ""
+    @Persisted var givenName: String = ""
+    @Persisted var middleName: String = ""
+    @Persisted var familyName: String = ""
+    @Persisted var nickname: String = ""
+    @Persisted var jobTitle: String = ""
+    @Persisted var department: String = ""
+    @Persisted var organization: String = ""
+    @Persisted var image: String? = nil
+    @Persisted var thumbnailImage: String? = nil
+    @Persisted var note: String = ""
     
-    var emailAddresses = List<DBContactEmail>()
-    var phoneNumbers = List<DBContactPhoneNumber>()
-    var postalAddresses = List<DBContactAddress>()
+    @Persisted var emailAddresses: List<DBContactEmail>
+    @Persisted var phoneNumbers: List<DBContactPhoneNumber>
+    @Persisted var postalAddresses: List<DBContactAddress>
     
     convenience init(hashId: String, identifier: String, givenName: String, middleName: String, familyName: String, nickname: String, jobTitle: String, department: String, organization: String, image: String?, thumbnailImage: String?, note: String) {
         self.init()
@@ -44,10 +44,10 @@ class DBContact: Object, Identifiable {
 }
 
 class DBContactEmail: Object {
-    @objc dynamic var label: String = ""
-    @objc dynamic var email: String = ""
-
-    var parentContact = LinkingObjects(fromType: DBContact.self, property: "emailAddresses")
+    @Persisted var label: String = ""
+    @Persisted var email: String = ""
+    
+    @Persisted(originProperty: "emailAddresses") var parentContact: LinkingObjects<DBContact>
     
     convenience init(label: String, email: String) {
         self.init()
@@ -57,10 +57,10 @@ class DBContactEmail: Object {
 }
 
 class DBContactPhoneNumber: Object {
-    @objc dynamic var label: String = ""
-    @objc dynamic var phone: String = ""
+    @Persisted var label: String = ""
+    @Persisted var phone: String = ""
 
-    var parentContact = LinkingObjects(fromType: DBContact.self, property: "phoneNumbers")
+    @Persisted(originProperty: "phoneNumbers") var parentContact: LinkingObjects<DBContact>
     
     convenience init(label: String, phone: String) {
         self.init()
@@ -70,15 +70,15 @@ class DBContactPhoneNumber: Object {
 }
 
 class DBContactAddress: Object {
-    @objc dynamic var label: String = ""
-    @objc dynamic var street: String = ""
-    @objc dynamic var city: String = ""
-    @objc dynamic var state: String = ""
-    @objc dynamic var postalCode: String = ""
-    @objc dynamic var country: String = ""
-    @objc dynamic var countryCode: String = ""
+    @Persisted var label: String = ""
+    @Persisted var street: String = ""
+    @Persisted var city: String = ""
+    @Persisted var state: String = ""
+    @Persisted var postalCode: String = ""
+    @Persisted var country: String = ""
+    @Persisted var countryCode: String = ""
     
-    var parentContact = LinkingObjects(fromType: DBContact.self, property: "postalAddresses")
+    @Persisted(originProperty: "postalAddresses") var parentContact: LinkingObjects<DBContact>
     
     convenience init(label: String, street: String, city: String, state: String, postalCode: String, country: String, countryCode: String) {
         self.init()
