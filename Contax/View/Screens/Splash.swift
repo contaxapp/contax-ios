@@ -10,10 +10,16 @@ import _AuthenticationServices_SwiftUI
 
 struct Splash: View {
     
+    @State private var userAuthenticated = false
+    @State private var user = nil
+    
     var body: some View {
         
         GeometryReader { geometry in
             TabView {
+                
+                // Tab View 1
+                
                 VStack (alignment: .center) {
                     VStack (spacing: 10) {
                         HStack (spacing: 5) {
@@ -25,12 +31,16 @@ struct Splash: View {
                     }
                         .font(.custom("EuclidCircularA-Regular", size: 20))
                         .multilineTextAlignment(.center)
+                    
                     Spacer()
+                    
                     Image("Onboarding")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: geometry.size.width * 0.6, alignment: .center)
+                    
                     Spacer()
+                    
                     VStack (spacing: 10) {
                         Text("But how we manage our")
                         HStack (spacing: 5) {
@@ -47,18 +57,25 @@ struct Splash: View {
                     }
                     .multilineTextAlignment(.center)
                     .lineSpacing(21)
+                    
                     Spacer()
+                    
                     Image("DownArrow")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 100)
+                    
                     Spacer()
+                    
                     Text("It's time to change that.")
                         .fontWeight(.medium)
                 }
                 .padding(.top, geometry.size.height * 0.05)
                 .padding(.horizontal, geometry.size.width * 0.1)
                 .frame(width: geometry.size.width, height: geometry.size.height)
+                
+                
+                // Tab View 2
                 
                 VStack (alignment: .center) {
                     VStack{
@@ -92,25 +109,36 @@ struct Splash: View {
                     }
                     Spacer()
                     VStack {
+                        
+                        NavigationLink(destination: OnboardingWrapper().navigationBarBackButtonHidden(true),
+                                       isActive: $userAuthenticated) {
+                            EmptyView()
+                        }
+                        
                         SignInWithAppleButton(.continue) { request in
                             request.requestedScopes = [.fullName, .email]
                         } onCompletion: { result in
                             switch result {
                                 case .success(let authResults):
                                     print("Authorisation successful")
+                                
                                     switch authResults.credential {
                                         case let appleIDCredential as ASAuthorizationAppleIDCredential:
                                             
-                                            // Create an account in your system.
+                                            // Create an account in your system. 'fullName' and 'email' will only be accessible on signup.
                                             let userIdentifier = appleIDCredential.user
                                             let fullName = appleIDCredential.fullName
                                             let email = appleIDCredential.email
                                             
-                                            let stringFromByteArray = String(data: Data(bytes: appleIDCredential.identityToken!), encoding: .utf8)
-                                        print(stringFromByteArray)
-                                            print(userIdentifier)
-                                            print(fullName)
-                                            print(email)
+                                            let stringFromByteArray = String(data: Data(appleIDCredential.identityToken!), encoding: .utf8)
+                                        
+                                            print("Token: " + (stringFromByteArray ?? ""))
+                                            print("User ID: " + userIdentifier)
+                                            print(fullName ?? "")
+                                            print(email ?? "")
+                                        
+                                            userAuthenticated = true
+                                            user = userIdentifier
                                         
                                         case let passwordCredential as ASPasswordCredential:
                                         
@@ -124,12 +152,14 @@ struct Splash: View {
                                         default:
                                             break
                                     }
+                            
                                 case .failure(let error):
                                     print("Authorisation failed: \(error.localizedDescription)")
                             }
                         }
                     }
                     .frame(height: 50)
+                        
                     Spacer()
                     Text("By clicking “Sign up with Apple” above, you acknowledge that you have read and understood, and agree to Contax’s Terms of Service and Privacy Policy")
                         .foregroundColor(Color("Mid Gray"))

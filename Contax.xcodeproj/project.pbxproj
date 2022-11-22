@@ -17,9 +17,9 @@
 		7F049058280ACA0600F16E5E /* PhoneCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F049057280ACA0600F16E5E /* PhoneCodes.json */; };
 		7F09930527C287B40027ABE0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09930427C287B40027ABE0 /* HelperFunctions.swift */; };
 		7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */; };
-		7F21D8A728549D7B00E6C2DF /* KeyboardToolbar in Frameworks */ = {isa = PBXBuildFile; productRef = 7F21D8A628549D7B00E6C2DF /* KeyboardToolbar */; };
 		7F21D8AA28549DB500E6C2DF /* UnsplashSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7F21D8A928549DB500E6C2DF /* UnsplashSwiftUI */; };
 		7F2EB2FE28A3D5740014FE76 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2EB2FD28A3D5740014FE76 /* Splash.swift */; };
+		7F30482B291000DD004ED296 /* KeyboardToolbar in Frameworks */ = {isa = PBXBuildFile; productRef = 7F30482A291000DD004ED296 /* KeyboardToolbar */; };
 		7F3902042815A8DC00F4C2D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3902032815A8DC00F4C2D1 /* DashboardView.swift */; };
 		7F62C6F628A7BD230037449A /* Euclid-Circular-A-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F328A7BD160037449A /* Euclid-Circular-A-SemiBold.ttf */; };
 		7F62C6F728A7BD230037449A /* Euclid-Circular-A-Light-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F428A7BD160037449A /* Euclid-Circular-A-Light-Italic.ttf */; };
@@ -141,8 +141,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F21D8A728549D7B00E6C2DF /* KeyboardToolbar in Frameworks */,
 				7F21D8AA28549DB500E6C2DF /* UnsplashSwiftUI in Frameworks */,
+				7F30482B291000DD004ED296 /* KeyboardToolbar in Frameworks */,
 				18B94CBA1AAE6C9BCAC4BB1B /* Pods_Contax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,8 +381,8 @@
 			);
 			name = Contax;
 			packageProductDependencies = (
-				7F21D8A628549D7B00E6C2DF /* KeyboardToolbar */,
 				7F21D8A928549DB500E6C2DF /* UnsplashSwiftUI */,
+				7F30482A291000DD004ED296 /* KeyboardToolbar */,
 			);
 			productName = Dex;
 			productReference = 7FD3007424C2BB2A0011CF5C /* Contax.app */;
@@ -459,8 +459,8 @@
 			);
 			mainGroup = 7FD3006B24C2BB2A0011CF5C;
 			packageReferences = (
-				7F21D8A528549D7B00E6C2DF /* XCRemoteSwiftPackageReference "KeyboardToolbar" */,
 				7F21D8A828549DB500E6C2DF /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */,
+				7F304829291000DD004ED296 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */,
 			);
 			productRefGroup = 7FD3007524C2BB2A0011CF5C /* Products */;
 			projectDirPath = "";
@@ -1001,14 +1001,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7F21D8A528549D7B00E6C2DF /* XCRemoteSwiftPackageReference "KeyboardToolbar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/cameronshemilt/KeyboardToolbar";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		7F21D8A828549DB500E6C2DF /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ArnavMotwani/UnsplashSwiftUI.git";
@@ -1017,18 +1009,26 @@
 				kind = branch;
 			};
 		};
+		7F304829291000DD004ED296 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/no-comment/KeyboardToolbar";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7F21D8A628549D7B00E6C2DF /* KeyboardToolbar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7F21D8A528549D7B00E6C2DF /* XCRemoteSwiftPackageReference "KeyboardToolbar" */;
-			productName = KeyboardToolbar;
-		};
 		7F21D8A928549DB500E6C2DF /* UnsplashSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7F21D8A828549DB500E6C2DF /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */;
 			productName = UnsplashSwiftUI;
+		};
+		7F30482A291000DD004ED296 /* KeyboardToolbar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F304829291000DD004ED296 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */;
+			productName = KeyboardToolbar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

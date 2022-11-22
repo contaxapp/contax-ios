@@ -11,7 +11,10 @@ import SwiftUI
 struct ContaxApp: App {
     var body: some Scene {
         WindowGroup {
-            Splash()
+            NavigationView {
+                Splash()
+            }
+            .navigationViewStyle(.stack)
         }
     }
 }
