@@ -9,35 +9,25 @@ import SwiftUI
 
 struct ContactWidgetGrid: View {
     
-    private var contact: Contact?
-    
-    init(_ contactSelected: Contact?) {
-        contact = contactSelected
-    }
+    let contact: Contact?
     
     var body: some View {
         HStack(alignment: .center) {
-            ContactWidget(icon: "phone.fill", text: "Call", buttonFn: {
+            ContactWidget(actionIcon: "phone.fill", actionText: "Call", disabled: contact?.phoneNumbers.count == 0, actionFn: {
                 if contact != nil { HelperFunctions.makeCall(contact!) }
             }).frame(maxWidth: .infinity)
             
-            ContactWidget(icon: "envelope.fill", text: "Email", buttonFn: {
+            ContactWidget(actionIcon: "message.fill", actionText: "Text", disabled: contact?.phoneNumbers.count == 0, actionFn: {
+                if contact != nil { HelperFunctions.composeText(contact!) }
+            }).frame(maxWidth: .infinity)
+            
+            ContactWidget(actionIcon: "envelope.fill", actionText: "Email", disabled: contact?.emailAddresses.count == 0, actionFn: {
                 print("Emailing")
             }).frame(maxWidth: .infinity)
             
-            ContactWidget(icon: "number", text: "Organize", buttonFn: {
-                print("Organizing")
-            }).frame(maxWidth: .infinity)
-            
-            ContactWidget(icon: "hand.raised.fill", text: "Introduce", buttonFn: {
+            ContactWidget(actionIcon: "hand.raised.fill", actionText: "Introduce", disabled: false, actionFn: {
                 print("Introducing")
             }).frame(maxWidth: .infinity)
         }
-    }
-}
-
-struct ContactWidgetGrid_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactWidgetGrid(nil)
     }
 }

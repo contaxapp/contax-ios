@@ -72,7 +72,7 @@ class ContactsModel: ObservableObject {
             CNContactDatesKey,
 
             // Notes
-//            CNContactNoteKey,
+            CNContactNoteKey,
 
             // Image Data
             CNContactImageDataAvailableKey,
@@ -180,8 +180,9 @@ class ContactsModel: ObservableObject {
             // Add handling of updated Contacts
             
             for (_, contact) in updatedContacts.updatedContacts.enumerated() {
-                let contactToUpdate = storedContacts.contacts.first(where: {$0.id == contact.id})
-                print(contactToUpdate!.familyName)
+                if let contactToUpdate = storedContacts.contacts.first(where: {$0.id == contact.id}) {
+                    updateContact(contactToUpdate, updatedContact: contact)
+                }
             }
             
             contacts = storedContacts.contacts
@@ -190,6 +191,10 @@ class ContactsModel: ObservableObject {
             contacts = storedContacts.contacts
             print("Showing stored contacts\n------------")
         }
+        
+        // TEST
+//        let fetchResult = contactStore.currentHistoryToken! as NSData
+//        print(fetchResult.map{String(format: "%02x", $0)}.joined())
     }
 }
 
@@ -222,11 +227,12 @@ extension ContactsModel {
             jobTitle: contact.jobTitle,
             department: contact.departmentName,
             organization: contact.organizationName,
-            image: contact.imageData?.base64EncodedString(),
-            thumbnailImage: contact.thumbnailImageData?.base64EncodedString(),
             emailAddresses: emailAddresses,
             phoneNumbers: phoneNumbers,
-            postalAddresses: postalAddresses
+            image: contact.imageData?.base64EncodedString(),
+            thumbnailImage: contact.thumbnailImageData?.base64EncodedString(),
+            postalAddresses: postalAddresses,
+            note: contact.note
         )
     }
     
@@ -255,11 +261,12 @@ extension ContactsModel {
             jobTitle: contact.jobTitle,
             department: contact.department,
             organization: contact.organization,
-            image: contact.image,
-            thumbnailImage: contact.thumbnailImage,
             emailAddresses: emailAddresses,
             phoneNumbers: phoneNumbers,
-            postalAddresses: postalAddresses
+            image: contact.image,
+            thumbnailImage: contact.thumbnailImage,
+            postalAddresses: postalAddresses,
+            note: contact.note
         )
     }
     
@@ -294,7 +301,8 @@ extension ContactsModel {
             department: contact.department,
             organization: contact.organization,
             image: contact.image,
-            thumbnailImage: contact.thumbnailImage
+            thumbnailImage: contact.thumbnailImage,
+            note: contact.note
         )
         
         let emailAddressList = List<DBContactEmail>()
@@ -321,7 +329,8 @@ extension ContactsModel {
         }
     }
     
-    func updateContact(_ contact: Contact) {
-        
+    func updateContact(_ contact: Contact, updatedContact: Contact) {
+        print(contact)
+        print(updatedContact)
     }
 }

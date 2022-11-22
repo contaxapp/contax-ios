@@ -20,12 +20,13 @@ class DBContact: Object, Identifiable {
     @objc dynamic var organization: String = ""
     @objc dynamic var image: String? = nil
     @objc dynamic var thumbnailImage: String? = nil
+    @objc dynamic var note: String = ""
     
     var emailAddresses = List<DBContactEmail>()
     var phoneNumbers = List<DBContactPhoneNumber>()
     var postalAddresses = List<DBContactAddress>()
     
-    convenience init(hashId: String, identifier: String, givenName: String, middleName: String, familyName: String, nickname: String, jobTitle: String, department: String, organization: String, image: String?, thumbnailImage: String?) {
+    convenience init(hashId: String, identifier: String, givenName: String, middleName: String, familyName: String, nickname: String, jobTitle: String, department: String, organization: String, image: String?, thumbnailImage: String?, note: String) {
         self.init()
         self.hashId = hashId
         self.identifier = identifier
@@ -38,6 +39,7 @@ class DBContact: Object, Identifiable {
         self.organization = organization
         self.image = image
         self.thumbnailImage = thumbnailImage
+        self.note = note
     }
 }
 
@@ -88,9 +90,4 @@ class DBContactAddress: Object {
         self.country = country
         self.countryCode = countryCode
     }
-}
-
-struct StoredContacts {
-    var hashes: [String]
-    var contacts: [Contact]
 }

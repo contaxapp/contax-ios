@@ -9,18 +9,21 @@ import SwiftUI
 
 struct ContactWidget: View {
     
-    var actionIcon: String
-    var actionText: String
-    var actionFn: () -> Void
+    let actionIcon: String
+    let actionText: String
+    let disabled: Bool
+    let actionFn: () -> Void
     
-    init(icon: String, text: String, buttonFn: @escaping () -> Void) {
-        actionIcon = icon
-        actionText = text
-        actionFn = buttonFn
-    }
+    @State var showAlert = false
     
     var body: some View {
-        Button(action: actionFn) {
+        Button(action: {
+            if (disabled) {
+                print("Functionality disabled")
+            }
+            
+            actionFn()
+        }) {
             VStack(alignment: .center) {
                 Image(systemName: actionIcon)
                     .font(.system(size: 25.0))
@@ -28,7 +31,7 @@ struct ContactWidget: View {
                     .padding(.all, 20)
                     .background(
                         Circle()
-                            .foregroundColor(Color.init("Lighter Gray"))
+                            .foregroundColor(Color.init("Darker Gray"))
                     )
                 
                 Text(actionText)
@@ -37,14 +40,10 @@ struct ContactWidget: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
             }
+            .if(disabled) { view in
+                view.opacity(0.3)
+            }
         }
-    }
-}
-
-struct ContactWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactWidget(icon: "phone.fill", text: "Call") {
-            print("Hello")
-        }
+        .disabled(disabled)
     }
 }

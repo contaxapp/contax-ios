@@ -3,15 +3,41 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		18B94CBA1AAE6C9BCAC4BB1B /* Pods_Contax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D693E37EC973C0D9DF2EB974 /* Pods_Contax.framework */; };
 		1F9B3805735430F76BD99FA6 /* Pods_Contax_ContaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */; };
+		7F00B923280A6D030082BDA1 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00B922280A6D030082BDA1 /* SectionHeader.swift */; };
+		7F00B925280A6E990082BDA1 /* ContactListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00B924280A6E990082BDA1 /* ContactListRow.swift */; };
+		7F00B927280A6FE90082BDA1 /* ContactGroupSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00B926280A6FE90082BDA1 /* ContactGroupSquare.swift */; };
+		7F00B929280A70CF0082BDA1 /* ContactCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00B928280A70CF0082BDA1 /* ContactCircle.swift */; };
+		7F00B92B280A74680082BDA1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F00B92A280A74680082BDA1 /* Launch Screen.storyboard */; };
+		7F049058280ACA0600F16E5E /* PhoneCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F049057280ACA0600F16E5E /* PhoneCodes.json */; };
 		7F09930527C287B40027ABE0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09930427C287B40027ABE0 /* HelperFunctions.swift */; };
 		7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */; };
+		7F21D8AA28549DB500E6C2DF /* UnsplashSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7F21D8A928549DB500E6C2DF /* UnsplashSwiftUI */; };
+		7F2EB2FE28A3D5740014FE76 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2EB2FD28A3D5740014FE76 /* Splash.swift */; };
+		7F30482B291000DD004ED296 /* KeyboardToolbar in Frameworks */ = {isa = PBXBuildFile; productRef = 7F30482A291000DD004ED296 /* KeyboardToolbar */; };
+		7F3902042815A8DC00F4C2D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3902032815A8DC00F4C2D1 /* DashboardView.swift */; };
+		7F62C6F628A7BD230037449A /* Euclid-Circular-A-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F328A7BD160037449A /* Euclid-Circular-A-SemiBold.ttf */; };
+		7F62C6F728A7BD230037449A /* Euclid-Circular-A-Light-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F428A7BD160037449A /* Euclid-Circular-A-Light-Italic.ttf */; };
+		7F62C6F828A7BD230037449A /* Euclid-Circular-A-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6ED28A7BD160037449A /* Euclid-Circular-A-Medium.ttf */; };
+		7F62C6F928A7BD230037449A /* Euclid-Circular-A-Medium-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6EE28A7BD160037449A /* Euclid-Circular-A-Medium-Italic.ttf */; };
+		7F62C6FA28A7BD230037449A /* Euclid-Circular-A-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F528A7BD160037449A /* Euclid-Circular-A-Italic.ttf */; };
+		7F62C6FB28A7BD230037449A /* Euclid-Circular-A-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F028A7BD160037449A /* Euclid-Circular-A-Regular.ttf */; };
+		7F62C6FC28A7BD230037449A /* Euclid-Circular-A-SemiBold-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F128A7BD160037449A /* Euclid-Circular-A-SemiBold-Italic.ttf */; };
+		7F62C6FD28A7BD230037449A /* Euclid-Circular-A-Bold-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F228A7BD160037449A /* Euclid-Circular-A-Bold-Italic.ttf */; };
+		7F62C6FE28A7BD230037449A /* Euclid-Circular-A-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6EC28A7BD160037449A /* Euclid-Circular-A-Bold.ttf */; };
+		7F62C6FF28A7BD230037449A /* Euclid-Circular-A-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6EF28A7BD160037449A /* Euclid-Circular-A-Light.ttf */; };
+		7F6F6DD6281962CB00D34EFA /* DashboardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */; };
+		7F6F6DD8281981A900D34EFA /* SearchDetailPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD7281981A900D34EFA /* SearchDetailPane.swift */; };
+		7F6F6DDA2819898C00D34EFA /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */; };
+		7F78C41728B153CD005D35A4 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78C41628B153CD005D35A4 /* Onboarding.swift */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
+		7FCB0870280ABFDF00C8412E /* ContactNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */; };
+		7FD205B72855BEC100B01011 /* ContactGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD205B62855BEC100B01011 /* ContactGroupView.swift */; };
 		7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */; };
 		7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007924C2BB2A0011CF5C /* ContactListView.swift */; };
 		7FD3007C24C2BB2E0011CF5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FD3007B24C2BB2E0011CF5C /* Assets.xcassets */; };
@@ -19,6 +45,8 @@
 		7FD3008A24C2BB2E0011CF5C /* ContaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3008924C2BB2E0011CF5C /* ContaxTests.swift */; };
 		7FD3009524C2BB2E0011CF5C /* ContaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3009424C2BB2E0011CF5C /* ContaxUITests.swift */; };
 		7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */; };
+		7FD9ABF6280AA64300414005 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9ABF5280AA64300414005 /* MainView.swift */; };
+		7FDB78B2281855A200F9197D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB78B1281855A200F9197D /* SettingsView.swift */; };
 		7FE8996E2809CC8500C3582A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8996D2809CC8500C3582A /* SearchBar.swift */; };
 		7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */; };
 		7FF8F95224CD4B0B002B7D64 /* ContactWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */; };
@@ -49,16 +77,37 @@
 /* Begin PBXFileReference section */
 		2491CAF9F5D5F0C22E72D3B1 /* Pods_ContaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28A52B0FF95F6C86A817CE8A /* Pods-ContaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.debug.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2D6D1DA0DD05D4D5B98ED5AE /* Pods-DexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexTests.release.xcconfig"; path = "Target Support Files/Pods-DexTests/Pods-DexTests.release.xcconfig"; sourceTree = "<group>"; };
-		636E7072080ADB599F6A3B7B /* Pods-Dex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex.debug.xcconfig"; path = "Target Support Files/Pods-Dex/Pods-Dex.debug.xcconfig"; sourceTree = "<group>"; };
 		643613C799C124D7CDA1F7B5 /* Pods-Contax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax.release.xcconfig"; path = "Target Support Files/Pods-Contax/Pods-Contax.release.xcconfig"; sourceTree = "<group>"; };
 		6C4563CACBBD0D0B4791DFE0 /* Pods-Contax-ContaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.release.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6CF177A96CA1D29BED25DB42 /* Pods-ContaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.release.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.release.xcconfig"; sourceTree = "<group>"; };
-		76B320B164663EB39C989D0C /* Pods-Dex-DexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex-DexUITests.release.xcconfig"; path = "Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7F00B922280A6D030082BDA1 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		7F00B924280A6E990082BDA1 /* ContactListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListRow.swift; sourceTree = "<group>"; };
+		7F00B926280A6FE90082BDA1 /* ContactGroupSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactGroupSquare.swift; sourceTree = "<group>"; };
+		7F00B928280A70CF0082BDA1 /* ContactCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCircle.swift; sourceTree = "<group>"; };
+		7F00B92A280A74680082BDA1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7F049057280ACA0600F16E5E /* PhoneCodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhoneCodes.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		7F09930427C287B40027ABE0 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperFunctions.swift; path = HelperFunctions/HelperFunctions.swift; sourceTree = "<group>"; };
 		7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStructures.swift; sourceTree = "<group>"; };
+		7F2EB2FD28A3D5740014FE76 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
+		7F3902032815A8DC00F4C2D1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		7F62C6EC28A7BD160037449A /* Euclid-Circular-A-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Bold.ttf"; sourceTree = "<group>"; };
+		7F62C6ED28A7BD160037449A /* Euclid-Circular-A-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Medium.ttf"; sourceTree = "<group>"; };
+		7F62C6EE28A7BD160037449A /* Euclid-Circular-A-Medium-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Medium-Italic.ttf"; sourceTree = "<group>"; };
+		7F62C6EF28A7BD160037449A /* Euclid-Circular-A-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Light.ttf"; sourceTree = "<group>"; };
+		7F62C6F028A7BD160037449A /* Euclid-Circular-A-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Regular.ttf"; sourceTree = "<group>"; };
+		7F62C6F128A7BD160037449A /* Euclid-Circular-A-SemiBold-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-SemiBold-Italic.ttf"; sourceTree = "<group>"; };
+		7F62C6F228A7BD160037449A /* Euclid-Circular-A-Bold-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Bold-Italic.ttf"; sourceTree = "<group>"; };
+		7F62C6F328A7BD160037449A /* Euclid-Circular-A-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-SemiBold.ttf"; sourceTree = "<group>"; };
+		7F62C6F428A7BD160037449A /* Euclid-Circular-A-Light-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Light-Italic.ttf"; sourceTree = "<group>"; };
+		7F62C6F528A7BD160037449A /* Euclid-Circular-A-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Italic.ttf"; sourceTree = "<group>"; };
+		7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWidget.swift; sourceTree = "<group>"; };
+		7F6F6DD7281981A900D34EFA /* SearchDetailPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailPane.swift; sourceTree = "<group>"; };
+		7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusModifier.swift; sourceTree = "<group>"; };
+		7F78C41628B153CD005D35A4 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
 		7F980C7824C360120075CAC9 /* Contax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Contax.entitlements; path = Contax/Contax.entitlements; sourceTree = "<group>"; };
+		7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNavbar.swift; sourceTree = "<group>"; };
+		7FD205B62855BEC100B01011 /* ContactGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactGroupView.swift; sourceTree = "<group>"; };
 		7FD3007424C2BB2A0011CF5C /* Contax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaxApp.swift; sourceTree = "<group>"; };
 		7FD3007924C2BB2A0011CF5C /* ContactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
@@ -72,6 +121,8 @@
 		7FD3009424C2BB2E0011CF5C /* ContaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaxUITests.swift; sourceTree = "<group>"; };
 		7FD3009624C2BB2E0011CF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
+		7FD9ABF5280AA64300414005 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		7FDB78B1281855A200F9197D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7FE8996D2809CC8500C3582A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleContactView.swift; sourceTree = "<group>"; };
 		7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactWidget.swift; sourceTree = "<group>"; };
@@ -79,10 +130,7 @@
 		7FF8F95724CD5C1C002B7D64 /* ContactNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNote.swift; sourceTree = "<group>"; };
 		7FF8F95C24CD8F17002B7D64 /* ContactImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactImageSection.swift; sourceTree = "<group>"; };
 		7FF8F95E24CD91B8002B7D64 /* ContactNotesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNotesSection.swift; sourceTree = "<group>"; };
-		C17A33027EF6D126174F98AA /* Pods-Dex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex.release.xcconfig"; path = "Target Support Files/Pods-Dex/Pods-Dex.release.xcconfig"; sourceTree = "<group>"; };
-		CBAE12D618A5CFCEC26C7F52 /* Pods-DexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexTests.debug.xcconfig"; path = "Target Support Files/Pods-DexTests/Pods-DexTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contax_ContaxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2042F372B181E97A0D00DE7 /* Pods-Dex-DexUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dex-DexUITests.debug.xcconfig"; path = "Target Support Files/Pods-Dex-DexUITests/Pods-Dex-DexUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D693E37EC973C0D9DF2EB974 /* Pods_Contax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA09339B4A797582A26556FC /* Pods-Contax-ContaxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.debug.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB2C1E45916D20EE26448693 /* Pods-Contax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax.debug.xcconfig"; path = "Target Support Files/Pods-Contax/Pods-Contax.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +141,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F21D8AA28549DB500E6C2DF /* UnsplashSwiftUI in Frameworks */,
+				7F30482B291000DD004ED296 /* KeyboardToolbar in Frameworks */,
 				18B94CBA1AAE6C9BCAC4BB1B /* Pods_Contax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,12 +169,6 @@
 		5E4D44EB6CC97845F07AA07A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				636E7072080ADB599F6A3B7B /* Pods-Dex.debug.xcconfig */,
-				C17A33027EF6D126174F98AA /* Pods-Dex.release.xcconfig */,
-				D2042F372B181E97A0D00DE7 /* Pods-Dex-DexUITests.debug.xcconfig */,
-				76B320B164663EB39C989D0C /* Pods-Dex-DexUITests.release.xcconfig */,
-				CBAE12D618A5CFCEC26C7F52 /* Pods-DexTests.debug.xcconfig */,
-				2D6D1DA0DD05D4D5B98ED5AE /* Pods-DexTests.release.xcconfig */,
 				EB2C1E45916D20EE26448693 /* Pods-Contax.debug.xcconfig */,
 				643613C799C124D7CDA1F7B5 /* Pods-Contax.release.xcconfig */,
 				EA09339B4A797582A26556FC /* Pods-Contax-ContaxUITests.debug.xcconfig */,
@@ -135,23 +179,72 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7F00B920280A6C8B0082BDA1 /* ContactListView */ = {
+			isa = PBXGroup;
+			children = (
+				7F00B924280A6E990082BDA1 /* ContactListRow.swift */,
+				7F6F6DD7281981A900D34EFA /* SearchDetailPane.swift */,
+			);
+			path = ContactListView;
+			sourceTree = "<group>";
+		};
+		7F00B921280A6C960082BDA1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				7FE8996D2809CC8500C3582A /* SearchBar.swift */,
+				7F00B922280A6D030082BDA1 /* SectionHeader.swift */,
+				7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		7F2EAEA6252F5A8400A488BD /* SingleContactView */ = {
 			isa = PBXGroup;
 			children = (
-				7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */,
-				7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */,
-				7FF8F95724CD5C1C002B7D64 /* ContactNote.swift */,
+				7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */,
 				7FF8F95C24CD8F17002B7D64 /* ContactImageSection.swift */,
 				7FF8F95E24CD91B8002B7D64 /* ContactNotesSection.swift */,
+				7FF8F95724CD5C1C002B7D64 /* ContactNote.swift */,
+				7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */,
+				7FF8F95124CD4B0B002B7D64 /* ContactWidget.swift */,
 			);
 			path = SingleContactView;
+			sourceTree = "<group>";
+		};
+		7F62C6EB28A7BCB30037449A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7F62C6F228A7BD160037449A /* Euclid-Circular-A-Bold-Italic.ttf */,
+				7F62C6EC28A7BD160037449A /* Euclid-Circular-A-Bold.ttf */,
+				7F62C6F528A7BD160037449A /* Euclid-Circular-A-Italic.ttf */,
+				7F62C6F428A7BD160037449A /* Euclid-Circular-A-Light-Italic.ttf */,
+				7F62C6EF28A7BD160037449A /* Euclid-Circular-A-Light.ttf */,
+				7F62C6EE28A7BD160037449A /* Euclid-Circular-A-Medium-Italic.ttf */,
+				7F62C6ED28A7BD160037449A /* Euclid-Circular-A-Medium.ttf */,
+				7F62C6F028A7BD160037449A /* Euclid-Circular-A-Regular.ttf */,
+				7F62C6F128A7BD160037449A /* Euclid-Circular-A-SemiBold-Italic.ttf */,
+				7F62C6F328A7BD160037449A /* Euclid-Circular-A-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7F6F6DD4281962A800D34EFA /* DashboardView */ = {
+			isa = PBXGroup;
+			children = (
+				7F00B926280A6FE90082BDA1 /* ContactGroupSquare.swift */,
+				7F00B928280A70CF0082BDA1 /* ContactCircle.swift */,
+				7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */,
+			);
+			path = DashboardView;
 			sourceTree = "<group>";
 		};
 		7F9B1DD624C46EE600A490A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7F6F6DD4281962A800D34EFA /* DashboardView */,
+				7F00B921280A6C960082BDA1 /* Shared */,
+				7F00B920280A6C8B0082BDA1 /* ContactListView */,
 				7F2EAEA6252F5A8400A488BD /* SingleContactView */,
-				7FE8996D2809CC8500C3582A /* SearchBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -159,8 +252,13 @@
 		7F9B1DD724C46EFA00A490A6 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				7F3902032815A8DC00F4C2D1 /* DashboardView.swift */,
 				7FD3007924C2BB2A0011CF5C /* ContactListView.swift */,
 				7FF8F94F24CD3E92002B7D64 /* SingleContactView.swift */,
+				7FDB78B1281855A200F9197D /* SettingsView.swift */,
+				7FD205B62855BEC100B01011 /* ContactGroupView.swift */,
+				7F2EB2FD28A3D5740014FE76 /* Splash.swift */,
+				7F78C41628B153CD005D35A4 /* Onboarding.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -190,11 +288,13 @@
 		7FD3007624C2BB2A0011CF5C /* Contax */ = {
 			isa = PBXGroup;
 			children = (
+				7F62C6EB28A7BCB30037449A /* Fonts */,
 				7FD300A324C2D6BC0011CF5C /* View */,
 				7FD300A224C2D6B60011CF5C /* Model */,
 				7FD3007B24C2BB2E0011CF5C /* Assets.xcassets */,
 				7F980C7824C360120075CAC9 /* Contax.entitlements */,
 				7FD3008024C2BB2E0011CF5C /* Info.plist */,
+				7F00B92A280A74680082BDA1 /* Launch Screen.storyboard */,
 				7FD3007D24C2BB2E0011CF5C /* Preview Content */,
 			);
 			name = Contax;
@@ -234,6 +334,7 @@
 				7FD300A424C2D6CE0011CF5C /* ContactsModel.swift */,
 				7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */,
 				7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */,
+				7F049057280ACA0600F16E5E /* PhoneCodes.json */,
 			);
 			name = Model;
 			path = Contax/Model;
@@ -243,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */,
+				7FD9ABF5280AA64300414005 /* MainView.swift */,
 				7F9B1DD724C46EFA00A490A6 /* Screens */,
 				7F9B1DD624C46EE600A490A6 /* Components */,
 			);
@@ -278,6 +380,10 @@
 			dependencies = (
 			);
 			name = Contax;
+			packageProductDependencies = (
+				7F21D8A928549DB500E6C2DF /* UnsplashSwiftUI */,
+				7F30482A291000DD004ED296 /* KeyboardToolbar */,
+			);
 			productName = Dex;
 			productReference = 7FD3007424C2BB2A0011CF5C /* Contax.app */;
 			productType = "com.apple.product-type.application";
@@ -352,6 +458,10 @@
 				Base,
 			);
 			mainGroup = 7FD3006B24C2BB2A0011CF5C;
+			packageReferences = (
+				7F21D8A828549DB500E6C2DF /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */,
+				7F304829291000DD004ED296 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */,
+			);
 			productRefGroup = 7FD3007524C2BB2A0011CF5C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -368,8 +478,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F62C6FE28A7BD230037449A /* Euclid-Circular-A-Bold.ttf in Resources */,
+				7F62C6FD28A7BD230037449A /* Euclid-Circular-A-Bold-Italic.ttf in Resources */,
+				7F62C6F828A7BD230037449A /* Euclid-Circular-A-Medium.ttf in Resources */,
+				7F62C6F728A7BD230037449A /* Euclid-Circular-A-Light-Italic.ttf in Resources */,
+				7F62C6FF28A7BD230037449A /* Euclid-Circular-A-Light.ttf in Resources */,
+				7F00B92B280A74680082BDA1 /* Launch Screen.storyboard in Resources */,
 				7FD3007F24C2BB2E0011CF5C /* Preview Assets.xcassets in Resources */,
+				7F62C6FC28A7BD230037449A /* Euclid-Circular-A-SemiBold-Italic.ttf in Resources */,
 				7FD3007C24C2BB2E0011CF5C /* Assets.xcassets in Resources */,
+				7F62C6F628A7BD230037449A /* Euclid-Circular-A-SemiBold.ttf in Resources */,
+				7F62C6FB28A7BD230037449A /* Euclid-Circular-A-Regular.ttf in Resources */,
+				7F62C6F928A7BD230037449A /* Euclid-Circular-A-Medium-Italic.ttf in Resources */,
+				7F049058280ACA0600F16E5E /* PhoneCodes.json in Resources */,
+				7F62C6FA28A7BD230037449A /* Euclid-Circular-A-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,19 +619,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F78C41728B153CD005D35A4 /* Onboarding.swift in Sources */,
+				7FDB78B2281855A200F9197D /* SettingsView.swift in Sources */,
 				7FE8996E2809CC8500C3582A /* SearchBar.swift in Sources */,
+				7FD9ABF6280AA64300414005 /* MainView.swift in Sources */,
 				7FF8F95D24CD8F17002B7D64 /* ContactImageSection.swift in Sources */,
 				7FF8F95F24CD91B8002B7D64 /* ContactNotesSection.swift in Sources */,
+				7FD205B72855BEC100B01011 /* ContactGroupView.swift in Sources */,
 				7FF8F95824CD5C1C002B7D64 /* ContactNote.swift in Sources */,
 				7F09930527C287B40027ABE0 /* HelperFunctions.swift in Sources */,
+				7F2EB2FE28A3D5740014FE76 /* Splash.swift in Sources */,
 				7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */,
 				7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */,
 				7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */,
 				7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */,
+				7F00B929280A70CF0082BDA1 /* ContactCircle.swift in Sources */,
 				7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */,
+				7F6F6DDA2819898C00D34EFA /* CornerRadiusModifier.swift in Sources */,
+				7F00B923280A6D030082BDA1 /* SectionHeader.swift in Sources */,
+				7F6F6DD8281981A900D34EFA /* SearchDetailPane.swift in Sources */,
 				7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */,
 				7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */,
+				7F00B927280A6FE90082BDA1 /* ContactGroupSquare.swift in Sources */,
+				7FCB0870280ABFDF00C8412E /* ContactNavbar.swift in Sources */,
+				7F6F6DD6281962CB00D34EFA /* DashboardWidget.swift in Sources */,
+				7F3902042815A8DC00F4C2D1 /* DashboardView.swift in Sources */,
 				7FF8F95224CD4B0B002B7D64 /* ContactWidget.swift in Sources */,
+				7F00B925280A6E990082BDA1 /* ContactListRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,7 +732,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -651,7 +787,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -667,14 +803,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Contax/Contax.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development: Arpit Bansal (2MGB223PJU)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Contax/Preview Content\"";
 				DEVELOPMENT_TEAM = RPRR899TJ6;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = RPRR899TJ6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Contax/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,6 +820,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.arpitbansal.contax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Contax iOS Development Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Contax iOS Development Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -693,13 +832,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Contax/Contax.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development: Arpit Bansal (2MGB223PJU)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Contax/Preview Content\"";
 				DEVELOPMENT_TEAM = RPRR899TJ6;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = RPRR899TJ6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Contax/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -707,6 +849,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.arpitbansal.contax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Contax iOS Development Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Contax iOS Development Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -856,6 +999,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7F21D8A828549DB500E6C2DF /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ArnavMotwani/UnsplashSwiftUI.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		7F304829291000DD004ED296 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/no-comment/KeyboardToolbar";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7F21D8A928549DB500E6C2DF /* UnsplashSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F21D8A828549DB500E6C2DF /* XCRemoteSwiftPackageReference "UnsplashSwiftUI" */;
+			productName = UnsplashSwiftUI;
+		};
+		7F30482A291000DD004ED296 /* KeyboardToolbar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F304829291000DD004ED296 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */;
+			productName = KeyboardToolbar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7FD3006C24C2BB2A0011CF5C /* Project object */;
 }

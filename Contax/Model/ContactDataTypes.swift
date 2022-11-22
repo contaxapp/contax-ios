@@ -8,7 +8,7 @@
 import Foundation
 import Contacts
 
-struct Contact: Identifiable {
+struct Contact: Identifiable, Equatable {
     
     var id: String
     var givenName: String
@@ -23,21 +23,23 @@ struct Contact: Identifiable {
     var image: String?
     var thumbnailImage: String?
     var postalAddresses: [ContactAddress] = []
+    var note: String
     
-    init(id: String, givenName: String, middleName: String, familyName: String, nickname: String, jobTitle: String, department: String, organization: String, image: String?, thumbnailImage: String?, emailAddresses: [ContactEmail], phoneNumbers: [ContactPhoneNumber], postalAddresses: [ContactAddress]) {
-        self.id = id
-        self.givenName = givenName
-        self.middleName = middleName
-        self.familyName = familyName
-        self.nickname = nickname
-        self.jobTitle = jobTitle
-        self.department = department
-        self.organization = organization
-        self.image = image
-        self.thumbnailImage = thumbnailImage
-        self.emailAddresses = emailAddresses
-        self.phoneNumbers = phoneNumbers
-        self.postalAddresses = postalAddresses
+    static func == (lhs: Contact, rhs: Contact) -> Bool {
+    
+        if (lhs.id != rhs.id) { return false; }
+        if (lhs.givenName != rhs.givenName) { return false; }
+        if (lhs.middleName != rhs.middleName) { return false; }
+        if (lhs.familyName != rhs.familyName) { return false; }
+        if (lhs.nickname != rhs.nickname) { return false; }
+        if (lhs.jobTitle != rhs.jobTitle) { return false; }
+        if (lhs.department != rhs.department) { return false; }
+        if (lhs.organization != rhs.organization) { return false; }
+        if (lhs.image != rhs.image) { return false; }
+        if (lhs.thumbnailImage != rhs.thumbnailImage) { return false; }
+        if (lhs.note != rhs.note) { return false; }
+        
+        return true;
     }
 }
 
@@ -75,6 +77,7 @@ struct HashableContact: Encodable {
     var image: String?
     var thumbnailImage: String?
     var postalAddresses: [ContactAddress] = []
+    var note: String
     
     init(_ contact: Contact) {
         self.givenName = contact.givenName
@@ -89,6 +92,7 @@ struct HashableContact: Encodable {
         self.image = contact.image
         self.thumbnailImage = contact.thumbnailImage
         self.postalAddresses = contact.postalAddresses
+        self.note = contact.note
     }
 }
 
@@ -109,6 +113,11 @@ struct ContactGroup: Identifiable {
 }
 
 struct AddressBookContacts {
+    var hashes: [String]
+    var contacts: [Contact]
+}
+
+struct StoredContacts {
     var hashes: [String]
     var contacts: [Contact]
 }

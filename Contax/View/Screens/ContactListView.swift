@@ -8,42 +8,53 @@
 import SwiftUI
 import RealmSwift
 import Contacts
+import UnsplashSwiftUI
+import KeyboardToolbar
+
+let toolbarItems: [KeyboardToolbarItem] = [
+    KeyboardToolbarItem.init(text: "Click 1", callback: {
+        print("Click 1")
+    }),
+    KeyboardToolbarItem.init(text: "Click 2", callback: {
+        print("Click 2")
+    })
+]
+
+let toolbarStyle: KeyboardToolbarStyle = KeyboardToolbarStyle.init(backgroundColor: Color.init("Lighter Gray"), height: 50, dividerColor: Color.init("Darker Gray"), dividerWidth: 2)
 
 struct ContactListView: View {
     
-    @ObservedObject var Contacts = ContactsModel()
-    
-    @State private var authorizationChange: Bool = false {
-        didSet {
-            DispatchQueue.main.async {
-                print("Auth updated. Fetching contacts.")
-                Contacts.fetchContactsForDisplay()
-            }
-        }
-    }
+    @EnvironmentObject var Contacts: ContactsModel
     
     @State private var showContactErrorAlert = false
+    @State private var searchTerm = ""
+    @State private var showSearchDetailPane: Bool = false
     
     func getSectionedContactDictionary(_ Contacts: [Contact]) -> Dictionary <String , [Contact]> {
         let sectionDictionary: Dictionary<String, [Contact]> = {
             return Dictionary(grouping: Contacts, by: {
                 let name = $0.givenName
                 let normalizedName = name.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
-                let firstChar = String(normalizedName.first!).uppercased()
-                return firstChar
+                if let normalizedFirstName = normalizedName.first {
+                    let firstChar = String(normalizedFirstName).uppercased()
+                    return firstChar
+                } else {
+                    return "#"
+                }
             })
         }()
         return sectionDictionary
     }
     
-    @State var searchTerm = ""
-    @State private var showDetails = true
+    func filterContactsBySearch(SectionedDictionary: Dictionary<String, [Contact]>, key: String) -> [Contact] {
+        return SectionedDictionary[key]!.filter({ (contact) -> Bool in
+            self.searchTerm.isEmpty ? true : (
+                contact.givenName.lowercased().contains(self.searchTerm.lowercased()) ||
+                contact.familyName.lowercased().contains(self.searchTerm.lowercased())
+            )
+        })
+    }
     
-    var groups = ["Hackathon", "Boston", "Dex"]
-    var recentlyViewedContacts = ["Maria", "Waseem", "Nate", "Vivek"]
-    var recentlyAddedContacts = ["Princy", "Prachi"]
-    
-    @ViewBuilder
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -51,145 +62,41 @@ struct ContactListView: View {
                     Color.init("Base Color").edgesIgnoringSafeArea(.all)
                     VStack (alignment: .leading) {
                         // Search Bar
-                        SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm)
-                        
-                        if showDetails {
-                            VStack (alignment: .leading) {
-                                // Groups
-                                Text("Groups")
-                                    .foregroundColor(Color.init("Lighter Gray"))
-                                    .padding(.horizontal)
-                                ScrollView (.horizontal, showsIndicators: false) {
-                                    HStack {
-                                        ForEach(groups, id: \.self) { group in
-                                            ZStack (alignment: .bottom) {
-                                                Color.init("Darker Gray")
-                                                VStack (alignment: .center) {
-                                                    Text("\(group)")
-                                                        .font(.system(size: 15))
-                                                        .foregroundColor(.white)
-                                                        .padding(.bottom, 1)
-                                                    Text("12 People")
-                                                        .font(.system(size: 10))
-                                                        .foregroundColor(.white)
-                                                }
-                                                .padding(.bottom, 10)
-                                            }
-                                            .frame(width: 100, height: 100, alignment: .leading)
-                                            .cornerRadius(10)
-                                        }
-                                    }.padding(.horizontal)
-                                }.frame(height: 100)
-                                
-                                // Recently Viewed Contacts
-                                Text("Recently Viewed")
-                                    .foregroundColor(Color.init("Lighter Gray"))
-                                    .padding(.horizontal)
-                                    .padding(.top, 10)
-                                ScrollView (.horizontal, showsIndicators: false) {
-                                    HStack {
-                                        ForEach(recentlyViewedContacts, id: \.self) { contact in
-                                            VStack (alignment:.center) {
-                                                Circle()
-                                                    .fill(Color.gray)
-                                                    .frame(width: 50, height: 50, alignment: .center)
-                                                Text("\(contact)")
-                                                    .foregroundColor(.white)
-                                            }
-                                            .frame(width: 70, height: 80)
-                                        }
-                                    }.padding(.horizontal)
-                                }.frame(height: 100)
-                                
-                                // Recently Added Contacts
-                                Text("Recently Added")
-                                    .foregroundColor(Color.init("Lighter Gray"))
-                                    .padding(.horizontal)
-                                ScrollView (.horizontal, showsIndicators: false) {
-                                    HStack {
-                                        ForEach(recentlyAddedContacts, id: \.self) { contact in
-                                            VStack (alignment:.center) {
-                                                Circle()
-                                                    .fill(Color.gray)
-                                                    .frame(width: 50, height: 50, alignment: .center)
-                                                Text("\(contact)")
-                                                    .foregroundColor(.white)
-                                            }
-                                            .frame(width: 70, height: 80)
-                                        }
-                                    }.padding(.horizontal)
-                                }.frame(height: 100)
-                                
-                                Divider()
-                                    .background(Color.init("Lighter Gray"))
-                                    .padding(.top, 10)
-                                    .padding(.bottom, 10)
-                            }
-                            .transition(.move(edge: .top))
-                        }
-            
-                        
+                        SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm, showSearchDetailPane: $showSearchDetailPane)
+                            .zIndex(1)
+                            .background(Color.init("Base Color"))
                         
                         // All Contacts
-                        Text("Contacts")
-                            .foregroundColor(Color.init("Lighter Gray"))
-                            .padding(.horizontal)
                         List {
-                            ForEach(getSectionedContactDictionary(Contacts.contacts).keys.sorted(), id:\.self) { key in
-                                if let contacts = getSectionedContactDictionary(Contacts.contacts)[key]
-                                {
-                                    Section(header: Text("\(key)")
-                                        .foregroundColor(Color.white)
-                                        .fontWeight(.bold)
-                                    ) {
+                            let sectionedContactDictionary = getSectionedContactDictionary(Contacts.contacts)
+                            ForEach(sectionedContactDictionary.keys.sorted(), id:\.self) { key in
+                                
+                                // Get contacts for particular section (key)
+                                if let contacts = filterContactsBySearch(SectionedDictionary: sectionedContactDictionary, key: key), !contacts.isEmpty {
+                                    
+                                    Section {
                                         ForEach(contacts) { contact in
-                                            NavigationLink(destination: SingleContactView(contact)) {
-                                                ZStack {
-                                                    if contact.image != nil {
-                                                        Image(uiImage: UIImage(data: Data(base64Encoded: contact.image!)!)!)
-                                                            .resizable()
-                                                            .aspectRatio(1, contentMode: .fill)
-                                                            .clipShape(Circle())
-                                                            .frame(width: 50, height: 50, alignment: .center)
-                                                            .overlay(Circle().stroke(Color.white, lineWidth: 1))
-                                                    } else {
-                                                        Circle()
-                                                            .fill(Color.gray)
-                                                            .frame(width: 50, height: 50, alignment: .center)
-                                                            .overlay(Circle().stroke(Color.white, lineWidth: 1))
-                                                        Text(HelperFunctions.returnInitials(contact))
-                                                    }
-                                                }.frame(width: geometry.size.width * 0.1)
-                                                
-                                                Text("\(contact.givenName) \(contact.familyName)")
-                                                    .foregroundColor(.white)
-                                                    .frame(width: geometry.size.width * 0.9, alignment: .leading)
-                                                    .padding(.leading, 10)
-                                            }
+                                            ContactListRow(contact: contact, viewSize: geometry)
                                         }
-                                        .listRowBackground(Color.init("Base Color"))
-                                        .padding(.top, 5)
-                                        .padding(.bottom, 5)
+                                    } header: {
+                                        Text("\(key)")
+                                            .fontWeight(.bold)
+                                            .listRowBackground(Color.init("Base Color"))
                                     }
                                 }
                             }
                         }
-                        .listStyle(PlainListStyle())
-                        .simultaneousGesture(DragGesture().onChanged({ value in
-                            // if keyboard is opened then hide it
-                            print("SCROLLED")
-                            if (value.predictedEndTranslation.height < 0) {
-                                withAnimation {
-                                    showDetails.toggle()
-                                }
-                            }
-                        }))
+                        .foregroundColor(Color.init("Lighter Gray"))
+                        .scrollContentBackground(Color.clear)
+                        .listStyle(GroupedListStyle())
                     }
+                    
+                    SearchDetailPane(showSearchDetailPane: $showSearchDetailPane, maxHeight: 300)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: Text("Contact Book").font(.title).foregroundColor(.white).fontWeight(.bold),
+                leading: Text("Contacts").font(.title).foregroundColor(.white).fontWeight(.bold),
                 trailing: Button(action: {
                     print("Create Contact")
                 }, label: {
@@ -207,40 +114,11 @@ struct ContactListView: View {
             )
         })
         .onAppear(perform: {
-            let authorizationStatus = Contacts.checkAuthorizationStatus()
-            
-            switch(authorizationStatus) {
-                case 0: // notDetermined - User has not chosen yet
-                    print("Not set. Requesting authorization and updating state.")
-                    Task {
-                        let auth = await Contacts.requestAuthorization()
-                        if (auth) {
-                            authorizationChange.toggle()
-                        } else {
-                            showContactErrorAlert.toggle()
-                        }
-                    }
-                case 1: // restricted - User cannot changet the setting due to parental restriction
-                    // Show error
-                    print("Restricted. Error")
-                case 2: // denied - User has denied access to contacts
-                    // Show error
-                    print("Denied. Error")
-                case 3:
-                    print("Authorized. Fetching contacts.")
-                    Contacts.fetchContactsForDisplay()
-                default:
-                    print("Will never reach here")
-            }
+//            Contacts.fetchContactsForDisplay()
         })
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             Contacts.fetchContactsForDisplay()
         }
-    }
-}
-
-struct ContactListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactListView()
+        .keyboardToolbar(toolbarItems, style: toolbarStyle)
     }
 }

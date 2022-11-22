@@ -11,11 +11,17 @@ import MessageUI
 
 struct HelperFunctions {
     static func makeCall(_ contact: Contact) {
+        #if !DEBUG
         if contact.phoneNumbers.count > 0 {
             let phone = "tel://\(contact.phoneNumbers[0].phone)"
             guard let url = URL(string: phone) else { return }
             UIApplication.shared.open(url)
         }
+        #endif
+        
+        #if DEBUG
+        print("Calling . . .")
+        #endif
     }
     
     static func returnInitials(_ contact: Contact) -> String {
@@ -37,5 +43,48 @@ struct HelperFunctions {
         }
         
         return initials
+    }
+    
+    static func composeText(_ contact: Contact) {
+        #if !DEBUG
+        
+        if !MFMessageComposeViewController.canSendText() {
+            print("SMS services are not available")
+            return;
+        }
+        
+        #endif
+        
+        var selectedPhoneNumber: String = ""
+        
+        if (contact.phoneNumbers.count > 1) {
+            
+        } else {
+            
+        }
+        
+        selectedPhoneNumber = selectedPhoneNumber.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: "")
+        
+        let message = "sms://\(selectedPhoneNumber)"
+        guard let url = URL(string: message) else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    static func composeEmail(_ contact: Contact) {
+        #if !DEBUG
+        
+        if !MFMessageComposeViewController.canSendText() {
+            print("SMS services are not available")
+            return;
+        }
+        
+        #endif
+        
+        if contact.phoneNumbers.count > 0 {
+            let message = "sms://\(contact.phoneNumbers[0].phone)"
+            guard let url = URL(string: message) else { return }
+            debugPrint(contact.phoneNumbers[0].phone)
+            UIApplication.shared.open(url)
+        }
     }
 }

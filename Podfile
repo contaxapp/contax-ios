@@ -7,6 +7,7 @@ target 'Contax' do
 
   # Pods for Contax
   pod 'RealmSwift', '=10.12.0'
+  pod 'TrueSDK'
 
   target 'ContaxTests' do
     inherit! :search_paths
