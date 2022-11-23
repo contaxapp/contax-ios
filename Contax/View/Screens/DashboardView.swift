@@ -57,6 +57,11 @@ struct DashboardView: View {
                             }.padding(.horizontal)
                         }
                         
+                        
+                        // Upcoming Celebrations
+                        SectionHeader(heading: "Upcoming Celebrations", paddingTop: 20, paddingBottom: 15)
+                            .padding(.horizontal)
+                        
                         Spacer()
                     }
                 }
