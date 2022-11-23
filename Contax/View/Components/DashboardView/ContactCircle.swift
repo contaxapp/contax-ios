@@ -17,16 +17,15 @@ struct ContactCircle: View {
     
     var body: some View {
         VStack (alignment:.center) {
-//            Circle()
-//                .fill(Color.gray)
-//                .frame(width: 50, height: 50, alignment: .center)
             Image("Placeholder Contact Image")
                 .resizable()
                 .clipShape(Circle())
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: 50, height: 50, alignment: .center)
+                .padding(.bottom, 5)
             Text(self.contact)
-                .foregroundColor(.white)
+                .font(.custom("EuclidCircularA-Regular", size: 12))
+                .foregroundColor(Color.init("Dark Gray"))
         }
         .frame(width: 70, height: 80)
     }

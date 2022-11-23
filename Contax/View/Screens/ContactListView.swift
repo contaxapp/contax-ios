@@ -20,7 +20,7 @@ let toolbarItems: [KeyboardToolbarItem] = [
     })
 ]
 
-let toolbarStyle: KeyboardToolbarStyle = KeyboardToolbarStyle.init(backgroundColor: Color.init("Lighter Gray"), height: 50, dividerColor: Color.init("Darker Gray"), dividerWidth: 2)
+let toolbarStyle: KeyboardToolbarStyle = KeyboardToolbarStyle.init(backgroundColor: Color.init("Light Gray"), height: 50, dividerColor: Color.init("Dark Gray"), dividerWidth: 2)
 
 struct ContactListView: View {
     
@@ -86,7 +86,7 @@ struct ContactListView: View {
                                 }
                             }
                         }
-                        .foregroundColor(Color.init("Lighter Gray"))
+                        .foregroundColor(Color.init("Light Gray"))
                         .scrollContentBackground(Color.clear)
                         .listStyle(GroupedListStyle())
                     }

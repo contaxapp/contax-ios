@@ -21,7 +21,7 @@ struct SearchBar : View {
                 Image(systemName: "magnifyingglass").foregroundColor(.white)
                 
                 ZStack (alignment: .leading) {
-                    if searchTerm.isEmpty { placeholder.foregroundColor(Color.init("Lighter Gray")) }
+                    if searchTerm.isEmpty { placeholder.foregroundColor(Color.init("Light Gray")) }
                     TextField("", text: self.$searchTerm, onEditingChanged: { isEditing in
                         self.showCancelButton = true
                         showSearchDetailPane = isEditing
@@ -41,7 +41,7 @@ struct SearchBar : View {
             }
             .padding(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
             .foregroundColor(.white)
-            .background(Color.init("Darker Gray"))
+            .background(Color.init("Dark Gray"))
             .cornerRadius(30.0)
             
             if self.showCancelButton {

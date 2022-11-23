@@ -15,7 +15,9 @@ struct SectionHeader: View {
     
     var body: some View {
         Text(heading)
-            .foregroundColor(Color.init("Lighter Gray"))
+            .foregroundColor(Color.init("Dark Gray"))
+            .font(.custom("EuclidCircularA-Medium", size: 20))
+            .fontWeight(.medium)
             .padding(.top, paddingTop)
             .padding(.bottom, paddingBottom)
     }

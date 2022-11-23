@@ -21,7 +21,7 @@ struct ContactNavbar: View {
                     .background(
                         Circle()
                             .frame(width: 30, height: 30)
-                            .foregroundColor(Color.init("Darker Gray"))
+                            .foregroundColor(Color.init("Dark Gray"))
                     )
             })
             
@@ -37,7 +37,7 @@ struct ContactNavbar: View {
                         .background(
                             Circle()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(Color.init("Darker Gray"))
+                                .foregroundColor(Color.init("Dark Gray"))
                         )
                 })
                 .padding(.trailing, 10)
@@ -51,7 +51,7 @@ struct ContactNavbar: View {
                         .background(
                             Circle()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(Color.init("Darker Gray"))
+                                .foregroundColor(Color.init("Dark Gray"))
                         )
                 })
             }

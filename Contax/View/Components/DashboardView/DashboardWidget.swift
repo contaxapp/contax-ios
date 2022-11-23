@@ -9,47 +9,39 @@ import SwiftUI
 
 struct DashboardWidget: View {
     
-    var title: Int
-    var subtitle: String
+    var icon: String
+    var title: String
     var geometry: GeometryProxy
     
     @State var number: Int = 0
     
-    init(title: Int, subtitle: String, parentSize geometry: GeometryProxy) {
-        self.title = title;
-        self.subtitle = subtitle;
+    init(icon: String, title: String, parentSize geometry: GeometryProxy) {
+        self.icon = icon
+        self.title = title
         self.geometry = geometry
     }
     
     var body: some View {
         VStack(alignment: .center) {
-            Text("")
-                .modifier(AnimatingNumber(number: number))
-                .font(.largeTitle)
-                .foregroundColor(Color.purple)
-                .padding(.bottom, 1)
-            Text(subtitle)
-                .font(.system(size: 15))
+            VStack {
+                Image(systemName: icon)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 25)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 20)
+                    .foregroundColor(Color.init("Accent Green"))
+            }
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.init("Light Gray"), lineWidth: 1)
+            )
+            .padding(.bottom, 5)
+            
+            Text(title)
+                .font(.system(size: 12))
         }
         .frame(width: geometry.size.width * 0.2, height: geometry.size.width * 0.25, alignment: .top)
-        .foregroundColor(Color.init("Lighter Gray"))
-        .onAppear(perform: {
-            withAnimation(Animation.easeInOut(duration: 0.5)) {
-                number = title
-            }
-        })
-    }
-}
-
-struct AnimatingNumber: AnimatableModifier {
-    var number: Int
-
-    var animatableData: CGFloat {
-        get { CGFloat(number) }
-        set { number = Int(newValue) }
-    }
-
-    func body(content: Content) -> some View {
-        Text(String(number))
+        .foregroundColor(Color.init("Dark Gray"))
     }
 }

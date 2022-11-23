@@ -27,14 +27,14 @@ struct SearchExplanationRow: View {
                 .fontWeight(.medium)
                 .frame(minWidth: 20, maxWidth: geometry.size.width * 0.2, alignment: .center)
                 .padding(5)
-                .background(Color.init("Darker Gray"))
+                .background(Color.init("Dark Gray"))
                 .cornerRadius(10)
-                .foregroundColor(Color.init("Lighter Gray"))
+                .foregroundColor(Color.init("Light Gray"))
             Text(" - ")
             Text(explanation)
                 .font(.subheadline)
         }
-        .foregroundColor(Color.init("Darker Gray"))
+        .foregroundColor(Color.init("Dark Gray"))
     }
 }
 
@@ -76,7 +76,7 @@ struct SearchDetailPane: View {
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color.init("Darker Gray"))
+                    .foregroundColor(Color.init("Dark Gray"))
                 VStack (alignment: .leading) {
                     SearchExplanationRow(label: "#group", explanation: "Search in a specific group", geometry: geometry)
                     SearchExplanationRow(label: "#location", explanation: "Search in a specific location", geometry: geometry)
@@ -86,11 +86,11 @@ struct SearchDetailPane: View {
                     .font(.subheadline)
                     .fontWeight(.regular)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color.init("Darker Gray"))
+                    .foregroundColor(Color.init("Dark Gray"))
             }
             .padding(.horizontal)
             .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
-            .background(Color.init("Lighter Gray"))
+            .background(Color.init("Light Gray"))
             .cornerRadius(20, corners: [.topLeft, .topRight])
             .frame(height: geometry.size.height, alignment: .bottom)
             .offset(y: max(self.offset + self.translation, 0))

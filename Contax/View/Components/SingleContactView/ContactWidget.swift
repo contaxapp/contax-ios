@@ -31,7 +31,7 @@ struct ContactWidget: View {
                     .padding(.all, 20)
                     .background(
                         Circle()
-                            .foregroundColor(Color.init("Darker Gray"))
+                            .foregroundColor(Color.init("Dark Gray"))
                     )
                 
                 Text(actionText)

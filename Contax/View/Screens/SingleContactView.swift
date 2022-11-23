@@ -66,7 +66,7 @@ struct SingleContactView: View {
                         VStack(alignment: .leading, spacing: 20) {
                             Divider()
                                 .padding(.horizontal)
-                                .background(Color.init("Darker Gray"))
+                                .background(Color.init("Dark Gray"))
                             
                             let phoneCodes: [phoneCode] = load("PhoneCodes.json")
                             

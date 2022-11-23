@@ -15,8 +15,7 @@ struct DashboardView: View {
     @EnvironmentObject var Contacts: ContactsModel
     
     var groups = ["Hackathon", "Boston", "Dex"]
-    var recentlyViewedContacts = ["Maria", "Waseem", "Nate", "Vivek"]
-    var recentlyAddedContacts = ["Princy", "Prachi"]
+    var recentlyAddedContacts = ["Princy", "Prachi", "Gabe", "Waseem"]
     
     var body: some View {
         NavigationView {
@@ -27,17 +26,17 @@ struct DashboardView: View {
                         
                         VStack(alignment: .center) {
                             HStack {
-                                DashboardWidget(title: Contacts.contacts.count, subtitle: "Contacts", parentSize: geometry)
-                                DashboardWidget(title: 16, subtitle: "Groups", parentSize: geometry)
-                                DashboardWidget(title: 11, subtitle: "Groups", parentSize: geometry)
-                                DashboardWidget(title: 16, subtitle: "Groups", parentSize: geometry)
+                                DashboardWidget(icon: "plus", title: "Add Contact", parentSize: geometry)
+                                DashboardWidget(icon: "camera.fill", title: "Scan Card", parentSize: geometry)
+                                DashboardWidget(icon: "books.vertical.fill", title: "Organize", parentSize: geometry)
+                                DashboardWidget(icon: "point.3.filled.connected.trianglepath.dotted", title: "Introduce", parentSize: geometry)
                             }
                             .frame(width: geometry.size.width)
                         }
-                        .padding(.top, 20)
+                        .padding(.top, 30)
                         
                         // Groups
-                        SectionHeader(heading: "Groups")
+                        SectionHeader(heading: "Groups", paddingTop: 20, paddingBottom: 15)
                             .padding(.horizontal)
                         ScrollView (.horizontal, showsIndicators: false) {
                             HStack {
@@ -47,19 +46,8 @@ struct DashboardView: View {
                             }.padding(.horizontal)
                         }
                         
-                        // Recently Viewed Contacts
-                        SectionHeader(heading: "Recently Viewed", paddingTop: 10)
-                            .padding(.horizontal)
-                        ScrollView (.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(recentlyViewedContacts, id: \.self) { contact in
-                                    ContactCircle(contact)
-                                }
-                            }.padding(.horizontal)
-                        }
-                        
                         // Recently Added Contacts
-                        SectionHeader(heading: "Recently Added", paddingTop: 10)
+                        SectionHeader(heading: "Recently Added", paddingTop: 20, paddingBottom: 15)
                             .padding(.horizontal)
                         ScrollView (.horizontal, showsIndicators: false) {
                             HStack {
@@ -75,11 +63,16 @@ struct DashboardView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: Text("Contax").font(.title).foregroundColor(.white).fontWeight(.bold),
-                trailing: Button(action: {
-                    print("Create Contact")
+                leading: Text("Dashboard").font(.custom("EuclidCircularA-Medium", size: 25)).foregroundColor(Color.init("Dark Gray")).fontWeight(.medium),
+                trailing: NavigationLink(destination: {
+                    SettingsView()
                 }, label: {
-                    Image(systemName: "plus").font(.title).foregroundColor(.white)
+                    Image("Placeholder Contact Image")
+                        .resizable()
+                        .clipShape(Circle())
+                        .aspectRatio(1, contentMode: .fit)
+                        .frame(width: 35, height: 35, alignment: .center)
+                        .padding(.horizontal)
                 })
             )
         }

@@ -50,19 +50,18 @@ struct MainView: View {
                 }
                 .tag(4)
         }
-        .accentColor(Color.purple)
+        .accentColor(Color.init("Accent Green"))
         .environmentObject(Contacts)
         .onAppear() {
             
             // Appearance
             
             let standardAppearance = UITabBarAppearance()
-            standardAppearance.backgroundColor = UIColor(Color.init("Darker Gray"))
-//            standardAppearance.shadowColor = UIColor(Color.white)
+            standardAppearance.backgroundColor = UIColor(Color.white)
             
             let itemAppearance = UITabBarItemAppearance()
-            itemAppearance.normal.iconColor = UIColor(Color.init("Lighter Gray"))
-            itemAppearance.selected.iconColor = UIColor(Color.purple)
+            itemAppearance.normal.iconColor = UIColor(Color.init("Mid Gray"))
+            itemAppearance.selected.iconColor = UIColor(Color.init("Accent Green"))
             standardAppearance.inlineLayoutAppearance = itemAppearance
             standardAppearance.stackedLayoutAppearance = itemAppearance
             standardAppearance.compactInlineLayoutAppearance = itemAppearance

@@ -20,7 +20,7 @@ struct ContactNote: View {
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 10)
-        .background(Color.init("Darker Gray"))
+        .background(Color.init("Dark Gray"))
         .cornerRadius(10)
         .padding(.bottom, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
     }

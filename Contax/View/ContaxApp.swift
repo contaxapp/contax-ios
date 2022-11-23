@@ -13,7 +13,7 @@ struct ContaxApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Splash()
+                MainView()
             }
             .navigationViewStyle(.stack)
         }

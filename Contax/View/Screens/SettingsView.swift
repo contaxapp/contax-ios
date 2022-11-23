@@ -27,7 +27,7 @@ struct SettingsView: View {
                             Section(
                                 header:
                                     Text("Account")
-                                    .foregroundColor(Color.init("Lighter Gray"))
+                                    .foregroundColor(Color.init("Light Gray"))
                                     .padding(.bottom, 5)
                                     .padding(.leading, -20)
                             ) {
@@ -40,7 +40,7 @@ struct SettingsView: View {
                                 Toggle("Hello", isOn: $yay)
                             }
                         }
-                        .foregroundColor(Color.init("Darker Gray"))
+                        .foregroundColor(Color.init("Dark Gray"))
                         .background(Color.init("Base Color"))
                     }
                     .scrollContentBackground(Color.clear)
