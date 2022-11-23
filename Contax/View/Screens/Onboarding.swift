@@ -13,7 +13,7 @@ class OnboardingStage: ObservableObject {
 
 struct OnboardingWrapper: View {
     
-    @StateObject var onboardingStage = OnboardingStage()
+    @StateObject private var onboardingStage = OnboardingStage()
     
     var body: some View {
         GeometryReader { geometry in
@@ -41,7 +41,21 @@ struct OnboardingWrapper: View {
 struct Onboarding1: View {
     
     var geometry: GeometryProxy
+    
     @EnvironmentObject var onboardingStage: OnboardingStage
+    
+    @ObservedObject private var Contacts = ContactsModel()
+    
+    @State private var authorizationChange: Bool = false {
+        didSet {
+            DispatchQueue.main.async {
+                print("Auth updated. Fetching contacts.")
+                Contacts.fetchContactsForDisplay()
+            }
+        }
+    }
+    
+    @State private var showContactErrorAlert = false
     
     init(_ geometry: GeometryProxy) {
         self.geometry = geometry
@@ -63,7 +77,16 @@ struct Onboarding1: View {
             HStack(alignment: .center) {
                 Button("Grant Access") {
                     print("Granting access . . .")
-                    onboardingStage.stage = 2
+                    
+                    Task {
+                        let auth = await Contacts.requestAuthorization()
+                        if (auth) {
+                            print("Access granted!")
+                            onboardingStage.stage = 2
+                        } else {
+                            showContactErrorAlert.toggle()
+                        }
+                    }
                 }
                 .frame(width: geometry.size.width * 0.6, height: 60)
                 .background((Color.init("Accent Green")))
@@ -74,6 +97,15 @@ struct Onboarding1: View {
             .frame(width: geometry.size.width, height: geometry.size.height * 0.2)
         }
         .frame(width: geometry.size.width, height: geometry.size.height * 0.8)
+        .alert(isPresented: $showContactErrorAlert, content: {
+            Alert(
+                title: Text("Contact Access"),
+                message: Text("Access was denied. Kindly restart the app"),
+                dismissButton: .default(
+                    Text("Ok")
+                )
+            )
+        })
     }
 }
 
