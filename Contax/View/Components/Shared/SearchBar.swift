@@ -13,7 +13,6 @@ struct SearchBar : View {
     let placeholder: Text
     @Binding var searchTerm : String
     @Binding var showSearchDetailPane: Bool
-    @State var showCancelButton = false
 
     var body: some View {
         HStack {

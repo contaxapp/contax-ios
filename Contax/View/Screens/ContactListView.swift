@@ -28,7 +28,7 @@ struct ContactListView: View {
     
     @State private var showContactErrorAlert = false
     @State private var searchTerm = ""
-    @State private var showSearchDetailPane: Bool = false
+    @State private var showSearchDetailPane: Bool = true
     
     func getSectionedContactDictionary(_ Contacts: [Contact]) -> Dictionary <String , [Contact]> {
         let sectionDictionary: Dictionary<String, [Contact]> = {
@@ -92,7 +92,7 @@ struct ContactListView: View {
                         .listStyle(GroupedListStyle())
                     }
                     
-                    SearchDetailPane(showSearchDetailPane: $showSearchDetailPane, maxHeight: 300)
+                    SearchDetailPane(showSearchDetailPane: $showSearchDetailPane, maxHeight: 350)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
