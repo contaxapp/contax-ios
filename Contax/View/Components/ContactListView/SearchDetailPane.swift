@@ -15,10 +15,40 @@ fileprivate enum Constants {
     static let minHeightRatio: CGFloat = 0
 }
 
+struct SearchTokenDetail {
+    var on: Bool = false
+    var character: String
+}
+
+struct SearchTokens: Equatable {
+    var locations = SearchTokenDetail(character: "#")
+    var groups = SearchTokenDetail(character: "!")
+    var notes = SearchTokenDetail(character: "@")
+    var company = SearchTokenDetail(character: "$")
+    
+    static func == (lhs: SearchTokens, rhs: SearchTokens) -> Bool {
+        if (lhs.locations.on != rhs.locations.on) { return false }
+        if (lhs.groups.on != rhs.groups.on) { return false }
+        if (lhs.notes.on != rhs.notes.on) { return false }
+        if (lhs.company.on != rhs.company.on) { return false }
+        
+        return true
+    }
+    
+    static func compare (lhs: SearchTokens, rhs: SearchTokens) -> String? {
+        if (lhs.locations.on != rhs.locations.on) { return rhs.locations.character }
+        if (lhs.groups.on != rhs.groups.on) { return rhs.groups.character }
+        if (lhs.notes.on != rhs.notes.on) { return rhs.notes.character }
+        if (lhs.company.on != rhs.company.on) { return rhs.company.character }
+        
+        return nil
+    }
+}
+
 struct SearchToken: View {
     
     var tokenName: String
-    @State var selected: Bool = false
+    @Binding var selected: Bool
     
     var body: some View {
         HStack {
@@ -43,6 +73,8 @@ struct SearchDetailPane: View {
     
     let maxHeight: CGFloat
     let minHeight: CGFloat
+    
+    @Binding var selected: SearchTokens
 
     @GestureState private var translation: CGFloat = 0
 
@@ -61,10 +93,11 @@ struct SearchDetailPane: View {
         }
     }
 
-    init(showSearchDetailPane: Binding<Bool>, maxHeight: CGFloat) {
+    init(showSearchDetailPane: Binding<Bool>, selected: Binding<SearchTokens>, maxHeight: CGFloat) {
         self.minHeight = maxHeight * Constants.minHeightRatio
         self.maxHeight = maxHeight
         self._showSearchDetailPane = showSearchDetailPane
+        self._selected = selected
     }
 
     var body: some View {
@@ -85,14 +118,12 @@ struct SearchDetailPane: View {
                         .lineSpacing(5)
                     Grid {
                         GridRow {
-                            SearchToken(tokenName: "Location")
-                            SearchToken(tokenName: "Group")
-                            SearchToken(tokenName: "Notes")
+                            SearchToken(tokenName: "Location", selected: $selected.locations.on)
+                            SearchToken(tokenName: "Group", selected: $selected.groups.on)
+                            SearchToken(tokenName: "Notes", selected: $selected.notes.on)
                         }
                         GridRow {
-                            SearchToken(tokenName: "Company")
-                            SearchToken(tokenName: "Education")
-                            SearchToken(tokenName: "Starred")
+                            SearchToken(tokenName: "Company", selected: $selected.company.on)
                         }
                     }
                 }
