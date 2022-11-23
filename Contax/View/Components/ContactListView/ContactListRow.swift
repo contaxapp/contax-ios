@@ -32,7 +32,8 @@ struct ContactListRow: View {
             }.frame(width: self.viewSize!.size.width * 0.1)
             
             Text("\(self.contact.givenName) \(self.contact.familyName)")
-                .foregroundColor(.white)
+                .foregroundColor(Color.init("Dark Gray"))
+                .font(.custom("EuclidCircularA-Light", size: 15))
                 .padding(.leading, 10)
         }
         .listRowBackground(Color.init("Base Color"))

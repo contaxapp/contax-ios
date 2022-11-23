@@ -64,7 +64,8 @@ struct ContactListView: View {
                         // Search Bar
                         SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm, showSearchDetailPane: $showSearchDetailPane)
                             .zIndex(1)
-                            .background(Color.init("Base Color"))
+                            .background(Color.white)
+                            .padding(.top, 20)
                         
                         // All Contacts
                         List {
@@ -80,8 +81,8 @@ struct ContactListView: View {
                                         }
                                     } header: {
                                         Text("\(key)")
-                                            .fontWeight(.bold)
-                                            .listRowBackground(Color.init("Base Color"))
+                                            .foregroundColor(Color.init("Mid Gray"))
+                                            .font(.custom("EuclidCircularA-Regular", size: 15))
                                     }
                                 }
                             }
@@ -96,12 +97,28 @@ struct ContactListView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: Text("Contacts").font(.title).foregroundColor(.white).fontWeight(.bold),
-                trailing: Button(action: {
-                    print("Create Contact")
-                }, label: {
-                    Image(systemName: "plus").font(.title).foregroundColor(.white)
-                })
+                leading: Text("Contacts").font(.custom("EuclidCircularA-Medium", size: 25)).foregroundColor(Color.init("Dark Gray")).fontWeight(.medium),
+                trailing: HStack {
+                    Button {
+                        print("Create Contact")
+                    } label: {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(Color.init("Dark Gray"))
+                    }
+                    
+                    NavigationLink(destination: {
+                        SettingsView()
+                    }, label: {
+                        Image("Placeholder Contact Image")
+                            .resizable()
+                            .frame(width: 35, height: 35, alignment: .center)
+                            .clipShape(Circle())
+                            .aspectRatio(1, contentMode: .fit)
+                    })
+                }
+                    .padding(.horizontal)
             )
         }
         .alert(isPresented: $showContactErrorAlert, content: {
@@ -112,9 +129,6 @@ struct ContactListView: View {
                     Text("Ok")
                 )
             )
-        })
-        .onAppear(perform: {
-//            Contacts.fetchContactsForDisplay()
         })
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             Contacts.fetchContactsForDisplay()
