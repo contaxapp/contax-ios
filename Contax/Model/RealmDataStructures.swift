@@ -91,3 +91,18 @@ class DBContactAddress: Object {
         self.countryCode = countryCode
     }
 }
+
+class DBUser: Object {
+    @Persisted(primaryKey: true) var id: String
+    @Persisted var firstName: String
+    @Persisted var lastName: String
+    @Persisted var email: String?
+    
+    convenience init(id: String, firstName: String, lastName: String, email: String?) {
+        self.init()
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+    }
+}

@@ -195,6 +195,7 @@ class ContactsModel: ObservableObject {
         // TEST
 //        let fetchResult = contactStore.currentHistoryToken! as NSData
 //        print(fetchResult.map{String(format: "%02x", $0)}.joined())
+//        print(contacts)
     }
 }
 

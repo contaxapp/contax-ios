@@ -7,10 +7,14 @@
 
 import SwiftUI
 import _AuthenticationServices_SwiftUI
+import RealmSwift
 
 struct Splash: View {
     
+    let realm = try! Realm()
+    
     @State private var userAuthenticated = false
+    @State private var user: ASAuthorizationAppleIDCredential? = nil
     
     var body: some View {
         
@@ -109,9 +113,11 @@ struct Splash: View {
                     Spacer()
                     VStack {
                         
-                        NavigationLink(destination: OnboardingWrapper().navigationBarBackButtonHidden(true),
-                                       isActive: $userAuthenticated) {
-                            EmptyView()
+                        if let firstName = user?.fullName?.givenName {
+                            NavigationLink(destination: OnboardingWrapper(firstName: firstName).navigationBarBackButtonHidden(true),
+                                           isActive: $userAuthenticated) {
+                                EmptyView()
+                            }
                         }
                         
                         SignInWithAppleButton(.continue) { request in
@@ -125,16 +131,31 @@ struct Splash: View {
                                         case let appleIDCredential as ASAuthorizationAppleIDCredential:
                                             
                                             // Create an account in your system. 'fullName' and 'email' will only be accessible on signup.
-                                            let userIdentifier = appleIDCredential.user
-                                            let fullName = appleIDCredential.fullName
-                                            let email = appleIDCredential.email
-                                            
-                                            let stringFromByteArray = String(data: Data(appleIDCredential.identityToken!), encoding: .utf8)
+//                                            let userIdentifier = appleIDCredential.user
+//                                            let fullName = appleIDCredential.fullName
+//                                            let email = appleIDCredential.email
+//
+//                                            let stringFromByteArray = String(data: Data(appleIDCredential.identityToken!), encoding: .utf8)
+//
+//                                            print("Token: " + (stringFromByteArray ?? ""))
+//                                            print("User ID: " + userIdentifier)
+//                                            print(fullName ?? "")
+//                                            print(email ?? "")
                                         
-                                            print("Token: " + (stringFromByteArray ?? ""))
-                                            print("User ID: " + userIdentifier)
-                                            print(fullName ?? "")
-                                            print(email ?? "")
+                                            user = appleIDCredential
+                                        
+                                            if (appleIDCredential.fullName != nil) {
+                                                let authenticatedUser = DBUser(
+                                                    id: appleIDCredential.user,
+                                                    firstName: appleIDCredential.fullName!.givenName!,
+                                                    lastName: appleIDCredential.fullName!.familyName!,
+                                                    email: appleIDCredential.email ?? ""
+                                                )
+                                                
+                                                try! realm.write {
+                                                    realm.add(authenticatedUser)
+                                                }
+                                            }
                                         
                                             userAuthenticated = true
                                         
