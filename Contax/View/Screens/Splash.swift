@@ -131,16 +131,8 @@ struct Splash: View {
                                         case let appleIDCredential as ASAuthorizationAppleIDCredential:
                                             
                                             // Create an account in your system. 'fullName' and 'email' will only be accessible on signup.
-//                                            let userIdentifier = appleIDCredential.user
-//                                            let fullName = appleIDCredential.fullName
-//                                            let email = appleIDCredential.email
-//
-//                                            let stringFromByteArray = String(data: Data(appleIDCredential.identityToken!), encoding: .utf8)
-//
-//                                            print("Token: " + (stringFromByteArray ?? ""))
-//                                            print("User ID: " + userIdentifier)
-//                                            print(fullName ?? "")
-//                                            print(email ?? "")
+                                        
+                                            // let stringFromByteArray = String(data: Data(appleIDCredential.identityToken!), encoding: .utf8)
                                         
                                             user = appleIDCredential
                                         
