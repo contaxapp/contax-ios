@@ -17,6 +17,7 @@ struct ContactListView: View {
     @State private var showContactErrorAlert = false
     @State private var searchTerm = ""
     @State private var showSearchDetailPane: Bool = false
+    @State var selected = SearchTokens()
     
     func getSectionedContactDictionary(_ Contacts: [Contact]) -> Dictionary <String , [Contact]> {
         let sectionDictionary: Dictionary<String, [Contact]> = {
@@ -49,7 +50,7 @@ struct ContactListView: View {
                 ZStack {
                     VStack (alignment: .leading) {
                         // Search Bar
-                        SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm, showSearchDetailPane: $showSearchDetailPane)
+                        SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm, showSearchDetailPane: $showSearchDetailPane, searchTokens: $selected)
                             .zIndex(1)
                             .background(Color.white)
                             .padding(.top, 20)
@@ -80,7 +81,7 @@ struct ContactListView: View {
                         .listStyle(GroupedListStyle())
                     }
                     
-                    SearchDetailPane(showSearchDetailPane: $showSearchDetailPane, maxHeight: 350)
+                    SearchDetailPane(showSearchDetailPane: $showSearchDetailPane, selected: $selected, maxHeight: 350)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

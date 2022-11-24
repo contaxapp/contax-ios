@@ -13,6 +13,7 @@ struct SearchBar : View {
     let placeholder: Text
     @Binding var searchTerm : String
     @Binding var showSearchDetailPane: Bool
+    @Binding var searchTokens: SearchTokens
 
     var body: some View {
         HStack {
@@ -52,6 +53,11 @@ struct SearchBar : View {
             )
         }
         .padding(.horizontal)
+        .onChange(of: searchTokens) { [searchTokens] newValue in
+            var updatedToken = SearchTokens.compare(lhs: searchTokens, rhs: newValue)!
+            
+            searchTerm += " " + updatedToken
+        }
     }
 }
 
