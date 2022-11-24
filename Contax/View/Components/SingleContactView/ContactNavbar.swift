@@ -15,14 +15,14 @@ struct ContactNavbar: View {
             Button(action: {
                 backAction()
             }, label: {
-                Image(systemName: "arrow.left")
-                    .font(.system(size: 20.0))
-                    .foregroundColor(.white)
-                    .background(
-                        Circle()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(Color.init("Dark Gray"))
-                    )
+                HStack {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 18))
+                        .foregroundColor(Color.init("Mid Gray"))
+                    Text("Back")
+                        .font(.custom("EuclidCircularA-Light", size: 20))
+                        .foregroundColor(Color.init("Mid Gray"))
+                }
             })
             
             Spacer()
@@ -31,28 +31,18 @@ struct ContactNavbar: View {
                 Button(action: {
                     print("Edit")
                 }, label: {
-                    Image(systemName: "pencil")
-                        .font(.system(size: 20.0))
-                        .foregroundColor(.white)
-                        .background(
-                            Circle()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(Color.init("Dark Gray"))
-                        )
+                    Image(systemName: "pencil.circle")
+                        .font(.system(size: 25.0))
+                        .foregroundColor(Color.init("Accent Green"))
                 })
                 .padding(.trailing, 10)
                 
                 Button(action: {
-                    print("Show more")
+                    print("Share")
                 }, label: {
-                    Image(systemName: "ellipsis")
-                        .font(.system(size: 20.0))
-                        .foregroundColor(.white)
-                        .background(
-                            Circle()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(Color.init("Dark Gray"))
-                        )
+                    Image(systemName: "square.and.arrow.up")
+                        .font(.system(size: 25.0))
+                        .foregroundColor(Color.init("Accent Green"))
                 })
             }
         }

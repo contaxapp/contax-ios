@@ -16,7 +16,7 @@ struct ContactListView: View {
     
     @State private var showContactErrorAlert = false
     @State private var searchTerm = ""
-    @State private var showSearchDetailPane: Bool = true
+    @State private var showSearchDetailPane: Bool = false
     
     func getSectionedContactDictionary(_ Contacts: [Contact]) -> Dictionary <String , [Contact]> {
         let sectionDictionary: Dictionary<String, [Contact]> = {
@@ -47,13 +47,13 @@ struct ContactListView: View {
         NavigationView {
             GeometryReader { geometry in
                 ZStack {
-                    Color.init("Base Color").edgesIgnoringSafeArea(.all)
                     VStack (alignment: .leading) {
                         // Search Bar
                         SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm, showSearchDetailPane: $showSearchDetailPane)
                             .zIndex(1)
                             .background(Color.white)
                             .padding(.top, 20)
+                            .padding(.bottom, 10)
                         
                         // All Contacts
                         List {

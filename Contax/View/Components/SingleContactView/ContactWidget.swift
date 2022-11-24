@@ -25,23 +25,25 @@ struct ContactWidget: View {
             actionFn()
         }) {
             VStack(alignment: .center) {
-                Image(systemName: actionIcon)
-                    .font(.system(size: 25.0))
-                    .foregroundColor(.white)
-                    .padding(.all, 20)
-                    .background(
-                        Circle()
-                            .foregroundColor(Color.init("Dark Gray"))
-                    )
+                HStack (alignment: .center) {
+                    Image(systemName: actionIcon)
+                        .font(.system(size: 25.0))
+                        .foregroundColor(Color.init("Accent Green"))
+                }
+                .frame(maxWidth: 60, maxHeight: 60)
+                .aspectRatio(contentMode: .fit)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.init("Light Gray"), lineWidth: 1)
+                )
+                .padding(.bottom, 5)
                 
                 Text(actionText)
-                    .font(.caption)
-                    .fontWeight(.medium)
-                    .foregroundColor(.white)
-                    .padding(.bottom, 10)
+                    .font(.custom("EuclidCircularA-Light", size: 12))
+                    .foregroundColor(Color.init("Dark Gray"))
             }
             .if(disabled) { view in
-                view.opacity(0.3)
+                view.opacity(0.2)
             }
         }
         .disabled(disabled)
