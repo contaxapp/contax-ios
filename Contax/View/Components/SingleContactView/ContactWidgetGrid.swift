@@ -12,22 +12,32 @@ struct ContactWidgetGrid: View {
     let contact: Contact?
     
     var body: some View {
-        HStack(alignment: .center) {
-            ContactWidget(actionIcon: "phone.fill", actionText: "Call", disabled: contact?.phoneNumbers.count == 0, actionFn: {
-                if contact != nil { HelperFunctions.makeCall(contact!) }
-            }).frame(maxWidth: .infinity)
+        VStack {
+            Divider()
             
-            ContactWidget(actionIcon: "message.fill", actionText: "Text", disabled: contact?.phoneNumbers.count == 0, actionFn: {
-                if contact != nil { HelperFunctions.composeText(contact!) }
-            }).frame(maxWidth: .infinity)
+            HStack (alignment: .center) {
+                ContactWidget(actionIcon: "message.fill", actionText: "Message", disabled: contact?.phoneNumbers.count == 0, actionFn: {
+                    if contact != nil { HelperFunctions.composeText(contact!) }
+                }).frame(maxWidth: .infinity)
+                
+                ContactWidget(actionIcon: "phone.fill", actionText: "Call", disabled: contact?.phoneNumbers.count == 0, actionFn: {
+                    if contact != nil { HelperFunctions.makeCall(contact!) }
+                }).frame(maxWidth: .infinity)
+                
+                ContactWidget(actionIcon: "envelope.fill", actionText: "WhatsApp", disabled: contact?.emailAddresses.count == 0, actionFn: {
+                    print("Whatsapping")
+                }).frame(maxWidth: .infinity)
+                
+                ContactWidget(actionIcon: "video.fill", actionText: "Facetime", disabled: true, actionFn: {
+                    print("Facetiming")
+                }).frame(maxWidth: .infinity)
+            }
+            .padding(.top, 10)
+            .padding(.bottom, 5)
             
-            ContactWidget(actionIcon: "envelope.fill", actionText: "Email", disabled: contact?.emailAddresses.count == 0, actionFn: {
-                print("Emailing")
-            }).frame(maxWidth: .infinity)
-            
-            ContactWidget(actionIcon: "hand.raised.fill", actionText: "Introduce", disabled: false, actionFn: {
-                print("Introducing")
-            }).frame(maxWidth: .infinity)
+            Divider()
         }
+        .padding(.vertical, 20)
+        .padding(.horizontal)
     }
 }

@@ -19,8 +19,8 @@ struct ContactListRow: View {
                     Image(uiImage: UIImage(data: Data(base64Encoded: self.contact.image!)!)!)
                         .resizable()
                         .aspectRatio(1, contentMode: .fill)
-                        .clipShape(Circle())
                         .frame(width: 40, height: 40, alignment: .center)
+                        .clipShape(Circle())
                         .overlay(Circle().stroke(Color.white, lineWidth: 1))
                 } else {
                     Circle()
@@ -32,10 +32,10 @@ struct ContactListRow: View {
             }.frame(width: self.viewSize!.size.width * 0.1)
             
             Text("\(self.contact.givenName) \(self.contact.familyName)")
-                .foregroundColor(.white)
+                .foregroundColor(Color.init("Dark Gray"))
+                .font(.custom("EuclidCircularA-Regular", size: 15))
                 .padding(.leading, 10)
         }
-        .listRowBackground(Color.init("Base Color"))
         .padding(.top, 2)
         .padding(.bottom, 2)
     }

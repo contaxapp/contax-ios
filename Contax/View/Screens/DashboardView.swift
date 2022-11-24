@@ -33,7 +33,7 @@ struct DashboardView: View {
                             }
                             .frame(width: geometry.size.width)
                         }
-                        .padding(.top, 30)
+                        .padding(.top, 20)
                         
                         // Groups
                         SectionHeader(heading: "Groups", paddingTop: 20, paddingBottom: 15)
@@ -74,11 +74,11 @@ struct DashboardView: View {
                 }, label: {
                     Image("Placeholder Contact Image")
                         .resizable()
+                        .frame(width: 35, height: 35, alignment: .center)
                         .clipShape(Circle())
                         .aspectRatio(1, contentMode: .fit)
-                        .frame(width: 35, height: 35, alignment: .center)
-                        .padding(.horizontal)
                 })
+                .padding(.horizontal)
             )
         }
     }

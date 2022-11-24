@@ -33,17 +33,17 @@ struct ContactImageSection: View {
                         .resizable()
                         .aspectRatio(1, contentMode: .fill)
                         .clipShape(Circle())
-                        .frame(width: self.viewSize!.size.width * 0.35, height: self.viewSize!.size.width * 0.35, alignment: .center)
+                        .frame(width: self.viewSize!.size.width * 0.30, height: self.viewSize!.size.width * 0.30, alignment: .center)
                         .overlay(Circle().stroke(Color.white, lineWidth: 5))
                 } else {
                     ZStack {
                         Circle()
                             .fill(Color.gray)
-                            .frame(width: self.viewSize!.size.width * 0.35, height: self.viewSize!.size.width * 0.35, alignment: .center)
+                            .frame(width: self.viewSize!.size.width * 0.30, height: self.viewSize!.size.width * 0.30, alignment: .center)
                             .overlay(Circle().stroke(Color.white, lineWidth: 5))
                         Text(HelperFunctions.returnInitials(contact!))
                             .foregroundColor(Color.white)
-                            .font(.system(size: 60))
+                            .font(.system(size: 50))
                     }
                 }
             }

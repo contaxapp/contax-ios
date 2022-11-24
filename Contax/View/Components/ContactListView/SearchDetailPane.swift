@@ -15,26 +15,26 @@ fileprivate enum Constants {
     static let minHeightRatio: CGFloat = 0
 }
 
-struct SearchExplanationRow: View {
-    var label: String
-    var explanation: String
-    var geometry: GeometryProxy
+struct SearchToken: View {
+    
+    var tokenName: String
+    @State var selected: Bool = false
     
     var body: some View {
-        HStack(alignment: .center, spacing: 5) {
-            Text(label)
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .frame(minWidth: 20, maxWidth: geometry.size.width * 0.2, alignment: .center)
-                .padding(5)
-                .background(Color.init("Dark Gray"))
-                .cornerRadius(10)
-                .foregroundColor(Color.init("Light Gray"))
-            Text(" - ")
-            Text(explanation)
-                .font(.subheadline)
+        HStack {
+            Button("\(tokenName)") {
+                selected.toggle()
+            }
+                .font(.custom("EuclidCircularA-Light", size: 15))
+                .foregroundColor(selected ? Color.white : Color.init("Dark Gray"))
+                .frame(width: 100, height: 40)
         }
-        .foregroundColor(Color.init("Dark Gray"))
+        .background(selected ? Color.init("Accent Green") : Color.white)
+        .cornerRadius(8, corners: .allCorners)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.init("Light Gray"), lineWidth: 1)
+        )
     }
 }
 
@@ -69,43 +69,55 @@ struct SearchDetailPane: View {
 
     var body: some View {
         GeometryReader { geometry in
-            VStack(alignment: .center, spacing: 30) {
-                self.indicator
-                    .padding(.top)
-                Text("You can use the following symbols to search:")
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color.init("Dark Gray"))
-                VStack (alignment: .leading) {
-                    SearchExplanationRow(label: "#group", explanation: "Search in a specific group", geometry: geometry)
-                    SearchExplanationRow(label: "#location", explanation: "Search in a specific location", geometry: geometry)
-                    SearchExplanationRow(label: "!recent", explanation: "Search recently added", geometry: geometry)
-                }
-                Text("Try typing in the search bar above")
-                    .font(.subheadline)
-                    .fontWeight(.regular)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color.init("Dark Gray"))
-            }
-            .padding(.horizontal)
-            .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
-            .background(Color.init("Light Gray"))
-            .cornerRadius(20, corners: [.topLeft, .topRight])
-            .frame(height: geometry.size.height, alignment: .bottom)
-            .offset(y: max(self.offset + self.translation, 0))
-            .animation(.interactiveSpring())
-            .gesture(
-                DragGesture().updating(self.$translation) { value, state, _ in
-                    state = value.translation.height
-                }.onEnded { value in
-                    let snapDistance = self.maxHeight * Constants.snapRatio
-                    guard abs(value.translation.height) > snapDistance else {
-                        return
+            withAnimation(.interactiveSpring()) {
+                VStack(alignment: .center, spacing: 30) {
+                    self.indicator
+                        .padding(.top)
+                    Text("Filter Panel")
+                        .font(.custom("EuclidCircularA-Light", size: 20))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color.init("Dark Gray"))
+                    Text("Finding the right people in your life is no trivial task. Use the filter tags below to narrow down on the right people.")
+                        .font(.custom("EuclidCircularA-Regular", size: 15))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color.init("Mid Gray"))
+                        .padding(.horizontal)
+                        .lineSpacing(5)
+                    Grid {
+                        GridRow {
+                            SearchToken(tokenName: "Location")
+                            SearchToken(tokenName: "Group")
+                            SearchToken(tokenName: "Notes")
+                        }
+                        GridRow {
+                            SearchToken(tokenName: "Company")
+                            SearchToken(tokenName: "Education")
+                            SearchToken(tokenName: "Starred")
+                        }
                     }
-                    self.showSearchDetailPane = value.translation.height < 0
                 }
-            )
+                .padding(.horizontal)
+                .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
+                .overlay(
+                    Divider()
+                       .frame(maxWidth: .infinity, maxHeight:2)
+                       .background(Color.init("Accent Green")), alignment: .top
+                )
+                .background(Color.white)
+                .frame(height: geometry.size.height, alignment: .bottom)
+                .offset(y: max(self.offset + self.translation, 0))
+                .gesture(
+                    DragGesture().updating(self.$translation) { value, state, _ in
+                        state = value.translation.height
+                    }.onEnded { value in
+                        let snapDistance = self.maxHeight * Constants.snapRatio
+                        guard abs(value.translation.height) > snapDistance else {
+                            return
+                        }
+                        self.showSearchDetailPane = value.translation.height < 0
+                    }
+                )
+            }
         }
     }
 }
