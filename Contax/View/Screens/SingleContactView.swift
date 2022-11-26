@@ -41,6 +41,8 @@ struct SingleContactView: View {
         }
     }
     
+    let groups = ["Family", "Finance"]
+    
     var body: some View {
         ZStack {
             Color.init("Base Color").edgesIgnoringSafeArea(.all)
@@ -58,6 +60,44 @@ struct SingleContactView: View {
                                 .foregroundColor(Color.init("Dark Gray"))
                                 .font(.custom("EuclidCircularA-Regular", size: 30))
                                 .padding(.bottom, 10)
+                            
+                            Text("\(contact!.jobTitle) | \(contact!.organization)")
+                                .foregroundColor(Color.init("Mid Gray"))
+                                .font(.custom("EuclidCircularA-Regular", size: 15))
+                                .padding(.bottom, 10)
+                            
+                            HStack {
+                                ForEach(groups, id: \.self) { group in
+                                    HStack (alignment: .center) {
+                                        Text(group)
+                                            .multilineTextAlignment(.center)
+                                            .font(.custom("EuclidCircularA-Light", size: 15))
+                                            .foregroundColor(Color.init("Mid Gray"))
+                                    }
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 10)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.init("Light Gray"), lineWidth: 1)
+                                    )
+                                }
+                            
+//                                Button (action: {
+//                                    print("Add group")
+//                                }, label: {
+//                                    Text(.init(systemName: "plus"))
+//                                        .multilineTextAlignment(.center)
+//                                        .font(.custom("EuclidCircularA-Light", size: 15))
+//                                        .foregroundColor(Color.init("Mid Gray"))
+//                                    }
+//                                    .padding(.horizontal, 10)
+//                                    .padding(.vertical, 10)
+//                                    .overlay(
+//                                        RoundedRectangle(cornerRadius: 8)
+//                                            .stroke(Color.init("Light Gray"), lineWidth: 1)
+//                                    )
+//                                })
+                            }
                             
                             ContactWidgetGrid(contact: contact)
                         }

@@ -31,7 +31,7 @@ struct ContactImageSection: View {
                 if contactImage != nil {
                     Image(uiImage: contactImage!)
                         .resizable()
-                        .aspectRatio(1, contentMode: .fill)
+                        .aspectRatio(contentMode: .fill)
                         .clipShape(Circle())
                         .frame(width: self.viewSize!.size.width * 0.30, height: self.viewSize!.size.width * 0.30, alignment: .center)
                         .overlay(Circle().stroke(Color.white, lineWidth: 5))

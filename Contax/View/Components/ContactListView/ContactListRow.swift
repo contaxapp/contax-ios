@@ -18,7 +18,7 @@ struct ContactListRow: View {
                 if self.contact.image != nil {
                     Image(uiImage: UIImage(data: Data(base64Encoded: self.contact.image!)!)!)
                         .resizable()
-                        .aspectRatio(1, contentMode: .fill)
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: 40, height: 40, alignment: .center)
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.white, lineWidth: 1))
