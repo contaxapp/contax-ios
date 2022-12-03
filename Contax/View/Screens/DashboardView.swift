@@ -20,50 +20,47 @@ struct DashboardView: View {
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
-                ZStack {
-                    Color.init("Base Color").edgesIgnoringSafeArea(.all)
-                    VStack (alignment: .leading) {
-                        
-                        VStack(alignment: .center) {
-                            HStack {
-                                DashboardWidget(icon: "plus", title: "Add Contact", parentSize: geometry)
-                                DashboardWidget(icon: "camera.fill", title: "Scan Card", parentSize: geometry)
-                                DashboardWidget(icon: "books.vertical.fill", title: "Organize", parentSize: geometry)
-                                DashboardWidget(icon: "point.3.filled.connected.trianglepath.dotted", title: "Introduce", parentSize: geometry)
-                            }
-                            .frame(width: geometry.size.width)
+                VStack (alignment: .leading) {
+                    
+                    VStack(alignment: .center) {
+                        HStack {
+                            DashboardWidget(icon: "plus", title: "Add Contact", parentSize: geometry)
+                            DashboardWidget(icon: "camera.fill", title: "Scan Card", parentSize: geometry)
+                            DashboardWidget(icon: "books.vertical.fill", title: "Organize", parentSize: geometry)
+                            DashboardWidget(icon: "point.3.filled.connected.trianglepath.dotted", title: "Introduce", parentSize: geometry)
                         }
-                        .padding(.top, 20)
-                        
-                        // Groups
-                        SectionHeader(heading: "Groups", paddingTop: 20, paddingBottom: 15)
-                            .padding(.horizontal)
-                        ScrollView (.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(groups, id: \.self) { group in
-                                    ContactGroupSquare(group)
-                                }
-                            }.padding(.horizontal)
-                        }
-                        
-                        // Recently Added Contacts
-                        SectionHeader(heading: "Recently Added", paddingTop: 20, paddingBottom: 15)
-                            .padding(.horizontal)
-                        ScrollView (.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(recentlyAddedContacts, id: \.self) { contact in
-                                    ContactCircle(contact)
-                                }
-                            }.padding(.horizontal)
-                        }
-                        
-                        
-                        // Upcoming Celebrations
-                        SectionHeader(heading: "Upcoming Celebrations", paddingTop: 20, paddingBottom: 15)
-                            .padding(.horizontal)
-                        
-                        Spacer()
+                        .frame(width: geometry.size.width)
                     }
+                    .padding(.top, 30)
+                    
+                    // Groups
+                    SectionHeader(heading: "Groups", paddingTop: 20, paddingBottom: 15)
+                        .padding(.horizontal)
+                    ScrollView (.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(groups, id: \.self) { group in
+                                ContactGroupSquare(group)
+                            }
+                        }.padding(.horizontal)
+                    }
+                    
+                    // Recently Added Contacts
+                    SectionHeader(heading: "Recently Added", paddingTop: 20, paddingBottom: 15)
+                        .padding(.horizontal)
+                    ScrollView (.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(recentlyAddedContacts, id: \.self) { contact in
+                                ContactCircle(contact)
+                            }
+                        }.padding(.horizontal)
+                    }
+                    
+                    
+                    // Upcoming Celebrations
+                    SectionHeader(heading: "Upcoming Celebrations", paddingTop: 20, paddingBottom: 15)
+                        .padding(.horizontal)
+                    
+                    Spacer()
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
