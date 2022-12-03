@@ -6,110 +6,119 @@
 //
 
 import SwiftUI
-import UIKit
-import VisionKit
-
-struct CameraScannerViewController: UIViewControllerRepresentable {
-    
-    @Binding var startScanning: Bool
-    @Binding var scanResult: String
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    func makeUIViewController(context: Context) -> DataScannerViewController {
-        let viewController = DataScannerViewController(
-            recognizedDataTypes: [.text()],
-            qualityLevel: .fast,
-            recognizesMultipleItems: false,
-            isHighFrameRateTrackingEnabled: false,
-            isHighlightingEnabled: true)
-        
-        viewController.delegate = context.coordinator
-
-        return viewController
-    }
-    
-    func updateUIViewController(_ viewController: DataScannerViewController, context: Context) {
-        if startScanning {
-            try? viewController.startScanning()
-        } else {
-            viewController.stopScanning()
-        }
-    }
-    
-    class Coordinator: NSObject, DataScannerViewControllerDelegate {
-        var parent: CameraScannerViewController
-        init(_ parent: CameraScannerViewController) {
-            self.parent = parent
-        }
-        
-        func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
-            switch item {
-            case .text(let text):
-                parent.scanResult = text.transcript
-            default:
-                break
-            }
-        }
-    }
-}
-
-struct CameraScanner: View {
-    @Binding var startScanning: Bool
-    @Binding var scanResult: String
-    @Environment(\.presentationMode) var presentationMode
-    var body: some View {
-        NavigationView {
-            CameraScannerViewController(startScanning: $startScanning, scanResult: $scanResult)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            self.presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Text("Cancel")
-                        }
-                    }
-                }
-                .interactiveDismissDisabled(true)
-        }
-    }
-}
+import RealmSwift
+import Contacts
+import UnsplashSwiftUI
 
 struct ContactGroupView: View {
     
-    @State private var showCameraScannerView = false
-    @State private var isDeviceCapacity = false
-    @State private var showDeviceNotCapacityAlert = false
-    @State private var scanResults: String = ""
+    @EnvironmentObject var Contacts: ContactsModel
+    
+    @State private var showContactErrorAlert = false
+    @State private var searchTerm = ""
+    
+    func getSectionedGroupDictionary(_ Contacts: [Contact]) -> Dictionary <String , [Contact]> {
+        let sectionDictionary: Dictionary<String, [Contact]> = {
+            return Dictionary(grouping: Contacts, by: {
+                let name = $0.givenName
+                let normalizedName = name.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+                if let normalizedFirstName = normalizedName.first {
+                    let firstChar = String(normalizedFirstName).uppercased()
+                    return firstChar
+                } else {
+                    return "#"
+                }
+            })
+        }()
+        return sectionDictionary
+    }
+    
+    func filterGroupsBySearch(SectionedDictionary: Dictionary<String, [Contact]>, key: String) -> [Contact] {
+        return SectionedDictionary[key]!.filter({ (contact) -> Bool in
+            self.searchTerm.isEmpty ? true : (
+                contact.givenName.lowercased().contains(self.searchTerm.lowercased()) ||
+                contact.familyName.lowercased().contains(self.searchTerm.lowercased())
+            )
+        })
+    }
     
     var body: some View {
-        VStack {
-            Text(scanResults)
-                .padding()
-            
-            Button {
-                if isDeviceCapacity {
-                    self.showCameraScannerView = true
-                } else {
-                    self.showDeviceNotCapacityAlert = true
+        NavigationView {
+            GeometryReader { geometry in
+                ZStack {
+                    VStack (alignment: .leading) {
+                        // Search Bar
+                        SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm, showSearchDetailPane: $showSearchDetailPane, searchTokens: $selected)
+                            .zIndex(1)
+                            .background(Color.white)
+                            .padding(.top, 20)
+                            .padding(.bottom, 10)
+                        
+                        // All Contacts
+                        List {
+                            let sectionedContactDictionary = getSectionedContactDictionary(Contacts.contacts)
+                            ForEach(sectionedContactDictionary.keys.sorted(), id:\.self) { key in
+                                
+                                // Get contacts for particular section (key)
+                                if let contacts = filterContactsBySearch(SectionedDictionary: sectionedContactDictionary, key: key), !contacts.isEmpty {
+                                    
+                                    Section {
+                                        ForEach(contacts) { contact in
+                                            ContactListRow(contact: contact, viewSize: geometry)
+                                        }
+                                    } header: {
+                                        Text("\(key)")
+                                            .foregroundColor(Color.init("Mid Gray"))
+                                            .font(.custom("EuclidCircularA-Regular", size: 15))
+                                    }
+                                }
+                            }
+                        }
+                        .foregroundColor(Color.init("Light Gray"))
+                        .scrollContentBackground(Color.clear)
+                        .listStyle(GroupedListStyle())
+                    }
+                    
+                    SearchDetailPane(showSearchDetailPane: $showSearchDetailPane, selected: $selected, maxHeight: 350)
                 }
-            } label: {
-                Text("Tap to Scan Documents")
-                    .foregroundColor(.white)
-                    .frame(width: 300, height: 50)
-                    .background(Color.blue)
-                    .cornerRadius(10)
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                leading: Text("Contacts").font(.custom("EuclidCircularA-Medium", size: 25)).foregroundColor(Color.init("Dark Gray")).fontWeight(.medium),
+                trailing: HStack {
+                    Button {
+                        print("Create Contact")
+                    } label: {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(Color.init("Dark Gray"))
+                    }
+                    
+                    NavigationLink(destination: {
+                        SettingsView()
+                    }, label: {
+                        Image("Placeholder Contact Image")
+                            .resizable()
+                            .frame(width: 35, height: 35, alignment: .center)
+                            .clipShape(Circle())
+                            .aspectRatio(1, contentMode: .fit)
+                    })
+                }
+                    .padding(.horizontal)
+            )
         }
-        .sheet(isPresented: $showCameraScannerView) {
-            CameraScanner(startScanning: $showCameraScannerView, scanResult: $scanResults)
-        }
-        .alert("Scanner Unavailable", isPresented: $showDeviceNotCapacityAlert, actions: {})
-        .onAppear {
-            isDeviceCapacity = (DataScannerViewController.isSupported &&
-                                DataScannerViewController.isAvailable)
+        .alert(isPresented: $showContactErrorAlert, content: {
+            Alert(
+                title: Text("Contact Access"),
+                message: Text("Access was denied. Kindly restart the app"),
+                dismissButton: .default(
+                    Text("Ok")
+                )
+            )
+        })
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            Contacts.fetchContactsForDisplay()
         }
     }
 }

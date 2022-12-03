@@ -36,6 +36,7 @@
 		7F6F6DDA2819898C00D34EFA /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */; };
 		7F78C41728B153CD005D35A4 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78C41628B153CD005D35A4 /* Onboarding.swift */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
+		7FC77A3B29326A57009527C9 /* CameraScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC77A3A29326A57009527C9 /* CameraScanner.swift */; };
 		7FCB0870280ABFDF00C8412E /* ContactNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */; };
 		7FD205B72855BEC100B01011 /* ContactGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD205B62855BEC100B01011 /* ContactGroupView.swift */; };
 		7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */; };
@@ -105,6 +106,7 @@
 		7F78C41628B153CD005D35A4 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
 		7F980C7824C360120075CAC9 /* Contax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Contax.entitlements; path = Contax/Contax.entitlements; sourceTree = "<group>"; };
+		7FC77A3A29326A57009527C9 /* CameraScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScanner.swift; sourceTree = "<group>"; };
 		7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNavbar.swift; sourceTree = "<group>"; };
 		7FD205B62855BEC100B01011 /* ContactGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactGroupView.swift; sourceTree = "<group>"; };
 		7FD3007424C2BB2A0011CF5C /* Contax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +194,7 @@
 				7FE8996D2809CC8500C3582A /* SearchBar.swift */,
 				7F00B922280A6D030082BDA1 /* SectionHeader.swift */,
 				7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */,
+				7FC77A3A29326A57009527C9 /* CameraScanner.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				7FD205B72855BEC100B01011 /* ContactGroupView.swift in Sources */,
 				7FF8F95824CD5C1C002B7D64 /* ContactDetailCard.swift in Sources */,
 				7F09930527C287B40027ABE0 /* HelperFunctions.swift in Sources */,
+				7FC77A3B29326A57009527C9 /* CameraScanner.swift in Sources */,
 				7F2EB2FE28A3D5740014FE76 /* Splash.swift in Sources */,
 				7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */,
 				7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */,
