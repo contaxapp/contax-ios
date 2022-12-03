@@ -75,9 +75,3 @@ struct CameraScanner: View {
         }
     }
 }
-
-struct CameraScanner_Previews: PreviewProvider {
-    static var previews: some View {
-        CameraScanner()
-    }
-}

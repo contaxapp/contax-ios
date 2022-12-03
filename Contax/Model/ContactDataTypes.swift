@@ -108,7 +108,8 @@ enum FetchContactsStyle {
 }
 
 struct ContactGroup: Identifiable {
-    var id: Character
+    var id: String
+    var name: String
     var contacts: [Contact]
 }
 

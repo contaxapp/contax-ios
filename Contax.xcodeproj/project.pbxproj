@@ -21,6 +21,7 @@
 		7F2EB2FE28A3D5740014FE76 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2EB2FD28A3D5740014FE76 /* Splash.swift */; };
 		7F30482B291000DD004ED296 /* KeyboardToolbar in Frameworks */ = {isa = PBXBuildFile; productRef = 7F30482A291000DD004ED296 /* KeyboardToolbar */; };
 		7F3902042815A8DC00F4C2D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3902032815A8DC00F4C2D1 /* DashboardView.swift */; };
+		7F3B653C293B8F0F0082981E /* GroupListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3B653B293B8F0F0082981E /* GroupListRow.swift */; };
 		7F62C6F628A7BD230037449A /* Euclid-Circular-A-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F328A7BD160037449A /* Euclid-Circular-A-SemiBold.ttf */; };
 		7F62C6F728A7BD230037449A /* Euclid-Circular-A-Light-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F428A7BD160037449A /* Euclid-Circular-A-Light-Italic.ttf */; };
 		7F62C6F828A7BD230037449A /* Euclid-Circular-A-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6ED28A7BD160037449A /* Euclid-Circular-A-Medium.ttf */; };
@@ -90,6 +91,7 @@
 		7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStructures.swift; sourceTree = "<group>"; };
 		7F2EB2FD28A3D5740014FE76 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		7F3902032815A8DC00F4C2D1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		7F3B653B293B8F0F0082981E /* GroupListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListRow.swift; sourceTree = "<group>"; };
 		7F62C6EC28A7BD160037449A /* Euclid-Circular-A-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Bold.ttf"; sourceTree = "<group>"; };
 		7F62C6ED28A7BD160037449A /* Euclid-Circular-A-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Medium.ttf"; sourceTree = "<group>"; };
 		7F62C6EE28A7BD160037449A /* Euclid-Circular-A-Medium-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Medium-Italic.ttf"; sourceTree = "<group>"; };
@@ -211,6 +213,14 @@
 			path = SingleContactView;
 			sourceTree = "<group>";
 		};
+		7F3B653A293B8EC60082981E /* ContactGroupView */ = {
+			isa = PBXGroup;
+			children = (
+				7F3B653B293B8F0F0082981E /* GroupListRow.swift */,
+			);
+			path = ContactGroupView;
+			sourceTree = "<group>";
+		};
 		7F62C6EB28A7BCB30037449A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +251,7 @@
 		7F9B1DD624C46EE600A490A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7F3B653A293B8EC60082981E /* ContactGroupView */,
 				7F6F6DD4281962A800D34EFA /* DashboardView */,
 				7F00B921280A6C960082BDA1 /* Shared */,
 				7F00B920280A6C8B0082BDA1 /* ContactListView */,
@@ -633,6 +644,7 @@
 				7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */,
 				7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */,
 				7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */,
+				7F3B653C293B8F0F0082981E /* GroupListRow.swift in Sources */,
 				7F00B929280A70CF0082BDA1 /* ContactCircle.swift in Sources */,
 				7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */,
 				7F6F6DDA2819898C00D34EFA /* CornerRadiusModifier.swift in Sources */,

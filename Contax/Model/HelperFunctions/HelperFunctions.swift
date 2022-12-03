@@ -45,6 +45,18 @@ struct HelperFunctions {
         return initials
     }
     
+    static func returnGroupInitials(_ name: String) -> String {
+        var initials = ""
+        
+        if (name.count > 0) {
+            let nameInitialIndex = name.startIndex
+            let nameInitial = String(name[nameInitialIndex])
+            initials += nameInitial
+        }
+        
+        return initials
+    }
+    
     static func composeText(_ contact: Contact) {
         #if !DEBUG
         

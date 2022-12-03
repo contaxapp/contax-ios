@@ -10,6 +10,8 @@ import RealmSwift
 import Contacts
 import UnsplashSwiftUI
 
+let contactGroups = [ContactGroup(id: "1", name: "Boston", contacts: []), ContactGroup(id: "2", name: "Mumbai", contacts: [])]
+
 struct ContactGroupView: View {
     
     @EnvironmentObject var Contacts: ContactsModel
@@ -17,10 +19,10 @@ struct ContactGroupView: View {
     @State private var showContactErrorAlert = false
     @State private var searchTerm = ""
     
-    func getSectionedGroupDictionary(_ Contacts: [Contact]) -> Dictionary <String , [Contact]> {
-        let sectionDictionary: Dictionary<String, [Contact]> = {
-            return Dictionary(grouping: Contacts, by: {
-                let name = $0.givenName
+    func getSectionedGroupDictionary(_ ContactGroups: [ContactGroup]) -> Dictionary <String , [ContactGroup]> {
+        let sectionDictionary: Dictionary<String, [ContactGroup]> = {
+            return Dictionary(grouping: ContactGroups, by: {
+                let name = $0.name
                 let normalizedName = name.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
                 if let normalizedFirstName = normalizedName.first {
                     let firstChar = String(normalizedFirstName).uppercased()
@@ -33,11 +35,10 @@ struct ContactGroupView: View {
         return sectionDictionary
     }
     
-    func filterGroupsBySearch(SectionedDictionary: Dictionary<String, [Contact]>, key: String) -> [Contact] {
-        return SectionedDictionary[key]!.filter({ (contact) -> Bool in
+    func filterGroupsBySearch(SectionedDictionary: Dictionary<String, [ContactGroup]>, key: String) -> [ContactGroup] {
+        return SectionedDictionary[key]!.filter({ (ContactGroup) -> Bool in
             self.searchTerm.isEmpty ? true : (
-                contact.givenName.lowercased().contains(self.searchTerm.lowercased()) ||
-                contact.familyName.lowercased().contains(self.searchTerm.lowercased())
+                ContactGroup.name.lowercased().contains(self.searchTerm.lowercased())
             )
         })
     }
@@ -48,23 +49,23 @@ struct ContactGroupView: View {
                 ZStack {
                     VStack (alignment: .leading) {
                         // Search Bar
-                        SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm, showSearchDetailPane: $showSearchDetailPane, searchTokens: $selected)
-                            .zIndex(1)
-                            .background(Color.white)
-                            .padding(.top, 20)
-                            .padding(.bottom, 10)
+//                        SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm)
+//                            .zIndex(1)
+//                            .background(Color.white)
+//                            .padding(.top, 20)
+//                            .padding(.bottom, 10)
                         
                         // All Contacts
                         List {
-                            let sectionedContactDictionary = getSectionedContactDictionary(Contacts.contacts)
-                            ForEach(sectionedContactDictionary.keys.sorted(), id:\.self) { key in
+                            let sectionedGroupDictionary = getSectionedGroupDictionary(contactGroups)
+                            ForEach(sectionedGroupDictionary.keys.sorted(), id:\.self) { key in
                                 
                                 // Get contacts for particular section (key)
-                                if let contacts = filterContactsBySearch(SectionedDictionary: sectionedContactDictionary, key: key), !contacts.isEmpty {
+                                if let groups = filterGroupsBySearch(SectionedDictionary: sectionedGroupDictionary, key: key), !groups.isEmpty {
                                     
                                     Section {
-                                        ForEach(contacts) { contact in
-                                            ContactListRow(contact: contact, viewSize: geometry)
+                                        ForEach(groups) { group in
+                                            GroupListRow(group: group, viewSize: geometry)
                                         }
                                     } header: {
                                         Text("\(key)")
@@ -78,16 +79,14 @@ struct ContactGroupView: View {
                         .scrollContentBackground(Color.clear)
                         .listStyle(GroupedListStyle())
                     }
-                    
-                    SearchDetailPane(showSearchDetailPane: $showSearchDetailPane, selected: $selected, maxHeight: 350)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: Text("Contacts").font(.custom("EuclidCircularA-Medium", size: 25)).foregroundColor(Color.init("Dark Gray")).fontWeight(.medium),
+                leading: Text("Groups").font(.custom("EuclidCircularA-Medium", size: 25)).foregroundColor(Color.init("Dark Gray")).fontWeight(.medium),
                 trailing: HStack {
                     Button {
-                        print("Create Contact")
+                        print("Create Group")
                     } label: {
                         Image(systemName: "plus")
                             .resizable()
