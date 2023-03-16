@@ -27,7 +27,7 @@ struct DashboardWidget: View {
                 Image(systemName: icon)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 25)
+                    .frame(width: 30, height: 30)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 20)
                     .foregroundColor(Color.init("Accent Green"))
