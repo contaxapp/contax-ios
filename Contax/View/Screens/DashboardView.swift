@@ -24,10 +24,10 @@ struct DashboardView: View {
                     
                     VStack(alignment: .center) {
                         HStack {
-                            DashboardWidget(icon: "plus", title: "Add Contact", parentSize: geometry)
-                            DashboardWidget(icon: "camera.fill", title: "Scan Card", parentSize: geometry)
-                            DashboardWidget(icon: "books.vertical.fill", title: "Organize", parentSize: geometry)
-                            DashboardWidget(icon: "point.3.filled.connected.trianglepath.dotted", title: "Introduce", parentSize: geometry)
+                            DashboardWidget(icon: "plus", title: "Add Contact", parentSize: geometry, destination: nil)
+                            DashboardWidget(icon: "camera.fill", title: "Scan Card", parentSize: geometry, destination: ContactCardScanning())
+                            DashboardWidget(icon: "books.vertical.fill", title: "Organize", parentSize: geometry, destination: nil)
+                            DashboardWidget(icon: "point.3.filled.connected.trianglepath.dotted", title: "Introduce", parentSize: geometry, destination: nil)
                         }
                         .frame(width: geometry.size.width)
                     }
