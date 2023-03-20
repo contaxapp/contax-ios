@@ -4,23 +4,27 @@ PODS:
   - Realm/Headers (10.12.0)
   - RealmSwift (10.12.0):
     - Realm (= 10.12.0)
+  - TesseractOCRiOS (4.0.0)
   - TrueSDK (0.1.8)
 
 DEPENDENCIES:
   - RealmSwift (= 10.12.0)
+  - TesseractOCRiOS (= 4.0.0)
   - TrueSDK
 
 SPEC REPOS:
   trunk:
     - Realm
     - RealmSwift
+    - TesseractOCRiOS
     - TrueSDK
 
 SPEC CHECKSUMS:
   Realm: 32488213acb44660539c619d620cec1bac046166
   RealmSwift: 0abdca6231d5ff8a4f84cef9c1121ef95a483faf
+  TesseractOCRiOS: 90638afbe43d082433f2e76b384c7901d23956df
   TrueSDK: 6845b0387144212913ec8fd851f4a57998c1ea21
 
-PODFILE CHECKSUM: 89d59b365947381d09c508b58312d0b5829f6876
+PODFILE CHECKSUM: 2644eed9a8e9f58c0ed86d04d839de28a92fb1d4
 
 COCOAPODS: 1.11.2

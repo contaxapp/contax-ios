@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18B94CBA1AAE6C9BCAC4BB1B /* Pods_Contax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D693E37EC973C0D9DF2EB974 /* Pods_Contax.framework */; };
-		1F9B3805735430F76BD99FA6 /* Pods_Contax_ContaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */; };
 		7F00B923280A6D030082BDA1 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00B922280A6D030082BDA1 /* SectionHeader.swift */; };
 		7F00B925280A6E990082BDA1 /* ContactListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00B924280A6E990082BDA1 /* ContactListRow.swift */; };
 		7F00B927280A6FE90082BDA1 /* ContactGroupSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00B926280A6FE90082BDA1 /* ContactGroupSquare.swift */; };
@@ -56,7 +54,9 @@
 		7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */; };
 		7FF8F95824CD5C1C002B7D64 /* ContactDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95724CD5C1C002B7D64 /* ContactDetailCard.swift */; };
 		7FF8F95D24CD8F17002B7D64 /* ContactImageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F95C24CD8F17002B7D64 /* ContactImageSection.swift */; };
-		E7848794628C76210D872A83 /* Pods_ContaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2491CAF9F5D5F0C22E72D3B1 /* Pods_ContaxTests.framework */; };
+		BAFD5AD3E47AE08BF26977D4 /* Pods_Contax_ContaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEA84AEE304DEEE4169D8C7 /* Pods_Contax_ContaxUITests.framework */; };
+		D79967ED28212830629884D0 /* Pods_Contax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED94379CB2E8D44CF5BFFAD /* Pods_Contax.framework */; };
+		DA1D5D56A224F19E0F2C9854 /* Pods_ContaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9103DF96AA8042A2BE9D9883 /* Pods_ContaxTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,11 +77,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2491CAF9F5D5F0C22E72D3B1 /* Pods_ContaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		28A52B0FF95F6C86A817CE8A /* Pods-ContaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.debug.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.debug.xcconfig"; sourceTree = "<group>"; };
-		643613C799C124D7CDA1F7B5 /* Pods-Contax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax.release.xcconfig"; path = "Target Support Files/Pods-Contax/Pods-Contax.release.xcconfig"; sourceTree = "<group>"; };
-		6C4563CACBBD0D0B4791DFE0 /* Pods-Contax-ContaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.release.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.release.xcconfig"; sourceTree = "<group>"; };
-		6CF177A96CA1D29BED25DB42 /* Pods-ContaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.release.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.release.xcconfig"; sourceTree = "<group>"; };
+		1DEA84AEE304DEEE4169D8C7 /* Pods_Contax_ContaxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contax_ContaxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ED94379CB2E8D44CF5BFFAD /* Pods_Contax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58E6B73A7625CBD72D214C81 /* Pods-ContaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.release.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.release.xcconfig"; sourceTree = "<group>"; };
+		5A0201F221FD0C383B1D42AB /* Pods-Contax-ContaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.release.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5BB58C8B41D95503DE84343D /* Pods-Contax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax.debug.xcconfig"; path = "Target Support Files/Pods-Contax/Pods-Contax.debug.xcconfig"; sourceTree = "<group>"; };
+		70BE982EA9AB9684DD0783C8 /* Pods-ContaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContaxTests.debug.xcconfig"; path = "Target Support Files/Pods-ContaxTests/Pods-ContaxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7F00B922280A6D030082BDA1 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		7F00B924280A6E990082BDA1 /* ContactListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListRow.swift; sourceTree = "<group>"; };
 		7F00B926280A6FE90082BDA1 /* ContactGroupSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactGroupSquare.swift; sourceTree = "<group>"; };
@@ -134,10 +135,9 @@
 		7FF8F95524CD5B37002B7D64 /* ContactWidgetGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactWidgetGrid.swift; sourceTree = "<group>"; };
 		7FF8F95724CD5C1C002B7D64 /* ContactDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailCard.swift; sourceTree = "<group>"; };
 		7FF8F95C24CD8F17002B7D64 /* ContactImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactImageSection.swift; sourceTree = "<group>"; };
-		D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contax_ContaxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D693E37EC973C0D9DF2EB974 /* Pods_Contax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA09339B4A797582A26556FC /* Pods-Contax-ContaxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.debug.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EB2C1E45916D20EE26448693 /* Pods-Contax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax.debug.xcconfig"; path = "Target Support Files/Pods-Contax/Pods-Contax.debug.xcconfig"; sourceTree = "<group>"; };
+		9103DF96AA8042A2BE9D9883 /* Pods_ContaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E24BAE533105302DC6583363 /* Pods-Contax-ContaxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax-ContaxUITests.debug.xcconfig"; path = "Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E2D7046BF2EB88523EFFD59A /* Pods-Contax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contax.release.xcconfig"; path = "Target Support Files/Pods-Contax/Pods-Contax.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +147,7 @@
 			files = (
 				7F21D8AA28549DB500E6C2DF /* UnsplashSwiftUI in Frameworks */,
 				7F30482B291000DD004ED296 /* KeyboardToolbar in Frameworks */,
-				18B94CBA1AAE6C9BCAC4BB1B /* Pods_Contax.framework in Frameworks */,
+				D79967ED28212830629884D0 /* Pods_Contax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7848794628C76210D872A83 /* Pods_ContaxTests.framework in Frameworks */,
+				DA1D5D56A224F19E0F2C9854 /* Pods_ContaxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F9B3805735430F76BD99FA6 /* Pods_Contax_ContaxUITests.framework in Frameworks */,
+				BAFD5AD3E47AE08BF26977D4 /* Pods_Contax_ContaxUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,12 +173,12 @@
 		5E4D44EB6CC97845F07AA07A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EB2C1E45916D20EE26448693 /* Pods-Contax.debug.xcconfig */,
-				643613C799C124D7CDA1F7B5 /* Pods-Contax.release.xcconfig */,
-				EA09339B4A797582A26556FC /* Pods-Contax-ContaxUITests.debug.xcconfig */,
-				6C4563CACBBD0D0B4791DFE0 /* Pods-Contax-ContaxUITests.release.xcconfig */,
-				28A52B0FF95F6C86A817CE8A /* Pods-ContaxTests.debug.xcconfig */,
-				6CF177A96CA1D29BED25DB42 /* Pods-ContaxTests.release.xcconfig */,
+				5BB58C8B41D95503DE84343D /* Pods-Contax.debug.xcconfig */,
+				E2D7046BF2EB88523EFFD59A /* Pods-Contax.release.xcconfig */,
+				E24BAE533105302DC6583363 /* Pods-Contax-ContaxUITests.debug.xcconfig */,
+				5A0201F221FD0C383B1D42AB /* Pods-Contax-ContaxUITests.release.xcconfig */,
+				70BE982EA9AB9684DD0783C8 /* Pods-ContaxTests.debug.xcconfig */,
+				58E6B73A7625CBD72D214C81 /* Pods-ContaxTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 				7FD3009324C2BB2E0011CF5C /* ContaxUITests */,
 				7FD3007524C2BB2A0011CF5C /* Products */,
 				5E4D44EB6CC97845F07AA07A /* Pods */,
-				9BB6E01263A66D9E24D18FD7 /* Frameworks */,
+				C43BBF6D4F07CA80D6E3E342 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -366,12 +366,12 @@
 			path = Contax/View;
 			sourceTree = "<group>";
 		};
-		9BB6E01263A66D9E24D18FD7 /* Frameworks */ = {
+		C43BBF6D4F07CA80D6E3E342 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D693E37EC973C0D9DF2EB974 /* Pods_Contax.framework */,
-				D068B0DAEEDAF50E071F2C7E /* Pods_Contax_ContaxUITests.framework */,
-				2491CAF9F5D5F0C22E72D3B1 /* Pods_ContaxTests.framework */,
+				4ED94379CB2E8D44CF5BFFAD /* Pods_Contax.framework */,
+				1DEA84AEE304DEEE4169D8C7 /* Pods_Contax_ContaxUITests.framework */,
+				9103DF96AA8042A2BE9D9883 /* Pods_ContaxTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -383,11 +383,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FD3009924C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "Contax" */;
 			buildPhases = (
-				093532BBC065C84F8797A965 /* [CP] Check Pods Manifest.lock */,
+				DDA016498A5813EFD001C986 /* [CP] Check Pods Manifest.lock */,
 				7FD3007024C2BB2A0011CF5C /* Sources */,
 				7FD3007124C2BB2A0011CF5C /* Frameworks */,
 				7FD3007224C2BB2A0011CF5C /* Resources */,
-				7D3703363C9342D8074BED2C /* [CP] Embed Pods Frameworks */,
+				A11EDE005B58DF32C1F4B7DD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -406,7 +406,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FD3009C24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "ContaxTests" */;
 			buildPhases = (
-				2CC828C2AC5E25BB8A2072F5 /* [CP] Check Pods Manifest.lock */,
+				D622BE88B34CD8D1C807F89E /* [CP] Check Pods Manifest.lock */,
 				7FD3008124C2BB2E0011CF5C /* Sources */,
 				7FD3008224C2BB2E0011CF5C /* Frameworks */,
 				7FD3008324C2BB2E0011CF5C /* Resources */,
@@ -425,11 +425,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FD3009F24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "ContaxUITests" */;
 			buildPhases = (
-				F8F40ABCCE23EB8AFF723A30 /* [CP] Check Pods Manifest.lock */,
+				7353C082611D877F809241CB /* [CP] Check Pods Manifest.lock */,
 				7FD3008C24C2BB2E0011CF5C /* Sources */,
 				7FD3008D24C2BB2E0011CF5C /* Frameworks */,
 				7FD3008E24C2BB2E0011CF5C /* Resources */,
-				1E757D7FDFA7D03303909A8C /* [CP] Embed Pods Frameworks */,
+				7E2C996A7BE57B83AC403F59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -526,7 +526,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		093532BBC065C84F8797A965 /* [CP] Check Pods Manifest.lock */ = {
+		7353C082611D877F809241CB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -541,14 +541,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Contax-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Contax-ContaxUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1E757D7FDFA7D03303909A8C /* [CP] Embed Pods Frameworks */ = {
+		7E2C996A7BE57B83AC403F59 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -565,7 +565,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Contax-ContaxUITests/Pods-Contax-ContaxUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2CC828C2AC5E25BB8A2072F5 /* [CP] Check Pods Manifest.lock */ = {
+		A11EDE005B58DF32C1F4B7DD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Contax/Pods-Contax-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Contax/Pods-Contax-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Contax/Pods-Contax-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D622BE88B34CD8D1C807F89E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -587,24 +604,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7D3703363C9342D8074BED2C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Contax/Pods-Contax-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Contax/Pods-Contax-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Contax/Pods-Contax-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F8F40ABCCE23EB8AFF723A30 /* [CP] Check Pods Manifest.lock */ = {
+		DDA016498A5813EFD001C986 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -619,7 +619,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Contax-ContaxUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Contax-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -734,6 +734,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -815,7 +816,7 @@
 		};
 		7FD3009A24C2BB2E0011CF5C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB2C1E45916D20EE26448693 /* Pods-Contax.debug.xcconfig */;
+			baseConfigurationReference = 5BB58C8B41D95503DE84343D /* Pods-Contax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -844,7 +845,7 @@
 		};
 		7FD3009B24C2BB2E0011CF5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 643613C799C124D7CDA1F7B5 /* Pods-Contax.release.xcconfig */;
+			baseConfigurationReference = E2D7046BF2EB88523EFFD59A /* Pods-Contax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -873,7 +874,7 @@
 		};
 		7FD3009D24C2BB2E0011CF5C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A52B0FF95F6C86A817CE8A /* Pods-ContaxTests.debug.xcconfig */;
+			baseConfigurationReference = 70BE982EA9AB9684DD0783C8 /* Pods-ContaxTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -901,7 +902,7 @@
 		};
 		7FD3009E24C2BB2E0011CF5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CF177A96CA1D29BED25DB42 /* Pods-ContaxTests.release.xcconfig */;
+			baseConfigurationReference = 58E6B73A7625CBD72D214C81 /* Pods-ContaxTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -929,7 +930,7 @@
 		};
 		7FD300A024C2BB2E0011CF5C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA09339B4A797582A26556FC /* Pods-Contax-ContaxUITests.debug.xcconfig */;
+			baseConfigurationReference = E24BAE533105302DC6583363 /* Pods-Contax-ContaxUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -954,7 +955,7 @@
 		};
 		7FD300A124C2BB2E0011CF5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C4563CACBBD0D0B4791DFE0 /* Pods-Contax-ContaxUITests.release.xcconfig */;
+			baseConfigurationReference = 5A0201F221FD0C383B1D42AB /* Pods-Contax-ContaxUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -987,7 +988,7 @@
 				7FD3009824C2BB2E0011CF5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		7FD3009924C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "Contax" */ = {
 			isa = XCConfigurationList;
@@ -996,7 +997,7 @@
 				7FD3009B24C2BB2E0011CF5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		7FD3009C24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "ContaxTests" */ = {
 			isa = XCConfigurationList;
@@ -1005,7 +1006,7 @@
 				7FD3009E24C2BB2E0011CF5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		7FD3009F24C2BB2E0011CF5C /* Build configuration list for PBXNativeTarget "ContaxUITests" */ = {
 			isa = XCConfigurationList;
@@ -1014,7 +1015,7 @@
 				7FD300A124C2BB2E0011CF5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

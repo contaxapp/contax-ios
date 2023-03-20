@@ -43,7 +43,7 @@ struct SettingsView: View {
                         .foregroundColor(Color.init("Dark Gray"))
                         .background(Color.init("Base Color"))
                     }
-                    .scrollContentBackground(Color.clear)
+                    .scrollContentBackground(.hidden)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

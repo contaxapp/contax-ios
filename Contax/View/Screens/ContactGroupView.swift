@@ -76,7 +76,7 @@ struct ContactGroupView: View {
                             }
                         }
                         .foregroundColor(Color.init("Light Gray"))
-                        .scrollContentBackground(Color.clear)
+                        .scrollContentBackground(.hidden)
                         .listStyle(GroupedListStyle())
                     }
                 }
