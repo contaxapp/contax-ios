@@ -24,32 +24,87 @@ struct SettingsView: View {
                     Color.init("Base Color").edgesIgnoringSafeArea(.all)
                     VStack {
                         Form {
-                            Section(
-                                header:
-                                    Text("Account")
-                                    .foregroundColor(Color.init("Light Gray"))
-                                    .padding(.bottom, 5)
-                                    .padding(.leading, -20)
-                            ) {
-                                NavigationLink {
-                                    Text("LOL")
-                                } label: {
-                                    Text("Check Profile")
+                            Section {
+                                HStack {
+                                    Image("Placeholder Contact Image")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 80, height: 80, alignment: .center)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                                        .padding(.trailing, 10)
+                                    VStack (alignment: .leading, content: {
+                                        Text("Arpit Bansal")
+                                            .font(.custom("EuclidCircularA-Medium", size: 20))
+                                            .padding(.bottom, 5)
+                                        Text("Show Profile")
+                                            .underline(true)
+                                    })
                                 }
-                                
-                                Toggle("Hello", isOn: $yay)
                             }
+                            .listRowInsets(EdgeInsets())
+                            
+                            Section {
+                                SectionHeader(heading: "Account")
+                                List {
+                                    HStack {
+                                        Image(systemName: "person.text.rectangle.fill")
+                                        Text("Profile")
+                                    }
+                                    HStack {
+                                        Image(systemName: "hand.raised.fill")
+                                        Text("Privacy & Sharing")
+                                    }
+                                }
+                            }
+                            .listRowInsets(EdgeInsets())
+                            
+                            Section {
+                                SectionHeader(heading: "Data Sync")
+                                List {
+                                    HStack {
+                                        Image(systemName: "person.crop.circle")
+                                        Text("Contacts")
+                                    }
+                                    HStack {
+                                        Image(systemName: "envelope.fill")
+                                        Text("Emails")
+                                    }
+                                }
+                            }
+                            .listRowInsets(EdgeInsets())
+                            
+                            Section {
+                                SectionHeader(heading: "General")
+                                List {
+                                    HStack {
+                                        Image(systemName: "bell.fill")
+                                        Text("Notifications")
+                                    }
+                                    HStack {
+                                        Image(systemName: "gear.circle")
+                                        Text("Smart Groups")
+                                    }
+                                    HStack {
+                                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                                        Text("Logout")
+                                    }
+                                }
+                            }
+                            .listRowInsets(EdgeInsets())
                         }
+                        .font(.custom("EuclidCircularA-Regular", size: 18))
                         .foregroundColor(Color.init("Dark Gray"))
-                        .background(Color.init("Base Color"))
                     }
                     .scrollContentBackground(.hidden)
+                    .scrollIndicators(.hidden)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: Text("Settings").font(.title).foregroundColor(.white).fontWeight(.bold)
+                leading: Text("Settings").font(.custom("EuclidCircularA-Medium", size: 25)).foregroundColor(Color.init("Dark Gray")).fontWeight(.medium)
             )
+            .padding(.horizontal)
         }
     }
 }
