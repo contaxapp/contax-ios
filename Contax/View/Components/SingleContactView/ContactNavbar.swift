@@ -48,5 +48,6 @@ struct ContactNavbar: View {
         }
         .padding(.vertical)
         .padding(.horizontal)
+        .background(Color.white)
     }
 }

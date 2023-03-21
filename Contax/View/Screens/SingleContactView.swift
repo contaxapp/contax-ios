@@ -61,10 +61,15 @@ struct SingleContactView: View {
                                 .font(.custom("EuclidCircularA-Regular", size: 30))
                                 .padding(.bottom, 10)
                             
-                            Text("\(contact!.jobTitle) | \(contact!.organization)")
-                                .foregroundColor(Color.init("Mid Gray"))
-                                .font(.custom("EuclidCircularA-Regular", size: 15))
-                                .padding(.bottom, 10)
+                            if (contact!.jobTitle != "" || contact!.organization != "") {
+                                Text("\(contact!.jobTitle) | \(contact!.organization)")
+                                    .foregroundColor(Color.init("Mid Gray"))
+                                    .font(.custom("EuclidCircularA-Regular", size: 15))
+                                    .padding(.bottom, 10)
+                            } else {
+                                Text("")
+                                    .padding(.bottom, 10)
+                            }
                             
                             HStack {
                                 ForEach(groups, id: \.self) { group in
