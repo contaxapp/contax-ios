@@ -9,16 +9,30 @@ import SwiftUI
 
 struct SectionHeader: View {
     
-    let heading: String
+    var leading: String? = ""
     var paddingTop: CGFloat = 0
     var paddingBottom: CGFloat = 0
+    var trailing: String? = ""
+//    var trailingAction: () -> Void
     
     var body: some View {
-        Text(heading)
-            .foregroundColor(Color.init("Dark Gray"))
-            .font(.custom("EuclidCircularA-Medium", size: 20))
-            .fontWeight(.medium)
-            .padding(.top, paddingTop)
-            .padding(.bottom, paddingBottom)
+        HStack {
+            Text(leading ?? "")
+                .foregroundColor(Color.init("Dark Gray"))
+                .font(.custom("EuclidCircularA-Medium", size: 20))
+                .fontWeight(.medium)
+                .padding(.top, paddingTop)
+                .padding(.bottom, paddingBottom)
+            Spacer()
+            Button {
+//                trailingAction()
+                return
+            } label: {
+                Text(trailing ?? "")
+                    .font(.custom("EuclidCircularA-Regular", size: 14))
+                    .foregroundColor(Color.init("Dark Gray"))
+                    .underline(true)
+            }
+        }
     }
 }

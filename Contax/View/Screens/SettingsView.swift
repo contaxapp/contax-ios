@@ -45,7 +45,7 @@ struct SettingsView: View {
                             .listRowInsets(EdgeInsets())
                             
                             Section {
-                                SectionHeader(heading: "Account")
+                                SectionHeader(leading: "Account")
                                 List {
                                     HStack {
                                         Image(systemName: "person.text.rectangle.fill")
@@ -60,7 +60,7 @@ struct SettingsView: View {
                             .listRowInsets(EdgeInsets())
                             
                             Section {
-                                SectionHeader(heading: "Data Sync")
+                                SectionHeader(leading: "Data Sync")
                                 List {
                                     HStack {
                                         Image(systemName: "person.crop.circle")
@@ -75,7 +75,7 @@ struct SettingsView: View {
                             .listRowInsets(EdgeInsets())
                             
                             Section {
-                                SectionHeader(heading: "General")
+                                SectionHeader(leading: "General")
                                 List {
                                     HStack {
                                         Image(systemName: "bell.fill")

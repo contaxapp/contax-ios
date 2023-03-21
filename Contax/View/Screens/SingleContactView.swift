@@ -117,7 +117,7 @@ struct SingleContactView: View {
                             //                                        .foregroundColor(Color.init("Dark Gray"))
                             
                             // Phone Numbers
-                            SectionHeader(heading: "Phone Numbers")
+                            SectionHeader(leading: "Phone Numbers")
                             ForEach(contact!.phoneNumbers, id: \.phone) { phoneNumber in
                                 ContactDetailCard(
                                     title: phoneNumber.label.replacingOccurrences(of: "_$!<", with: "").replacingOccurrences(of: ">!$_", with: ""),
@@ -126,7 +126,7 @@ struct SingleContactView: View {
                             }
                             
                             // Email Addresses
-                            SectionHeader(heading: "Email")
+                            SectionHeader(leading: "Email")
                             ForEach(contact!.emailAddresses, id: \.email) { emailAddress in
                                 ContactDetailCard(
                                     title: emailAddress.label.replacingOccurrences(of: "_$!<", with: "").replacingOccurrences(of: ">!$_", with: ""),
@@ -134,7 +134,7 @@ struct SingleContactView: View {
                                 )
                             }
                             
-                            SectionHeader(heading: "Notes")
+                            SectionHeader(leading: "Notes")
                             if (!contact!.note.isEmpty) {
                                 ContactDetailCard(
                                     title: "April 16, 2022",
