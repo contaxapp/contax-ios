@@ -36,6 +36,7 @@
 		7F6F6DDA2819898C00D34EFA /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */; };
 		7F78C41728B153CD005D35A4 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78C41628B153CD005D35A4 /* Onboarding.swift */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
+		7FACA48729CA3DAC00B2E79A /* QuickAddContactSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACA48629CA3DAC00B2E79A /* QuickAddContactSheet.swift */; };
 		7FC77A3B29326A57009527C9 /* CameraScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC77A3A29326A57009527C9 /* CameraScanner.swift */; };
 		7FCB0870280ABFDF00C8412E /* ContactNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */; };
 		7FD205B72855BEC100B01011 /* ContactGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD205B62855BEC100B01011 /* ContactGroupView.swift */; };
@@ -111,6 +112,7 @@
 		7F78C41628B153CD005D35A4 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
 		7F980C7824C360120075CAC9 /* Contax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Contax.entitlements; path = Contax/Contax.entitlements; sourceTree = "<group>"; };
+		7FACA48629CA3DAC00B2E79A /* QuickAddContactSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddContactSheet.swift; sourceTree = "<group>"; };
 		7FC77A3A29326A57009527C9 /* CameraScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScanner.swift; sourceTree = "<group>"; };
 		7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNavbar.swift; sourceTree = "<group>"; };
 		7FD205B62855BEC100B01011 /* ContactGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactGroupView.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				7F00B928280A70CF0082BDA1 /* ContactCircle.swift */,
 				7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */,
 				7F31EE5529C38CBA005C6B68 /* ContactCardScanning.swift */,
+				7FACA48629CA3DAC00B2E79A /* QuickAddContactSheet.swift */,
 			);
 			path = DashboardView;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */,
 				7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */,
 				7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */,
+				7FACA48729CA3DAC00B2E79A /* QuickAddContactSheet.swift in Sources */,
 				7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */,
 				7F3B653C293B8F0F0082981E /* GroupListRow.swift in Sources */,
 				7F00B929280A70CF0082BDA1 /* ContactCircle.swift in Sources */,
