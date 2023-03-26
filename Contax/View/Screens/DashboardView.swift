@@ -48,7 +48,7 @@ struct DashboardView: View {
                     ScrollView (.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(groups, id: \.self) { group in
-                                ContactGroupSquare(group)
+                                ContactGroupSquare(group, destination: Text(group))
                             }
                         }.padding(.horizontal)
                     }

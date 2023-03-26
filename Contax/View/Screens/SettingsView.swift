@@ -93,7 +93,7 @@ struct SettingsView: View {
                             }
                             .listRowInsets(EdgeInsets())
                         }
-                        .font(.custom("EuclidCircularA-Regular", size: 18))
+                        .font(.custom("EuclidCircularA-Light", size: 18))
                         .foregroundColor(Color.init("Dark Gray"))
                     }
                     .scrollContentBackground(.hidden)

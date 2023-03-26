@@ -18,6 +18,7 @@ struct ContactGroupView: View {
     
     @State private var showContactErrorAlert = false
     @State private var searchTerm = ""
+    @State private var showSearchDetailPane: Bool = false
     
     func getSectionedGroupDictionary(_ ContactGroups: [ContactGroup]) -> Dictionary <String , [ContactGroup]> {
         let sectionDictionary: Dictionary<String, [ContactGroup]> = {
@@ -49,11 +50,11 @@ struct ContactGroupView: View {
                 ZStack {
                     VStack (alignment: .leading) {
                         // Search Bar
-//                        SearchBar(placeholder:Text("Search your contacts"), searchTerm: $searchTerm)
-//                            .zIndex(1)
-//                            .background(Color.white)
-//                            .padding(.top, 20)
-//                            .padding(.bottom, 10)
+                        GroupSearchBar(placeholder:Text("Search your groups"), searchTerm: $searchTerm, showSearchDetailPane: $showSearchDetailPane)
+                            .zIndex(1)
+                            .background(Color.white)
+                            .padding(.top, 20)
+                            .padding(.bottom, 10)
                         
                         // All Contacts
                         List {

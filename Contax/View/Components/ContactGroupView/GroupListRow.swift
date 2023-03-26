@@ -12,7 +12,7 @@ struct GroupListRow: View {
     let viewSize: GeometryProxy?
     
     var body: some View {
-        NavigationLink(destination: self) {
+        NavigationLink(destination: Text(group.name)) {
             ZStack {
 //                if self.contact.image != nil {
 //                    Image(uiImage: UIImage(data: Data(base64Encoded: self.contact.image!)!)!)
