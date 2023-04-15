@@ -62,7 +62,9 @@ struct ContactListView: View {
                             ForEach(sectionedContactDictionary.keys.sorted(), id:\.self) { key in
                                 
                                 // Get contacts for particular section (key)
-                                if let contacts = filterContactsBySearch(SectionedDictionary: sectionedContactDictionary, key: key), !contacts.isEmpty {
+                                let contacts = filterContactsBySearch(SectionedDictionary: sectionedContactDictionary, key: key)
+                                
+                                if !contacts.isEmpty {
                                     
                                     Section {
                                         ForEach(contacts) { contact in

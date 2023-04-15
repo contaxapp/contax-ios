@@ -89,6 +89,7 @@ class ContactsModel: ObservableObject {
             var allContainers: [CNContainer] = []
             do {
                 allContainers = try contactStore.containers(matching: nil)
+                print(allContainers)
             } catch {
                 print("Error fetching containers")
             }
@@ -106,6 +107,34 @@ class ContactsModel: ObservableObject {
                     }
                 } catch {
                     print("Error fetching results for container")
+                }
+            }
+        }
+        
+        // Fetch Contacts from Groups
+        if from == .groups {
+            // Get all the containers
+            var allGroups: [CNGroup] = []
+            do {
+                allGroups = try contactStore.groups(matching: nil)
+                print(allGroups)
+            } catch {
+                print("Error fetching containers")
+            }
+
+            // Iterate all containers and append their contacts to our results array
+            for group in allGroups {
+                let fetchPredicate = CNContact.predicateForContactsInGroup(withIdentifier: group.identifier)
+
+                do {
+                    let groupResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch)
+                    for contact in groupResults {
+                        let hashedContact = hashContact(convertCNContactToContact(contact))
+                        addressBookContacts.hashes.append(hashedContact!.hashedContactId)
+                        addressBookContacts.contacts.append(convertCNContactToContact(contact))
+                    }
+                } catch {
+                    print("Error fetching results for group")
                 }
             }
         }

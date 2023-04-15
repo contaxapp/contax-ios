@@ -18,7 +18,6 @@
 		7F21D8AA28549DB500E6C2DF /* UnsplashSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7F21D8A928549DB500E6C2DF /* UnsplashSwiftUI */; };
 		7F2EB2FE28A3D5740014FE76 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2EB2FD28A3D5740014FE76 /* Splash.swift */; };
 		7F30482B291000DD004ED296 /* KeyboardToolbar in Frameworks */ = {isa = PBXBuildFile; productRef = 7F30482A291000DD004ED296 /* KeyboardToolbar */; };
-		7F31EE5629C38CBA005C6B68 /* ContactCardScanning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31EE5529C38CBA005C6B68 /* ContactCardScanning.swift */; };
 		7F3902042815A8DC00F4C2D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3902032815A8DC00F4C2D1 /* DashboardView.swift */; };
 		7F3B653C293B8F0F0082981E /* GroupListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3B653B293B8F0F0082981E /* GroupListRow.swift */; };
 		7F62C6F628A7BD230037449A /* Euclid-Circular-A-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F62C6F328A7BD160037449A /* Euclid-Circular-A-SemiBold.ttf */; };
@@ -38,7 +37,6 @@
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
 		7FACA48729CA3DAC00B2E79A /* QuickAddContactSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACA48629CA3DAC00B2E79A /* QuickAddContactSheet.swift */; };
 		7FACA48929D022AC00B2E79A /* GroupSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACA48829D022AC00B2E79A /* GroupSearchBar.swift */; };
-		7FC77A3B29326A57009527C9 /* CameraScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC77A3A29326A57009527C9 /* CameraScanner.swift */; };
 		7FCB0870280ABFDF00C8412E /* ContactNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */; };
 		7FD205B72855BEC100B01011 /* ContactGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD205B62855BEC100B01011 /* ContactGroupView.swift */; };
 		7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3007724C2BB2A0011CF5C /* ContaxApp.swift */; };
@@ -94,7 +92,6 @@
 		7F09930427C287B40027ABE0 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperFunctions.swift; path = HelperFunctions/HelperFunctions.swift; sourceTree = "<group>"; };
 		7F18F453250DAED40055EEB5 /* RealmDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStructures.swift; sourceTree = "<group>"; };
 		7F2EB2FD28A3D5740014FE76 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
-		7F31EE5529C38CBA005C6B68 /* ContactCardScanning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCardScanning.swift; sourceTree = "<group>"; };
 		7F3902032815A8DC00F4C2D1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		7F3B653B293B8F0F0082981E /* GroupListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListRow.swift; sourceTree = "<group>"; };
 		7F62C6EC28A7BD160037449A /* Euclid-Circular-A-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Euclid-Circular-A-Bold.ttf"; sourceTree = "<group>"; };
@@ -115,7 +112,6 @@
 		7F980C7824C360120075CAC9 /* Contax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Contax.entitlements; path = Contax/Contax.entitlements; sourceTree = "<group>"; };
 		7FACA48629CA3DAC00B2E79A /* QuickAddContactSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddContactSheet.swift; sourceTree = "<group>"; };
 		7FACA48829D022AC00B2E79A /* GroupSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSearchBar.swift; sourceTree = "<group>"; };
-		7FC77A3A29326A57009527C9 /* CameraScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScanner.swift; sourceTree = "<group>"; };
 		7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNavbar.swift; sourceTree = "<group>"; };
 		7FD205B62855BEC100B01011 /* ContactGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactGroupView.swift; sourceTree = "<group>"; };
 		7FD3007424C2BB2A0011CF5C /* Contax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +198,6 @@
 			children = (
 				7F00B922280A6D030082BDA1 /* SectionHeader.swift */,
 				7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */,
-				7FC77A3A29326A57009527C9 /* CameraScanner.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -251,7 +246,6 @@
 				7F00B926280A6FE90082BDA1 /* ContactGroupSquare.swift */,
 				7F00B928280A70CF0082BDA1 /* ContactCircle.swift */,
 				7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */,
-				7F31EE5529C38CBA005C6B68 /* ContactCardScanning.swift */,
 				7FACA48629CA3DAC00B2E79A /* QuickAddContactSheet.swift */,
 			);
 			path = DashboardView;
@@ -647,8 +641,6 @@
 				7FD205B72855BEC100B01011 /* ContactGroupView.swift in Sources */,
 				7FF8F95824CD5C1C002B7D64 /* ContactDetailCard.swift in Sources */,
 				7F09930527C287B40027ABE0 /* HelperFunctions.swift in Sources */,
-				7FC77A3B29326A57009527C9 /* CameraScanner.swift in Sources */,
-				7F31EE5629C38CBA005C6B68 /* ContactCardScanning.swift in Sources */,
 				7F2EB2FE28A3D5740014FE76 /* Splash.swift in Sources */,
 				7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */,
 				7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */,

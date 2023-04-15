@@ -14,20 +14,11 @@ struct GroupListRow: View {
     var body: some View {
         NavigationLink(destination: Text(group.name)) {
             ZStack {
-//                if self.contact.image != nil {
-//                    Image(uiImage: UIImage(data: Data(base64Encoded: self.contact.image!)!)!)
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .frame(width: 40, height: 40, alignment: .center)
-//                        .clipShape(Circle())
-//                        .overlay(Circle().stroke(Color.white, lineWidth: 1))
-//                } else {
-                    Circle()
-                        .fill(Color.gray)
-                        .frame(width: 40, height: 40, alignment: .center)
-                        .overlay(Circle().stroke(Color.white, lineWidth: 1))
-                    Text(HelperFunctions.returnGroupInitials(self.group.name))
-//                }
+                Circle()
+                    .fill(Color.gray)
+                    .frame(width: 40, height: 40, alignment: .center)
+                    .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                Text(HelperFunctions.returnGroupInitials(self.group.name))
             }.frame(width: self.viewSize!.size.width * 0.1)
             
             Text("\(self.group.name)")

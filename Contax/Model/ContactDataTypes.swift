@@ -105,6 +105,7 @@ struct HashedContact {
 enum FetchContactsStyle {
     case all
     case containers
+    case groups
 }
 
 struct ContactGroup: Identifiable {

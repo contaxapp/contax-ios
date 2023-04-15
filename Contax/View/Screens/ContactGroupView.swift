@@ -62,7 +62,8 @@ struct ContactGroupView: View {
                             ForEach(sectionedGroupDictionary.keys.sorted(), id:\.self) { key in
                                 
                                 // Get contacts for particular section (key)
-                                if let groups = filterGroupsBySearch(SectionedDictionary: sectionedGroupDictionary, key: key), !groups.isEmpty {
+                                let groups = filterGroupsBySearch(SectionedDictionary: sectionedGroupDictionary, key: key)
+                                if !groups.isEmpty {
                                     
                                     Section {
                                         ForEach(groups) { group in
