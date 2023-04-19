@@ -11,6 +11,54 @@ import Contacts
 import RealmSwift
 import CryptoKit
 
+enum CNContactKeys {
+    static let keysToFetch = [
+        // Identification
+        CNContactIdentifierKey,
+        
+        // Name
+        CNContactGivenNameKey,
+        CNContactMiddleNameKey,
+        CNContactFamilyNameKey,
+        CNContactNicknameKey,
+
+        // Work
+        CNContactJobTitleKey,
+        CNContactDepartmentNameKey,
+        CNContactOrganizationNameKey,
+
+        // Address
+        CNContactPostalAddressesKey,
+        CNContactEmailAddressesKey,
+        CNContactUrlAddressesKey,
+        CNContactInstantMessageAddressesKey,
+
+        // Phone
+        CNContactPhoneNumbersKey,
+
+        // Social Profiles
+         CNContactSocialProfilesKey,
+
+        // Important Dates
+        CNContactBirthdayKey,
+        CNContactDatesKey,
+
+        // Notes
+        CNContactNoteKey,
+
+        // Image Data
+        CNContactImageDataAvailableKey,
+        CNContactImageDataKey,
+        CNContactThumbnailImageDataKey,
+
+        // Relationships
+        CNContactRelationsKey,
+        
+        //Groups
+        CNGroupIdentifierKey,
+    ] as [CNKeyDescriptor]
+}
+
 class ContactsModel: ObservableObject {
     
     let realm = try! Realm()
@@ -39,49 +87,6 @@ class ContactsModel: ObservableObject {
     func fetchContactsFromAddressBook(from: FetchContactsStyle, sortedBy: CNContactSortOrder = .givenName) -> AddressBookContacts {
         
         var addressBookContacts: AddressBookContacts = AddressBookContacts(hashes: [], contacts: [])
-        
-        let keysToFetch = [
-            // Identification
-            CNContactIdentifierKey,
-            
-            // Name
-            CNContactGivenNameKey,
-            CNContactMiddleNameKey,
-            CNContactFamilyNameKey,
-            CNContactNicknameKey,
-
-            // Work
-            CNContactJobTitleKey,
-            CNContactDepartmentNameKey,
-            CNContactOrganizationNameKey,
-
-            // Address
-            CNContactPostalAddressesKey,
-            CNContactEmailAddressesKey,
-            CNContactUrlAddressesKey,
-            CNContactInstantMessageAddressesKey,
-
-            // Phone
-            CNContactPhoneNumbersKey,
-
-            // Social Profiles
-             CNContactSocialProfilesKey,
-
-            // Important Dates
-            CNContactBirthdayKey,
-            CNContactDatesKey,
-
-            // Notes
-            CNContactNoteKey,
-
-            // Image Data
-            CNContactImageDataAvailableKey,
-            CNContactImageDataKey,
-            CNContactThumbnailImageDataKey,
-
-            // Relationships
-            CNContactRelationsKey
-        ] as [CNKeyDescriptor]
 
         // Fetch Contacts from Containers
         if from == .containers {
@@ -99,8 +104,9 @@ class ContactsModel: ObservableObject {
                 let fetchPredicate = CNContact.predicateForContactsInContainer(withIdentifier: container.identifier)
 
                 do {
-                    let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch)
+                    let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: CNContactKeys.keysToFetch)
                     for contact in containerResults {
+                        print(contact)
                         let hashedContact = hashContact(convertCNContactToContact(contact))
                         addressBookContacts.hashes.append(hashedContact!.hashedContactId)
                         addressBookContacts.contacts.append(convertCNContactToContact(contact))
@@ -117,7 +123,6 @@ class ContactsModel: ObservableObject {
             var allGroups: [CNGroup] = []
             do {
                 allGroups = try contactStore.groups(matching: nil)
-                print(allGroups)
             } catch {
                 print("Error fetching containers")
             }
@@ -127,7 +132,8 @@ class ContactsModel: ObservableObject {
                 let fetchPredicate = CNContact.predicateForContactsInGroup(withIdentifier: group.identifier)
 
                 do {
-                    let groupResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch)
+                    let groupResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: CNContactKeys.keysToFetch)
+                    print(group.name,groupResults)
                     for contact in groupResults {
                         let hashedContact = hashContact(convertCNContactToContact(contact))
                         addressBookContacts.hashes.append(hashedContact!.hashedContactId)
@@ -141,7 +147,7 @@ class ContactsModel: ObservableObject {
         
         // Fetch All Contacts
         else if from == .all {
-            let fetchRequest = CNContactFetchRequest(keysToFetch: keysToFetch)
+            let fetchRequest = CNContactFetchRequest(keysToFetch: CNContactKeys.keysToFetch)
             fetchRequest.sortOrder = sortedBy
 
             do {
@@ -156,6 +162,39 @@ class ContactsModel: ObservableObject {
         }
         
         return addressBookContacts
+    }
+    
+    func fetchContactGroups() -> [ContactGroup] {
+        var allGroups: [CNGroup] = []
+        do {
+            allGroups = try contactStore.groups(matching: nil)
+        } catch {
+            print("Error fetching containers")
+        }
+        
+        var returnedGroups: [ContactGroup] = []
+        
+        // Iterate all containers and append their contacts to our results array
+        for group in allGroups {
+            let fetchPredicate = CNContact.predicateForContactsInGroup(withIdentifier: group.identifier)
+            
+            var newGroup = ContactGroup(id: group.identifier, name: group.name, contacts: [])
+
+            do {
+                let groupResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: CNContactKeys.keysToFetch)
+                
+                for contact in groupResults {
+                    newGroup.contacts.append(convertCNContactToContact(contact))
+                }
+            } catch {
+                print("Error fetching results for group")
+            }
+            
+            returnedGroups.append(newGroup)
+        }
+        
+        print(returnedGroups)
+        return returnedGroups
     }
     
     func fetchStoredContacts() -> StoredContacts {
@@ -200,7 +239,7 @@ class ContactsModel: ObservableObject {
         
         if (updatedContacts.newContacts.count > 0) {
             for contact in updatedContacts.newContacts {
-                storeContact(contact)
+//                storeContact(contact)
             }
             
             contacts = addressBookContacts.contacts
@@ -220,11 +259,6 @@ class ContactsModel: ObservableObject {
             contacts = storedContacts.contacts
             print("Showing stored contacts\n------------")
         }
-        
-        // TEST
-//        let fetchResult = contactStore.currentHistoryToken! as NSData
-//        print(fetchResult.map{String(format: "%02x", $0)}.joined())
-//        print(contacts)
     }
 }
 

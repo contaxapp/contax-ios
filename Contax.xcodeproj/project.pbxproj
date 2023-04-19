@@ -34,7 +34,12 @@
 		7F6F6DD8281981A900D34EFA /* SearchDetailPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD7281981A900D34EFA /* SearchDetailPane.swift */; };
 		7F6F6DDA2819898C00D34EFA /* CornerRadiusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */; };
 		7F78C41728B153CD005D35A4 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F78C41628B153CD005D35A4 /* Onboarding.swift */; };
+		7F8A77C229EFDA5900049874 /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A77C129EFDA5900049874 /* YOLOv3Int8LUT.mlmodel */; };
+		7F8A77C429EFFFA100049874 /* ObjectDetectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A77C329EFFFA100049874 /* ObjectDetectorModel.swift */; };
+		7F8A77C629F0001C00049874 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A77C529F0001C00049874 /* CameraViewController.swift */; };
+		7F8A77C929F0128000049874 /* MNISTClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A77C829F0128000049874 /* MNISTClassifier.mlmodel */; };
 		7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */; };
+		7F9FC34329EC6E3B00DAB51F /* ScanCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9FC34229EC6E3A00DAB51F /* ScanCardView.swift */; };
 		7FACA48729CA3DAC00B2E79A /* QuickAddContactSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACA48629CA3DAC00B2E79A /* QuickAddContactSheet.swift */; };
 		7FACA48929D022AC00B2E79A /* GroupSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACA48829D022AC00B2E79A /* GroupSearchBar.swift */; };
 		7FCB0870280ABFDF00C8412E /* ContactNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */; };
@@ -108,8 +113,13 @@
 		7F6F6DD7281981A900D34EFA /* SearchDetailPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailPane.swift; sourceTree = "<group>"; };
 		7F6F6DD92819898C00D34EFA /* CornerRadiusModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusModifier.swift; sourceTree = "<group>"; };
 		7F78C41628B153CD005D35A4 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		7F8A77C129EFDA5900049874 /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
+		7F8A77C329EFFFA100049874 /* ObjectDetectorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectorModel.swift; sourceTree = "<group>"; };
+		7F8A77C529F0001C00049874 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		7F8A77C829F0128000049874 /* MNISTClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MNISTClassifier.mlmodel; sourceTree = "<group>"; };
 		7F980C7424C3500F0075CAC9 /* ContactDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataTypes.swift; sourceTree = "<group>"; };
 		7F980C7824C360120075CAC9 /* Contax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Contax.entitlements; path = Contax/Contax.entitlements; sourceTree = "<group>"; };
+		7F9FC34229EC6E3A00DAB51F /* ScanCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCardView.swift; sourceTree = "<group>"; };
 		7FACA48629CA3DAC00B2E79A /* QuickAddContactSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddContactSheet.swift; sourceTree = "<group>"; };
 		7FACA48829D022AC00B2E79A /* GroupSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSearchBar.swift; sourceTree = "<group>"; };
 		7FCB086F280ABFDF00C8412E /* ContactNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNavbar.swift; sourceTree = "<group>"; };
@@ -243,12 +253,25 @@
 		7F6F6DD4281962A800D34EFA /* DashboardView */ = {
 			isa = PBXGroup;
 			children = (
+				7F8A77C729F0006F00049874 /* Card Scanning */,
 				7F00B926280A6FE90082BDA1 /* ContactGroupSquare.swift */,
 				7F00B928280A70CF0082BDA1 /* ContactCircle.swift */,
 				7F6F6DD5281962CB00D34EFA /* DashboardWidget.swift */,
 				7FACA48629CA3DAC00B2E79A /* QuickAddContactSheet.swift */,
 			);
 			path = DashboardView;
+			sourceTree = "<group>";
+		};
+		7F8A77C729F0006F00049874 /* Card Scanning */ = {
+			isa = PBXGroup;
+			children = (
+				7F9FC34229EC6E3A00DAB51F /* ScanCardView.swift */,
+				7F8A77C129EFDA5900049874 /* YOLOv3Int8LUT.mlmodel */,
+				7F8A77C829F0128000049874 /* MNISTClassifier.mlmodel */,
+				7F8A77C329EFFFA100049874 /* ObjectDetectorModel.swift */,
+				7F8A77C529F0001C00049874 /* CameraViewController.swift */,
+			);
+			path = "Card Scanning";
 			sourceTree = "<group>";
 		};
 		7F9B1DD624C46EE600A490A6 /* Components */ = {
@@ -644,15 +667,20 @@
 				7F2EB2FE28A3D5740014FE76 /* Splash.swift in Sources */,
 				7FD3007A24C2BB2A0011CF5C /* ContactListView.swift in Sources */,
 				7FF8F95624CD5B37002B7D64 /* ContactWidgetGrid.swift in Sources */,
+				7F8A77C629F0001C00049874 /* CameraViewController.swift in Sources */,
 				7F980C7524C3500F0075CAC9 /* ContactDataTypes.swift in Sources */,
 				7FACA48729CA3DAC00B2E79A /* QuickAddContactSheet.swift in Sources */,
 				7F18F454250DAED40055EEB5 /* RealmDataStructures.swift in Sources */,
 				7F3B653C293B8F0F0082981E /* GroupListRow.swift in Sources */,
+				7F8A77C229EFDA5900049874 /* YOLOv3Int8LUT.mlmodel in Sources */,
 				7F00B929280A70CF0082BDA1 /* ContactCircle.swift in Sources */,
 				7FF8F95024CD3E92002B7D64 /* SingleContactView.swift in Sources */,
+				7F8A77C929F0128000049874 /* MNISTClassifier.mlmodel in Sources */,
 				7F6F6DDA2819898C00D34EFA /* CornerRadiusModifier.swift in Sources */,
 				7F00B923280A6D030082BDA1 /* SectionHeader.swift in Sources */,
+				7F9FC34329EC6E3B00DAB51F /* ScanCardView.swift in Sources */,
 				7FACA48929D022AC00B2E79A /* GroupSearchBar.swift in Sources */,
+				7F8A77C429EFFFA100049874 /* ObjectDetectorModel.swift in Sources */,
 				7F6F6DD8281981A900D34EFA /* SearchDetailPane.swift in Sources */,
 				7FD3007824C2BB2A0011CF5C /* ContaxApp.swift in Sources */,
 				7FD300A524C2D6CE0011CF5C /* ContactsModel.swift in Sources */,

@@ -32,7 +32,7 @@ struct DashboardView: View {
                                 DashboardWidget(icon: "plus", title: "Add Contact", parentSize: geometry, destination: nil)
                             }
 
-                            DashboardWidget(icon: "camera.fill", title: "Scan Card", parentSize: geometry, destination: nil)
+                            DashboardWidget(icon: "camera.fill", title: "Scan Card", parentSize: geometry, destination: ScanCardView())
                             
                             DashboardWidget(icon: "books.vertical.fill", title: "Organize", parentSize: geometry, destination: nil)
                             

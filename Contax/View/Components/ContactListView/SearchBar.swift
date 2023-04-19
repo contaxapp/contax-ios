@@ -27,7 +27,7 @@ struct SearchBar : View {
                             .foregroundColor(Color.init("Mid Gray"))
                     }
                     TextField("", text: self.$searchTerm, onEditingChanged: { isEditing in
-                        showSearchDetailPane = isEditing
+                        showSearchDetailPane = false
                     }, onCommit: {
                         
                     })
